@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class Simple {
+	
 	private int num;
 	private String title;
 	private String content;
