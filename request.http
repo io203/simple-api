@@ -1,0 +1,8 @@
+##########local########
+GET http://localhost:9320/api/hello
+
+###
+GET http://localhost:9320/api/simple
+
+###
+GET http://localhost:9320/api/version
