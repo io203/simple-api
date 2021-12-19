@@ -13,7 +13,4 @@ public class Simple {
 	private int num;
 	private String title;
 	private String content;
-	
-	
-
 }
