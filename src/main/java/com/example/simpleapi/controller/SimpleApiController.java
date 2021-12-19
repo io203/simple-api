@@ -14,9 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/api")
 @Slf4j
-public class SimpleController {
+public class SimpleApiController {
 	@GetMapping("/hello")
-	public String home() {
+	public String hello() {
 		
 		log.info("==========simple-api home()");
 		
@@ -24,7 +24,7 @@ public class SimpleController {
 		
 	}
 	@GetMapping("/simple")
-	public List<Simple> listBoard(){
+	public List<Simple> listSimple(){
 		List<Simple> list = new ArrayList<>();
 		
 		for(int i=0 ; i< 10;i++) {
@@ -38,8 +38,8 @@ public class SimpleController {
 	
 	@GetMapping("/version")
 	public String version(){
-		//log.info("version 2.0");
-		return "=====  version 2.0";
+		//log.info("version 1.0");
+		return "=====  version 1.0";
 		
 	}
 
