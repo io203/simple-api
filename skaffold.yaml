@@ -19,7 +19,6 @@ profiles:
         manifests:
           - k8s/dev/*.yaml
       
-
   
     portForward:
     - resourceType: deployment
