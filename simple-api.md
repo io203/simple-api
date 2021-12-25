@@ -17,3 +17,15 @@ dapr run --dapr-http-port 4320 --app-id simple-api --app-port 9320
 ```
 curl http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
 ```
+
+
+
+
+## dashboard 
+```
+//default  (port: 8080 )
+dapr dashboard   
+
+// port는 자유롭게 지정가능
+dapr dashboard -p 9991
+```
