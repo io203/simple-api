@@ -1,93 +1,49 @@
-## binding
+## tracing-zipkin
 
-## 1. kafka 기동 
- - cd /Users/blackstar/dev/workspace/vscode/tools-work/docker
+##  zipkin 기동 
+- `dapr init` 명령어를 하면 기본적으로 dapr, redis, zipkin docker container가 로컬에서 실행된다  
+- 수동으로 zipkin을  기동 해도 된다 
 ```
-docker-compose up broker
+docker run -d -p 9411:9411 openzipkin/zipkin
+
 ```
-## simple-api(brach: dapr-binding)
+## simple-api(brach: dapr-tracing-zipkin)
 ### components
-binding> binding.yaml
+components > tracing> zipkin.yaml
+
+`zipkin.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: simple
+  name: zipkin
 spec:
-  type: bindings.kafka
-  version: v1
+  type: exporters.zipkin
   metadata:
-  # Kafka broker connection setting
-  - name: brokers
-    value: localhost:29092
-  # consumer configuration: topic and consumer group
-  - name: topics
-    value: simple
-  - name: consumerGroup
-    value: group1
-  # route 재정의 
-  - name: route
-    value: /onevent
-  # publisher configuration: topic
-  - name: publishTopic
-    value: simple
-  - name: authRequired
-    value: "false"
- 
-
- 
+  - name: enabled
+    value: "true"
+  - name: exporterAddress
+    value: http://localhost:9411/api/v2/spans
   
 ```
+### spring boot을 먼저 시작한다 
 
-### BindingController.java
+### Run Dapr sidecar 
+- zipkin은 `config`로 sidecar 설정해야 한다 기존처럼 components로 하면 안된다 
+- --config flag로 설정한다 
 ```
-@RestController
-@Slf4j
-public class BindingController {
-    @PostMapping("/onevent")
-	public Mono<String> onevent(@RequestBody(required = false) byte[] body) {
-        return Mono.fromRunnable(() ->
-                log.info("Received Message: " + new String(body)));
-    }    
-}
-```
-- simple-api 기동 (9320)
-```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding
-```
-
-### kafka topic 확인 / 접속
-```
-//확인 
-kcat -b localhost:29092 -L 
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/zipkin-config.yaml
 
 ```
 
-### 메세지 전송 
+### zipkin 화면 
+- http://localhost:9411
 
-`kcat 전송`
 
+## dapr로 app 호출 
 ```
-kcat -P -b localhost:29092 -t simple
+curl http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
 ```
-`dapr 전송` 
-```
-dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/binding
-
-
-curl -X POST http://localhost:3500/v1.0/bindings/simple-api \
-  -H "Content-Type: application/json" \
-  -d '{
-        "data": {
-          "message": "Hi2"
-        },
-        "metadata": {
-          "key": "key-1"
-        },
-        "operation": "create"
-      }'
-```
-
 
 ## dashboard 
 ```
