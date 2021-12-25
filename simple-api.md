@@ -8,10 +8,12 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 
 ```
 ## simple-api(brach: dapr-tracing-zipkin)
-### components
-components > tracing> zipkin.yaml
+### config
+- components는 필요 없다 
+- config 설정으로만 가능하다 
+- dapr-config >  zipkin-config.yaml
 
-`zipkin.yaml`
+`zipkin-config.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
