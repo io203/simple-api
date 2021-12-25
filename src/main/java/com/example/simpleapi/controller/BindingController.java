@@ -10,8 +10,8 @@ import reactor.core.publisher.Mono;
 @RestController
 @Slf4j
 public class BindingController {
-    @PostMapping("/simple")
-	public Mono<String> getCheckout(@RequestBody(required = false) byte[] body) {
+    @PostMapping("/onevent")
+	public Mono<String> onevent(@RequestBody(required = false) byte[] body) {
         return Mono.fromRunnable(() ->
                 log.info("Received Message: " + new String(body)));
     }

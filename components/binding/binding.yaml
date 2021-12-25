@@ -14,8 +14,12 @@ spec:
     value: simple
   - name: consumerGroup
     value: group1
+  # route 재정의 
+  - name: route
+    value: /onevent
   # publisher configuration: topic
   - name: publishTopic
     value: simple
   - name: authRequired
     value: "false"
+ 

@@ -25,11 +25,18 @@ spec:
     value: simple
   - name: consumerGroup
     value: group1
+  # route 재정의 
+  - name: route
+    value: /onevent
   # publisher configuration: topic
   - name: publishTopic
     value: simple
   - name: authRequired
     value: "false"
+ 
+
+ 
+  
 ```
 
 ### BindingController.java
@@ -37,12 +44,11 @@ spec:
 @RestController
 @Slf4j
 public class BindingController {
-    @PostMapping("/simple")
-	public Mono<String> getCheckout(@RequestBody(required = false) byte[] body) {
+    @PostMapping("/onevent")
+	public Mono<String> onevent(@RequestBody(required = false) byte[] body) {
         return Mono.fromRunnable(() ->
                 log.info("Received Message: " + new String(body)));
-    }
-    
+    }    
 }
 ```
 - simple-api 기동 (9320)
