@@ -1,84 +1,44 @@
-
-
-
-## PubSub
+## State
 
 ## 1. Redis 기동 
 
-## simple-api(brach: dapr-pubsub)
+## simple-api(brach: dapr-state)
 ### components
-- components > pubsub> pubsub.yaml , subscription.yaml
+- components > state> statestore.yaml 
 
-`pubsub.yaml`
+`statestore.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: my-pubsub
+  name: my-statestore
 spec:
-  type: pubsub.redis
+  type: state.redis
   version: v1
   metadata:
-    - name: redisHost
-      value: localhost:6379
-    - name: redisPassword
-      value: ""
-    - name: ttlInSeconds
-      value: 60
-```
-`subscription.yaml`
-```
-apiVersion: dapr.io/v1alpha1
-kind: Subscription
-metadata:
-  name: my-subscription
-spec:
-  topic: simple
-  route: /simple-sub
-  pubsubname: my-pubsub
-scopes:
-- simple-api
-```
-
-
-### PubsubController.java
-```
-@RestController
-@Slf4j
-public class PubsubController {
-    @PostMapping("/simple-sub")
-	public Mono<String> getSub(@RequestBody(required = false) byte[] body) {
-        return Mono.fromRunnable(() ->
-                log.info("Received Message: " + new String(body)));
-    }
-    
-}
-```
-- simple-api 기동 (9320)
-```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub
-```
-
-### topic 생성 확인 
-- iRedis(redis client )로  simple topic 생성 확인한다 
-
-### 메세지 전송 
-
-
-`dapr sidecar  생성` 
-```
-dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/pubsub
-```
-`메세지 전송`
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
 
 ```
-// http로 전송
-curl -X POST http://localhost:3500/v1.0/publish/my-pubsub/simple -H "Content-Type: application/json" -d '{"orderId": "id-100"}'
 
-//dapr cli로 전송
-dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple --data '{"orderId": "simple-900"}'
-
-// dapr cli cloud-event format전송 
-dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple --data '{"specversion" : "1.0", "type" : "com.dapr.cloudevent.sent", "source" : "testcloudeventspubsub", "subject" : "Cloud Events Test", "id" : "someCloudEventId", "time" : "2021-08-02T09:00:00Z", "datacontenttype" : "application/cloudevents+json", "data" : {"orderId": "simple-------100"}}'
-
+### dapr 기동 
 ```
+dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/state
+```
+
+### put/ get
+```
+
+//put state
+curl -X POST -H "Content-Type: application/json" -d '[{ "key": "hello", "value": "hello world"}]' http://localhost:3500/v1.0/state/my-statestore
+
+// iRedis에서 key에 `simple-api/hello`키 생성되었는지 확인한다 
+
+//Get state
+curl http://localhost:3500/v1.0/state/my-statestore/hello
+```
+
