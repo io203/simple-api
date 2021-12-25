@@ -1,0 +1,19 @@
+
+## simple-api(brach: dapr)
+
+### 1. profile-local
+- simple-api를 기동시킨다 (9320 port)
+- dapr-simple-api 기동 
+```
+dapr run --dapr-http-port 4320 --app-id simple-api --app-port 9320
+```
+
+### 2. profile-dev
+```
+docker run --rm -p 9320:8080 saturn203/simple-api:dapr-v1.0 
+dapr run --dapr-http-port 4320 --app-id simple-api --app-port 9320
+```
+### 3. url 확인
+```
+curl http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
+```
