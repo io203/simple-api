@@ -1,44 +1,52 @@
-## State
+## secretstores
 
-## 1. Redis 기동 
+## simple-api(brach: dapr-secretstores)
 
-## simple-api(brach: dapr-state)
+### mysecrets 파일 생성 
+`mysecrets.json`
+```
+{
+   "my-secret" : "id-1234356789"
+}
+
+```
 ### components
-- components > state> statestore.yaml 
+- components > secretstores> localSecretStore.yaml 
 
-`statestore.yaml`
+`localSecretStore.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: my-statestore
+  name: my-secret-store
+  namespace: default
 spec:
-  type: state.redis
+  type: secretstores.local.file
   version: v1
   metadata:
-  - name: redisHost
-    value: localhost:6379
-  - name: redisPassword
-    value: ""
-  - name: actorStateStore
-    value: "true"
+  - name: secretsFile
+    value: /Users/blackstar/dev/data/dapr/myscrets/mysecrets.json
+  - name: nestedSeparator
+    value: ":"
 
 ```
 
-### dapr 기동 
+### Run the Dapr sidecar
 ```
-dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/state
-```
-
-### put/ get
+dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/secretstores
 ```
 
-//put state
-curl -X POST -H "Content-Type: application/json" -d '[{ "key": "hello", "value": "hello world"}]' http://localhost:3500/v1.0/state/my-statestore
+### Get a secret
+```
+curl http://localhost:3500/v1.0/secrets/my-secret-store/my-secret
 
-// iRedis에서 key에 `simple-api/hello`키 생성되었는지 확인한다 
-
-//Get state
-curl http://localhost:3500/v1.0/state/my-statestore/hello
 ```
 
+## dashboard 
+```
+//default  (port: 8080 )
+dapr dashboard   
+
+// port는 자유롭게 지정가능
+dapr dashboard -p 9991
+```
