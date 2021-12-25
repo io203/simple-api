@@ -1,6 +1,3 @@
-
-
-
 ## binding
 
 ## 1. kafka 기동 
