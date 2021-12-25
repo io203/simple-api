@@ -9,9 +9,9 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
-public class BindingController {
-    @PostMapping("/simple")
-	public Mono<String> getCheckout(@RequestBody(required = false) byte[] body) {
+public class PubsubController {
+    @PostMapping("/simple-sub")
+	public Mono<String> getSub(@RequestBody(required = false) byte[] body) {
         return Mono.fromRunnable(() ->
                 log.info("Received Message: " + new String(body)));
     }

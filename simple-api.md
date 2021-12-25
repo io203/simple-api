@@ -1,47 +1,53 @@
 
 
 
-## binding
+## PubSub
 
-## 1. kafka 기동 
- - cd /Users/blackstar/dev/workspace/vscode/tools-work/docker
-```
-docker-compose up broker
-```
-## simple-api(brach: dapr-binding)
+## 1. Redis 기동 
+
+## simple-api(brach: dapr-pubsub)
 ### components
-binding> binding.yaml
+- components > pubsub> pubsub.yaml , subscription.yaml
+
+`pubsub.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: simple
+  name: my-pubsub
 spec:
-  type: bindings.kafka
+  type: pubsub.redis
   version: v1
   metadata:
-  # Kafka broker connection setting
-  - name: brokers
-    value: localhost:29092
-  # consumer configuration: topic and consumer group
-  - name: topics
-    value: simple
-  - name: consumerGroup
-    value: group1
-  # publisher configuration: topic
-  - name: publishTopic
-    value: simple
-  - name: authRequired
-    value: "false"
+    - name: redisHost
+      value: localhost:6379
+    - name: redisPassword
+      value: ""
+    - name: ttlInSeconds
+      value: 60
+```
+`subscription.yaml`
+```
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: my-subscription
+spec:
+  topic: simple
+  route: /simple-sub
+  pubsubname: my-pubsub
+scopes:
+- simple-api
 ```
 
-### BindingController.java
+
+### PubsubController.java
 ```
 @RestController
 @Slf4j
-public class BindingController {
-    @PostMapping("/simple")
-	public Mono<String> getCheckout(@RequestBody(required = false) byte[] body) {
+public class PubsubController {
+    @PostMapping("/simple-sub")
+	public Mono<String> getSub(@RequestBody(required = false) byte[] body) {
         return Mono.fromRunnable(() ->
                 log.info("Received Message: " + new String(body)));
     }
@@ -50,37 +56,29 @@ public class BindingController {
 ```
 - simple-api 기동 (9320)
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub
 ```
 
-### kafka topic 확인 / 접속
-```
-//확인 
-kcat -b localhost:29092 -L 
-
-```
+### topic 생성 확인 
+- iRedis(redis client )로  simple topic 생성 확인한다 
 
 ### 메세지 전송 
 
-`kcat 전송`
+
+`dapr sidecar  생성` 
+```
+dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/pubsub
+```
+`메세지 전송`
 
 ```
-kcat -P -b localhost:29092 -t simple
-```
-`dapr 전송` 
-```
-dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/binding
+// http로 전송
+curl -X POST http://localhost:3500/v1.0/publish/my-pubsub/simple -H "Content-Type: application/json" -d '{"orderId": "id-100"}'
 
+//dapr cli로 전송
+dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple --data '{"orderId": "simple-900"}'
 
-curl -X POST http://localhost:3500/v1.0/bindings/simple-api \
-  -H "Content-Type: application/json" \
-  -d '{
-        "data": {
-          "message": "Hi2"
-        },
-        "metadata": {
-          "key": "key-1"
-        },
-        "operation": "create"
-      }'
+// dapr cli cloud-event format전송 
+dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple --data '{"specversion" : "1.0", "type" : "com.dapr.cloudevent.sent", "source" : "testcloudeventspubsub", "subject" : "Cloud Events Test", "id" : "someCloudEventId", "time" : "2021-08-02T09:00:00Z", "datacontenttype" : "application/cloudevents+json", "data" : {"orderId": "simple-------100"}}'
+
 ```
