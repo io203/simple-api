@@ -84,3 +84,13 @@ curl -X POST http://localhost:3500/v1.0/bindings/simple-api \
         "operation": "create"
       }'
 ```
+
+
+## dashboard 
+```
+//default  (port: 8080 )
+dapr dashboard   
+
+// port는 자유롭게 지정가능
+dapr dashboard -p 9991
+```
