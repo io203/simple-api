@@ -6,3 +6,12 @@ server:
   port: 9320
 
 
+spring:
+  cloud:
+    function:
+      web:
+        path: /api
+      definition: hello,simple, version
+
+      scan.packages: com.example.simpleapi.functions
+

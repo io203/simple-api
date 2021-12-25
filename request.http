@@ -1,8 +1,25 @@
 ##########local########
-GET http://localhost:9320/api/hello
+curl -X POST -H "Content-Type: text/plain" http://localhost:9320/api/hello -d 'hello world'
 
 ###
-GET http://localhost:9320/api/simple
+curl -X POST -H "Content-Type: text/plain" http://localhost:9320/api/version,hello -d 'hello world'
+
 
 ###
-GET http://localhost:9320/api/version
+POST http://localhost:9320/api/hello
+Content-Type: text/plain
+
+hello world
+###
+POST http://localhost:9320/api/simpleFn
+Content-Type: text/plain
+
+9
+###
+
+###
+POST http://localhost:9320/api/version
+Content-Type: text/plain
+
+v1.9
+
