@@ -1,5 +1,12 @@
-## tracing-zipkin
+## consul-zipkin
 
+
+##  consul 기동 
+- 로컬 dev로 기동 
+```
+consul agent -dev
+
+```
 ##  zipkin 기동 
 - `dapr init` 명령어를 하면 기본적으로 dapr, redis, zipkin docker container가 로컬에서 실행된다  
 - 수동으로 zipkin을  기동 해도 된다 
@@ -7,42 +14,52 @@
 docker run -d -p 9411:9411 openzipkin/zipkin
 
 ```
-## simple-api(brach: dapr-tracing-zipkin)
-### components
-components > tracing> zipkin.yaml
+## simple-api(brach: dapr-consul-zipkin)
+### config
+dapr-config > consul-zipkin-config.yaml
 
-`zipkin.yaml`
+`consul-zipkin-config.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
-kind: Component
+kind: Configuration
 metadata:
-  name: zipkin
+  name: daprConfig
 spec:
-  type: exporters.zipkin
-  metadata:
-  - name: enabled
-    value: "true"
-  - name: exporterAddress
-    value: http://localhost:9411/api/v2/spans
+  nameResolution:
+    component: "consul"
+    configuration:
+      selfRegister: true
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      endpointAddress: "http://localhost:9411/api/v2/spans"
   
 ```
 ### spring boot을 먼저 시작한다 
 
-### Run Dapr sidecar 
-- zipkin은 `config`로 sidecar 설정해야 한다 기존처럼 components로 하면 안된다 
+## Run Dapr sidecar 
+- consul/zipkin은 `config`로 sidecar 설정해야 한다 기존처럼 components로 하면 안된다 
 - --config flag로 설정한다 
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/zipkin-config.yaml
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/consul-zipkin-config.yaml
 
 ```
 
-### zipkin 화면 
-- http://localhost:9411
 
+## ui
+- consul ui :http://localhost:8500
+- zipkin ui: http://localhost:9411
 
 ## dapr로 app 호출 
 ```
 curl http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
+curl http://localhost:4320/v1.0/invoke/simple-api/method/api/simple
+curl http://localhost:4320/v1.0/invoke/simple-api/method/api/version
+```
+
+## consul  service 삭제 필요시
+```
+consul services deregister -id=gateway
 ```
 
 ## dashboard 
