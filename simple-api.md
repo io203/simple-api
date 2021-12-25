@@ -82,3 +82,13 @@ dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple
 dapr publish --publish-app-id simple-publisher --pubsub my-pubsub --topic simple --data '{"specversion" : "1.0", "type" : "com.dapr.cloudevent.sent", "source" : "testcloudeventspubsub", "subject" : "Cloud Events Test", "id" : "someCloudEventId", "time" : "2021-08-02T09:00:00Z", "datacontenttype" : "application/cloudevents+json", "data" : {"orderId": "simple-------100"}}'
 
 ```
+
+
+## dashboard 
+```
+//default  (port: 8080 )
+dapr dashboard   
+
+// port는 자유롭게 지정가능
+dapr dashboard -p 9991
+```
