@@ -74,8 +74,7 @@ kcat -P -b localhost:29092 -t simple
 ```
 dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/binding
 
-
-curl -X POST http://localhost:3500/v1.0/bindings/simple-api \
+curl -X POST http://localhost:3500/v1.0/bindings/simple \
   -H "Content-Type: application/json" \
   -d '{
         "data": {
