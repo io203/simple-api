@@ -1,0 +1,29 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: simple   
+spec:
+  type: bindings.rabbitmq
+  version: v1
+  metadata:
+  - name: queueName
+    value: simple
+  - name: host
+    value: amqp://admin:1234@localhost:5672
+  - name: durable
+    value: true
+  - name: deleteWhenUnused
+    value: false
+  - name: ttlInSeconds
+    value: 60
+  - name: prefetchCount
+    value: 0
+  - name: exclusive
+    value: false
+  - name: maxPriority
+    value: 5
+  - name: contentType
+    value: "text/plain"
+  # route 재정의 
+  - name: route
+    value: /onevent

@@ -7,7 +7,8 @@ docker-compose up broker
 ```
 ## simple-api(brach: dapr-binding)
 ### components
-binding> binding.yaml
+### components
+components> binding> kafka> `kafka.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
@@ -33,10 +34,39 @@ spec:
     value: simple
   - name: authRequired
     value: "false"
- 
+```
+components> binding>rabbitmq>`rabbitmq.yaml`
+```
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: my-simple   
+spec:
+  type: bindings.rabbitmq
+  version: v1
+  metadata:
+  - name: queueName
+    value: simple
+  - name: host
+    value: amqp://admin:1234@localhost:5672
+  - name: durable
+    value: true
+  - name: deleteWhenUnused
+    value: false
+  - name: ttlInSeconds
+    value: 60
+  - name: prefetchCount
+    value: 0
+  - name: exclusive
+    value: false
+  - name: maxPriority
+    value: 5
+  - name: contentType
+    value: "text/plain"
+  # route 재정의 
+  - name: route
+    value: /onevent
 
- 
-  
 ```
 
 ### BindingController.java
@@ -51,10 +81,17 @@ public class BindingController {
     }    
 }
 ```
+### kafka binding
+```
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding/kafka mvn spring-boot:run
+```
+### Rabbitmq binding
+```
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding/rabbitmq mvn spring-boot:run
+```
 
-```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding mvn spring-boot:run
-```
+##### rabbitmq admin
+- http://localhost:8901
 
 ### kafka topic 확인 / 접속
 ```
@@ -72,7 +109,7 @@ kcat -P -b localhost:29092 -t simple
 ```
 `dapr 전송` 
 ```
-dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/binding
+dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/binding/rabbitmq
 
 curl -X POST http://localhost:3500/v1.0/bindings/simple \
   -H "Content-Type: application/json" \
