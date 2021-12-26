@@ -54,9 +54,9 @@ public class PubsubController {
     
 }
 ```
-- simple-api 기동 (9320)
+
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub mvn spring-boot:run
 ```
 
 ### topic 생성 확인 
