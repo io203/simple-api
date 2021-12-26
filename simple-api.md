@@ -3,13 +3,30 @@
 
 ## PubSub
 
-## 1. Redis 기동 
+## 1. Redis 기동 ( redis로 pubsub 구성시) 
+
+##  Rabbitmq (rabbitmq로 pubsub 구성시)
+
+docker-compose.yaml
+```
+version: '3.3'
+services:
+ rabbitmq:
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "1234"
+    ports:
+      - 5672:5672
+      - 8901:15672  #admin port
+    container_name: rabbitmq
+```
 
 ## simple-api(brach: dapr-pubsub)
 ### components
-- components > pubsub> pubsub.yaml , subscription.yaml
+- components > pubsub> redis>redis.yaml , subscription.yaml
 
-`pubsub.yaml`
+`redis.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
 kind: Component
@@ -56,19 +73,28 @@ public class PubsubController {
 ```
 
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub mvn spring-boot:run
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub/redis mvn spring-boot:run
 ```
+`rabbitmq`
+```
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/pubsub/rabbitmq mvn spring-boot:run
+```
+
+### rabbitmq admin ui
+- http://localhost:8901 
 
 ### topic 생성 확인 
 - iRedis(redis client )로  simple topic 생성 확인한다 
 
 ### 메세지 전송 
-
-
 `dapr sidecar  생성` 
 ```
-dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/pubsub
+dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/pubsub/redis
 ```
+```
+dapr run --app-id simple-publisher  --dapr-http-port 3500 --components-path ./components/pubsub/rabbitmq
+```
+
 `메세지 전송`
 
 ```
