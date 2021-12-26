@@ -35,13 +35,13 @@ spec:
       endpointAddress: "http://localhost:9411/api/v2/spans"
   
 ```
-### spring boot을 먼저 시작한다 
+
 
 ## Run Dapr sidecar 
 - consul/zipkin은 `config`로 sidecar 설정해야 한다 기존처럼 components로 하면 안된다 
 - --config flag로 설정한다 
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/consul-zipkin-config.yaml
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/consul-zipkin-config.yaml mvn spring-boot:run
 
 ```
 
