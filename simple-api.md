@@ -33,7 +33,7 @@ spec:
 
 ### Run the Dapr sidecar
 ```
-dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/secretstores
+dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/secretstores mvn spring-boot:run
 ```
 
 ### Get a secret
