@@ -51,9 +51,9 @@ public class BindingController {
     }    
 }
 ```
-- simple-api 기동 (9320)
+
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding
+dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --components-path ./components/binding mvn spring-boot:run
 ```
 
 ### kafka topic 확인 / 접속
