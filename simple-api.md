@@ -2,10 +2,10 @@
 ## simple-api(brach: dapr)
 
 ### 1. profile-local
-- simple-api를 기동시킨다 (9320 port)
+
 - dapr-simple-api 기동 
 ```
-dapr run --dapr-http-port 4320 --app-id simple-api --app-port 9320
+dapr run --dapr-http-port 4320 --app-id simple-api --app-port 9320 mvn spring-boot:run
 ```
 
 ### 2. profile-dev
