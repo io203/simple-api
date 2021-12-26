@@ -27,7 +27,7 @@ spec:
 
 ### dapr 기동 
 ```
-dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/state
+dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --components-path ./components/state mvn spring-boot:run
 ```
 
 ### put/ get
