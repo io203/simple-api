@@ -11,9 +11,6 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class SimpleService {
-
-
-
 	private  WebClient client;	
 	private String stateUrl;
 

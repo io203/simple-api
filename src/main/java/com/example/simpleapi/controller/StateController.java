@@ -30,8 +30,4 @@ public class StateController {
 		service.insertState(data);
 		return "정상 저장";
 	}
-
-
-
-
 }

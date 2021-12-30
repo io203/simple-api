@@ -1,0 +1,12 @@
+##############
+### local
+##############
+
+server:
+  port: 8080
+
+dapr:
+  state:
+    url: http://localhost:3500/v1.0/state/my-statestore
+
+

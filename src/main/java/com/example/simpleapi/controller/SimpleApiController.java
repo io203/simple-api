@@ -41,8 +41,4 @@ public class SimpleApiController {
 		return "=====  version 1.0";
 		
 	}
-
-
-
-
 }

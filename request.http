@@ -9,14 +9,14 @@ GET http://localhost:9320/api/version
 
 
 ###
-GET http://localhost:9320/redis/hello
+GET http://localhost:9320/redis/hello4
 
 ###
 POST http://localhost:9320/redis
 Content-Type: application/json
 
 [
-    { "key": "hello2",
-        "value": "hello redis world2"
+    { "key": "hello4",
+        "value": "hello redis world4"
     }
 ]
