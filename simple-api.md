@@ -16,36 +16,62 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 `zipkin-config.yaml`
 ```
 apiVersion: dapr.io/v1alpha1
-kind: Component
+kind: Configuration
 metadata:
-  name: zipkin
+  name: tracing
+  namespace: api
 spec:
-  type: exporters.zipkin
-  metadata:
-  - name: enabled
-    value: "true"
-  - name: exporterAddress
-    value: http://localhost:9411/api/v2/spans
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      endpointAddress: "http://host.docker.internal:9411/api/v2/spans"
   
 ```
 
-
-### Run Dapr sidecar 
-- zipkin은 `config`로 sidecar 설정해야 한다 기존처럼 components로 하면 안된다 
-- --config flag로 설정한다 
+### deployment
 ```
-dapr run --dapr-http-port 4320  --app-id simple-api --app-port 9320 --config ./dapr-config/zipkin-config.yaml mvn spring-boot:run
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-api-deploy
+  namespace: api    
+  
+  labels:
+    app: simple-api
+    
+   
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-api
+  template:
+    metadata:
+      labels:
+        app: simple-api
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "simple-api"
+        dapr.io/app-port: "8080"
+        dapr.io/config: "tracing"
+        
+    spec:
+      containers:
+        - name: simple-api
+          image: simple-api
+          ports:
+          - name: http
+            containerPort: 8080
 ```
+- dapr.io/config: "tracing" : config의 name을 적는다 
+
+
 
 ### zipkin 화면 
 - http://localhost:9411
 
 
-## dapr로 app 호출 
-```
-curl http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
-```
+
 
 ## dashboard 
 ```
