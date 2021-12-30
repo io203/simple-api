@@ -5,4 +5,9 @@
 server:
   port: 9320
 
+dapr:
+  state:
+    url: http://localhost:3500/v1.0/state/my-statestore
+
+
 

@@ -34,7 +34,7 @@ dapr run --dapr-http-port 3500 --dapr-grpc-port 6000 --app-id simple-api  --comp
 ```
 
 //put state
-curl -X POST -H "Content-Type: application/json" -d '[{ "key": "hello", "value": "hello world"}]' http://localhost:3500/v1.0/state/my-statestore
+curl -X POST -H "Content-Type: application/json" -d '[{ "key": "hello", "value": "hello redis world"}]' http://localhost:3500/v1.0/state/my-statestore
 
 // iRedis에서 key에 `simple-api/hello`키 생성되었는지 확인한다 
 
