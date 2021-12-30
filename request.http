@@ -2,13 +2,15 @@
 GET http://localhost:9320/api/hello
 
 ###
-GET http://localhost:9320/api/simple
+GET http://localhost:9700/api/simple
 
 ###
 GET http://localhost:9320/api/version
 
 ###
-GET http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
+GET http://localhost:9320/ports
+### 
+GET http://localhost:3500/v1.0/invoke/simple-api/method/api/hello
 ###
 GET http://localhost:4320/v1.0/invoke/simple-api/method/api/simple
 ###
