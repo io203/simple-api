@@ -6,3 +6,17 @@ GET http://localhost:9320/api/simple
 
 ###
 GET http://localhost:9320/api/version
+
+
+###
+GET http://localhost:9320/redis/hello
+
+###
+POST http://localhost:9320/redis
+Content-Type: application/json
+
+[
+    { "key": "hello2",
+        "value": "hello redis world2"
+    }
+]
