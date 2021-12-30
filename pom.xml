@@ -56,6 +56,7 @@
             <systemPath>/Users/blackstar/dev/workspace/vscode/demo-work/simple-project/simple-grpc-lib/target/simple-grpc-lib-0.0.1.jar</systemPath>
         </dependency>
 	</dependencies>
+	
 
 	<build>
         <plugins>
