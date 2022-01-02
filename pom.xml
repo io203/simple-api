@@ -53,7 +53,8 @@
             <artifactId>simple-grpc-lib</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>/Users/blackstar/dev/workspace/vscode/demo-work/simple-project/simple-grpc-lib/target/simple-grpc-lib-multi-0.0.1.jar</systemPath>
+			<systemPath>${project.basedir}/lib/simple-grpc-lib-multi-0.0.1.jar</systemPath>
+           
         </dependency>
 	</dependencies>
 	
