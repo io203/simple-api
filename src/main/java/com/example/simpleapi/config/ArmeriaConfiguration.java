@@ -1,7 +1,7 @@
 package com.example.simpleapi.config;
 
+
 import com.example.simpleapi.service.GrpcSimpleService;
-import com.example.simpleapi.service.SimpleService;
 import com.linecorp.armeria.client.ClientFactory;
 import com.linecorp.armeria.client.HttpClient;
 import com.linecorp.armeria.client.circuitbreaker.CircuitBreakerClient;
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArmeriaConfiguration {
     private final GrpcSimpleService grpcSimpleService;
-    private final SimpleService simpleService;
+    // private final SimpleService simpleService;
   
     // A user can configure the server by providing an ArmeriaServerConfigurator bean.
     @Bean
@@ -44,7 +44,7 @@ public class ArmeriaConfiguration {
             // builder.service(THttpService.of(...));
             builder.service(
                 GrpcService.builder()
-                .addService(grpcSimpleService)                
+                .addService(grpcSimpleService)         
                 .supportedSerializationFormats(GrpcSerializationFormats.values())
                 .enableUnframedRequests(true)
                 .build());
