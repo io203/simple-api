@@ -1,5 +1,6 @@
 package com.example.simpleapi.service;
 
+
 import com.example.simple.model.HelloReply;
 import com.example.simple.model.HelloRequest;
 import com.example.simple.model.SimpleApiGrpc.SimpleApiImplBase;
