@@ -2,7 +2,7 @@
 ### local
 ##############
 
-grpc:
-  server:
-    port: 9320
+server:
+  address: 127.0.0.1
+  port: 9320
 
