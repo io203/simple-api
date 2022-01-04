@@ -5,4 +5,9 @@
 grpc:
   server:
     port: 9320
+    security:
+      enabled: true
+      certificateChain: classpath:certs/server.crt
+      privateKey: classpath:certs/server.key
+      # privateKeyPassword: MyStrongPassword
 
