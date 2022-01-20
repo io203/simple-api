@@ -2,31 +2,31 @@ apiVersion: skaffold/v2beta18
 kind: Config
 
 profiles:
-  - name: dev
+  - name: kind
     build:
       local:
-        push: true
+        push: false
       artifacts:
-        - image: saturn203/simple-api
+        - image: simple-api
           jib:
             args:
               - -DskipTests
-              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
             #  fromImage: adoptopenjdk/openjdk11
             fromImage: openjdk:11.0.11-jre-slim
     deploy:
       kubectl:
         manifests:
-          - k8s/dev/*.yaml
+          - k8s/kind/*.yaml
       
 
   
     portForward:
-    - resourceType: deployment
-      resourceName: simple-api
+    - resourceType: Service
+      resourceName: simple-api-svc
       namespace: api
       port: 8080
-      localPort: 9000 # *Optional*          
+      localPort: 9320 # *Optional*          
 
   
       
