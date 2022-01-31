@@ -10,4 +10,4 @@ resources:
 
 images:
 - name: saturn203/simple-api
-  newTag: "prod-slime-v1.6"
+  newTag: jenkins-RB0.0.3
