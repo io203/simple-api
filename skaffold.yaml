@@ -10,7 +10,6 @@ profiles:
         - image: saturn203/simple-api
           jib:
             args:
-              - "--no-build-cache"
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
             #  fromImage: adoptopenjdk/openjdk11
