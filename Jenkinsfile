@@ -22,11 +22,11 @@ pipeline {
         stage('Build') {           
             steps {                  
                 checkout scm: [
-                    $class: 'GitSCM', 
-                    userRemoteConfigs: [[url: "https://${gitUrl}", credentialsId: 'io203-github-token' ]], 
-                     branches: [[name: 'refs/tags/${TAG}']]],
-                     poll: false
-
+                        $class: "GitSCM", 
+                        userRemoteConfigs: [[url: "${gitUrl}",
+                        credentialsId: "io203-github-token" ]], 
+                        branches: [[name: "refs/tags/${TAG}"]]],
+                    poll: false
                 script{                                     
                     docker.withRegistry("${imgRegistry}","dockerhub-saturn203"){
                         sh "skaffold build -p dev -t ${TAG}"                   
