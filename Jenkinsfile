@@ -57,8 +57,8 @@ pipeline {
                         ls -al
                         cat kustomization.yaml
                         kustomize edit set image saturn203/simple-api:${TAG}
-                        git config --system user.email "admin@demo.com"
-                        git config --system user.name "admin"  
+                        # git config --system user.email "admin@demo.com"
+                        # git config --system user.name "admin"  
 
     
                         git add . 
