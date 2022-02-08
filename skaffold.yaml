@@ -7,12 +7,11 @@ profiles:
       local:
         push: true
       artifacts:
-        - image: saturn203/simple-api
+        - image: simple-api
           jib:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-            #  fromImage: adoptopenjdk/openjdk11
             fromImage: openjdk:11.0.11-jre-slim
     deploy:
       kubectl:
@@ -21,12 +20,12 @@ profiles:
       
 
   
-    # portForward:
-    # - resourceType: Service
-    #   resourceName: simple-api-svc
-    #   namespace: api
-    #   port: 8080
-    #   localPort: 9320 # *Optional*          
+    portForward:
+    - resourceType: Service
+      resourceName: simple-api-svc
+      namespace: api
+      port: 8080
+      localPort: 9320 # *Optional*          
 
   
       

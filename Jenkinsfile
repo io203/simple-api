@@ -1,7 +1,7 @@
 def PROJECT_NAME = "simple-api"
 def gitUrl = "https://github.com/io203/${PROJECT_NAME}.git"
 
-def imgRegistry = "https://registry.hub.docker.com"
+// def imgRegistry = "https://registry.hub.docker.com"
 
 def gitOpsUrl = "github.com/io203/simple-gitOps.git"
 def opsBranch = "master"
@@ -57,6 +57,8 @@ pipeline {
                         ls -al
                         cat kustomization.yaml
                         kustomize edit set image saturn203/simple-api:${TAG}
+                        
+                        # 로컬외에는 주석 제거한다 
                         # git config --system user.email "admin@demo.com"
                         # git config --system user.name "admin"  
 
