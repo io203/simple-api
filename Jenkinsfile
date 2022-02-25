@@ -28,7 +28,7 @@ pipeline {
             
             script{              
                 docker.withRegistry("${imgRegistry}","dockerhub-saturn203"){
-                    sh "skaffold build -p dev -t ${TAG}"
+                    sh "skaffold build -p dev -t ${TAG} --cache-artifacts=false"
                 }
             }
             
