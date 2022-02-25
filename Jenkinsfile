@@ -10,7 +10,7 @@ pipeline {
     agent {
         docker {
           
-            image 'saturn203/base-jdk17-skaffold-kustomize:v1.1'
+            image 'saturn203/base-jdk17-skaffold-kustomize:v1.2'
             reuseNode true             
         }
     }
@@ -54,18 +54,16 @@ pipeline {
                 ls -al
                 cat kustomization.yaml
                 kustomize edit set image saturn203/simple-api:${TAG}
+                git config --system user.email "admin@demo.com"
+                git config --system user.name "admin"  
+
+
+                git add . 
+                git commit -am 'update image tag ${TAG}'   
+                git remote set-url --push origin https://${GITHUB_TOKEN}@${gitOpsUrl}
+                git push origin ${opsBranch}
                 """
             }
-            git config --system user.email "admin@demo.com"
-            git config --system user.name "admin"  
-
-
-            git add . 
-            git commit -am "update image tag ${TAG}"   
-            git remote set-url --push origin "https://${GITHUB_TOKEN}@${gitOpsUrl}"
-            git push origin $opsBranch
-            
-            
           }
       }
     }
