@@ -13,7 +13,8 @@ profiles:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
             #  fromImage: adoptopenjdk/openjdk11
-            fromImage: openjdk:11.0.11-jre-slim
+            # fromImage: openjdk:11.0.11-jre-slim
+            fromImage: eclipse-temurin:17.0.2_8-jre
     deploy:
       kubectl:
         manifests:
