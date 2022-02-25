@@ -9,7 +9,9 @@ def opsBranch = "master"
 pipeline {
     agent {
         docker {
-            image 'gcr.io/k8s-skaffold/skaffold:v1.32.0'             
+          
+            image 'saturn203/base-jdk17-skaffold-kustomize:v1.1'
+            reuseNode true             
         }
     }
     stages {
