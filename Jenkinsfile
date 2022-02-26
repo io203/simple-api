@@ -72,7 +72,7 @@ pipeline {
                 cat kustomization.yaml
                 kustomize edit set image ${appImageName}:${TAG}
 
-                # host에서 실행시는 주석처리
+                # host에서 실행시는 주석처리(한번만 가능하므로 주석처리)
                 git config --system user.email "admin@demo.com"
                 git config --system user.name "admin"  
 
