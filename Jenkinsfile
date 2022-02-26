@@ -40,12 +40,11 @@ pipeline {
 
                     // .m2 cache 안되는 경우 docker,k8s등의 환경에서 skaffold check cache를 비활성화:  --cache-artifacts=false 
                     // sh "skaffold build -p dev -t ${TAG} --cache-artifacts=false"
-                   
                 }
-
-                GIT_TAG_MESSAGE =  gitTagMessage(TAG);
-                print("=======GIT_TAG_MESSAGE=========="+GIT_TAG_MESSAGE );
             }
+            
+            GIT_TAG_MESSAGE =  gitTagMessage(TAG);
+            print("=======GIT_TAG_MESSAGE=========="+GIT_TAG_MESSAGE );
             
           }
       }
