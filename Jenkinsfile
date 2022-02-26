@@ -10,7 +10,7 @@ pipeline {
     agent {
         docker {
           
-            image 'saturn203/base-jdk17-skaffold-kustomize:v1.2'
+            image 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0'
             reuseNode true             
         }
     }
