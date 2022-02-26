@@ -17,8 +17,8 @@ def GIT_TAG_MESSAGE;
 podTemplate(label: 'simple-api-job',
     containers: [
         // cache 적용 (아직 적용안해봄)
-        containerTemplate(name: 'baseimg-build-tool', image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0', command: 'sleep', args: '-v $HOME/.m2:/root/.m2'),
-        // containerTemplate(name: 'baseimg-build-tool', image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0', command: 'sleep', args: '99'),
+        // containerTemplate(name: 'baseimg-build-tool', image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0', command: 'sleep', args: '-v $HOME/.m2:/root/.m2'),
+        containerTemplate(name: 'baseimg-build-tool', image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0', command: 'sleep', args: '99'),
     ],
     volumes: [ 
         hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'), 
