@@ -17,7 +17,8 @@ pipeline {
         docker {
           
             image 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0'
-            reuseNode true             
+            reuseNode true    
+            args '-v $HOME/.m2:/root/.m2'         
         }
     }
     stages {
@@ -35,10 +36,10 @@ pipeline {
             script{              
                 docker.withRegistry("${imgRegistry}","dockerhub-saturn203"){
 
-                    // sh "skaffold build -p dev -t ${TAG}"
-                    
+                    sh "skaffold build -p dev -t ${TAG}"
+
                     // .m2 cache 안되는 경우 docker,k8s등의 환경에서 skaffold check cache를 비활성화:  --cache-artifacts=false 
-                    sh "skaffold build -p dev -t ${TAG} --cache-artifacts=false"
+                    // sh "skaffold build -p dev -t ${TAG} --cache-artifacts=false"
                    
                 }
 
