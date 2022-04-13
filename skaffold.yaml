@@ -5,9 +5,9 @@ profiles:
   - name: dev
     build:
       local:
-        push: true
+        push: false
       artifacts:
-        - image: saturn203/simple-api
+        - image: simple-api
           jib:
             args:
               - -DskipTests
@@ -19,7 +19,8 @@ profiles:
       kubectl:
         manifests:
           - k8s/dev/simple-api.yaml
-          - k8s/dev/k8s-ingress-simple-api.yaml
+          - k8s/dev/simple-vs.yaml
+          # - k8s/dev/k8s-ingress-simple-api.yaml
           
       
 
