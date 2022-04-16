@@ -1,11 +1,13 @@
 package com.example.simpleapi.controller;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.example.simpleapi.model.Simple;
+import java.io.File;
+import java.net.URL;
+import java.util.Map;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,32 +17,21 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api")
 @Slf4j
 public class SimpleApiController {
-	@GetMapping("/hello")
-	public String hello() {
-		
-		log.info("==========simple-api home()");
-		
-		return "hello world";
-		
-	}
-	@GetMapping("/simple")
-	public List<Simple> listSimple(){
-		List<Simple> list = new ArrayList<>();
-		
-		for(int i=0 ; i< 10;i++) {
-			list.add(new Simple(i+1,"test-"+i, "contents-"+i));
-			log.info("for "+i);
-		}
-		log.info(list.toString());
-		return list;
-		
-	}
+	@Autowired
+	ObjectMapper mapper ;
+
+	@GetMapping("/encrypt")
+	public String encrypt() throws Exception {
 	
-	@GetMapping("/version")
-	public String version(){
-		//log.info("version 1.0");
-		return "=====simple-api  version 1.0";
-		
+		URL path = this.getClass().getResource("/testData2.json");
+
+		File jsonFile = new File(path.getFile());
+
+		Map<String, Object> jsonMap = mapper.readValue(jsonFile, Map.class);
+		String jsonStr = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonMap);
+	
+		log.info("jsonStr : {}", jsonStr);
+		return jsonStr;
 	}
 
 }
