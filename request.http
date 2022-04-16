@@ -1,16 +1,5 @@
-##########local########
-GET http://localhost:9320/api/hello
+
 
 ###
-GET http://localhost:9320/api/simple
+GET http://localhost:9320/api/encrypt
 
-###
-GET http://localhost:9320/api/version
-
-
-##########dev########
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/hello
-
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/simple
-
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/version

@@ -23,7 +23,7 @@ public class SimpleApiController {
 	@GetMapping("/encrypt")
 	public String encrypt() throws Exception {
 	
-		URL path = this.getClass().getResource("/testData2.json");
+		URL path = this.getClass().getResource("/testData.json");
 
 		File jsonFile = new File(path.getFile());
 

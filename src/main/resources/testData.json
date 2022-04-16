@@ -1,46 +1,78 @@
 {
     "service_response": {
-      "office": {
-        "squadName": "Super hero squad",
-        "homeTown": "Metro City",
-        "formed": 2016,
-        "secretBase": "Super tower",
-        "active": true
-      },
-      
-      "members": [
-        {
-          "name": "Molecule Man",
-          "age": 29,
-          "secretIdentity": "Dan Jukes",
-          "powers": [
-            "Radiation resistance",
-            "Turning tiny",
-            "Radiation blast"
-          ]
+        "boardPayload" : [{
+          "title": "test insert-4",
+          "contents": "test insert-4",
+          "juminNo": "12345671111",
+          "cardNo": "537-3940-2220",
+          "telNo": "010-6338-3984",
+          "writeId": "user1",
+          "writeName": "사용자1",
+          "writeDate": "2022-01-25T16:20:41"
         },
         {
-          "name": "Madame Uppercut",
-          "age": 39,
-          "secretIdentity": "Jane Wilson",
-          "powers": [
-            "Million tonne punch",
-            "Damage resistance",
-            "Superhuman reflexes"
-          ]
+            "title": "test insert-3",
+            "contents": "test insert-4",
+            "juminNo":"87342343222",
+            "cardNo": "43232-23424-276567567220",
+            "telNo": "010-6334-1234",
+            "writeId": "user1",
+            "writeName": "사용자1",
+            "writeDate": "2022-01-25T16:20:41"
+          },
+          {
+            "title": "test insert-2",
+            "contents": "test insert-1",
+            "juminNo": "432465675756423",
+            "cardNo": "234565-4445556-56464",
+            "telNo": "010-3323-3223",
+            "writeId": "user1",
+            "writeName": "사용자1",
+            "writeDate": "2022-01-25T16:20:41"
+          }
+        ],
+        "commonHeader": {
+            "responseTitle": "",
+            "responseLogcd": "",
+            "langCode": "",
+            "trTime": 174535896,
+            "lockType": "",
+            "cmpnCd": "KT",
+            "orgId": "SPT8050",
+            "responseCode": "",
+            "lgDateTime": 20220307174535,
+            "resendFlag": "",
+            "trFlag": "T",
+            "lockTimeSt": "",
+            "responseType": "",
+            "trDate": 20220307,
+            "chnlType": "UI",
+            "srcId": "DNIUI2001LY",
+            "curHostId": "",
+            "responseDtal": "",
+            "responseSystem": "",
+            "phase": "",
+            "clntIp": "172.25.96.1",
+            "tokenId": "",
+            "arbitraryKey": "{}",
+            "appName": "NBSS_CST",
+            "svcName": "/sample-api/v1/boards/list",
+            "userId": 82023154,
+            "responseBasc": "",
+            "lockId": "",
+            "fnName": "service",
+            "globalNo": "00000820231542022030717453589686",
+            "realUserId": 82023154,
+            "envrFlag": "",
+            "filler": "E",
+            "businessKey": "00008202315400A_MASTER20220307174533241",
+            "fnCd": ""
         },
-        {
-          "name": "Eternal Flame",
-          "age": 1000000,
-          "secretIdentity": "io203",
-          "powers": [
-            "Immortality",
-            "Heat Immunity",
-            "Inferno",
-            "Teleportation",
-            "Interdimensional travel"
-          ]
+        
+        "bizHeader": {
+            "orderId": "orderId",
+            "cbSvcName": "LegalAdmTgtYnRetvSO",
+            "cbFnName": "service"
         }
-      ]
     }
-  }
+}
