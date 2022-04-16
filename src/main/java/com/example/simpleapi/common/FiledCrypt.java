@@ -26,6 +26,29 @@ public class FiledCrypt {
         return mapper;
     }
 
+
+    // public static String encryptBody(String responseBody){
+    //     JsonNode node;
+    //     try {
+    //         node = getInstanceMapper().readTree(responseBody);
+    //     } catch (JsonProcessingException e) {
+    //         e.printStackTrace();
+    //         return "";
+    //     }
+    //     List<String> targetFiledList = Arrays.asList(SECU_FIELD);
+
+    //     JsonNode rootNode = node.at("/service_response");
+
+    //     Iterator<String> fieldNames = rootNode.fieldNames();
+    //     while(fieldNames.hasNext()) {
+    //         String fieldName = fieldNames.next();        
+    //         JsonNode fieldNode = rootNode.get(fieldName);
+    //         encryptJson(fieldNode, targetFiledList);
+    //     }
+    //     return node.toPrettyString();
+
+    // }
+
     public static String encryptBody(String responseBody){
         JsonNode node;
         try {
@@ -38,16 +61,18 @@ public class FiledCrypt {
 
         JsonNode rootNode = node.at("/service_response");
 
-        Iterator<String> fieldNames = rootNode.fieldNames();
-        while(fieldNames.hasNext()) {
-            String fieldName = fieldNames.next();        
-            JsonNode fieldNode = rootNode.get(fieldName);
-            encryptBody(fieldNode, targetFiledList);
-        }
+        // Iterator<String> fieldNames = rootNode.fieldNames();
+        // while(fieldNames.hasNext()) {
+        //     String fieldName = fieldNames.next();        
+        //     JsonNode fieldNode = rootNode.get(fieldName);
+        //     encryptJson(fieldNode, targetFiledList);
+        // }
+
+        encryptJson(rootNode, targetFiledList);
         return node.toPrettyString();
 
     }
-    private static void  encryptBody( JsonNode node, List<String> targetFiledList) {
+    private static void  encryptJson( JsonNode node, List<String> targetFiledList) {
         if(node.isArray()) {
             ArrayNode arrayNode = (ArrayNode) node;
             for (int i = 0; i < arrayNode.size(); i++) {
