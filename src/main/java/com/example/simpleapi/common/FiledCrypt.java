@@ -26,7 +26,28 @@ public class FiledCrypt {
         return mapper;
     }
 
-    public static String encryptBody(String responseBody){
+    // public static String encryptBody(String responseBody){
+    //     JsonNode node;
+    //     try {
+    //         node = getInstanceMapper().readTree(responseBody);
+    //     } catch (JsonProcessingException e) {
+    //         e.printStackTrace();
+    //         return "";
+    //     }
+    //     List<String> targetFiledList = Arrays.asList(SECU_FIELD);
+
+    //     JsonNode rootNode = node.at("/service_response");
+
+    //     Iterator<String> fieldNames = rootNode.fieldNames();
+    //     while(fieldNames.hasNext()) {
+    //         String fieldName = fieldNames.next();        
+    //         JsonNode fieldNode = rootNode.get(fieldName);
+    //         encryptJson(fieldNode, targetFiledList);
+    //     }
+    //     return node.toPrettyString();
+
+    // }
+     public static String encryptBody(String responseBody){
         JsonNode node;
         try {
             node = getInstanceMapper().readTree(responseBody);
@@ -34,39 +55,37 @@ public class FiledCrypt {
             e.printStackTrace();
             return "";
         }
-        List<String> targetFiledList = Arrays.asList(SECU_FIELD);
+        List<String> secureFiledList = Arrays.asList(SECU_FIELD);
 
         JsonNode rootNode = node.at("/service_response");
 
         Iterator<String> fieldNames = rootNode.fieldNames();
-        while(fieldNames.hasNext()) {
-            String fieldName = fieldNames.next();        
-            JsonNode fieldNode = rootNode.get(fieldName);
-            encryptBody(fieldNode, targetFiledList);
-        }
+        fieldNames.forEachRemaining(fieldName -> {              
+            encryptJson( rootNode.get(fieldName), secureFiledList);
+        });
+        
         return node.toPrettyString();
 
     }
-    private static void  encryptBody( JsonNode node, List<String> targetFiledList) {
+    private static void  encryptJson( JsonNode node, List<String> secureFiledList) {
         if(node.isArray()) {
             ArrayNode arrayNode = (ArrayNode) node;
-            for (int i = 0; i < arrayNode.size(); i++) {
-                JsonNode arrayElement = arrayNode.get(i);
-                encryptField(arrayElement,targetFiledList );
-            }
+            arrayNode.forEach(filedNode -> {
+                encryptField(filedNode, secureFiledList );
+            });
+           
         }else{
-            encryptField(node,targetFiledList );
-
+            encryptField(node,secureFiledList );
         }
     }
 
-    private static void encryptField(JsonNode node, List<String> targetFiledList) {
-        for(String targetName :  targetFiledList){
-           JsonNode targetNode =  node.get(targetName);
+    private static void encryptField(JsonNode node, List<String> secureFiledList) {
+        for(String secureFiledName :  secureFiledList){
+           JsonNode targetNode =  node.get(secureFiledName);
            if(targetNode !=null){
                 String value = targetNode.asText();
                 ObjectNode targetObjNode = (ObjectNode)node;
-                targetObjNode.put(targetName, encryptString(value));
+                targetObjNode.put(secureFiledName, encryptString(value));
            }
         }
         
