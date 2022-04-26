@@ -1,13 +1,20 @@
-apiVersion: v1
-kind: Service
 
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
 metadata:
-  name: order2-common-svc
-  namespace: api
+  name: test-vs
+  namespace: api 
 spec:
+  hosts:
+  - "order2-common-svc.api.svc.cluster.local"
   
-  ports:
-  - protocol: TCP
-    name: http
-    port: 9080
-    targetPort: http
+
+  http:
+  - match:
+    - uri:
+        prefix: /api
+    route:
+    - destination:
+        host: simple-api-svc
+        port:
+          number: 8080

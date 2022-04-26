@@ -6,7 +6,8 @@ metadata:
   namespace: api 
 spec:
   hosts:
-  - "*.api.svc.cluster.local"
+  - "simple-api-svc.api.svc"
+  
 
   http:
   - match:
