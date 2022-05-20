@@ -1,28 +1,53 @@
-apiVersion: networking.k8s.io/v1beta1
-kind: IngressClass
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
 metadata:
-  name: istio
+  name: simple-gateway
   namespace: api
 spec:
-  controller: istio.io/ingress-controller
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "dev.simple-api.127.0.0.1.sslip.io"
 ---
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
 metadata:
-  name: simple-api-ingress
+  name: simple-api-vs
   namespace: api
 spec:
-  ingressClassName: istio
-  rules:
-  - host: "dev.simple-api.127.0.0.1.sslip.io"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: simple-api-svc
-            port:
-              number: 8080
-  
+  hosts:
+  - "dev.simple-api.127.0.0.1.sslip.io"
+  gateways:
+  - simple-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api
+    # fault:
+    #   # delay:
+    #   #   percentage:
+    #   #     value: 100
+    #   #   fixedDelay: 5s
+    #   abort:
+    #     percentage:
+    #       value: 100.0
+    #     httpStatus: 500
+    route:
+    - destination:
+        host: simple-api-svc
+        port:
+          number: 8080
+  - match:
+    - uri:
+        prefix: /test
+    route:
+    - destination:
+        host: simple-api-svc
+        port:
+          number: 8080
+

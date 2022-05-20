@@ -9,8 +9,17 @@ GET http://localhost:9320/api/version
 
 
 ##########dev########
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/hello
+GET http://dev.simple-api.127.0.0.1.sslip.io:32180/api/hello
 
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/simple
+GET http://dev.simple-api.127.0.0.1.sslip.io:32180/api/simple
 
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/version
+GET http://dev.simple-api.127.0.0.1.sslip.io:32180/api/version
+
+
+### 
+GET http://dev.simple-api.127.0.0.1.sslip.io:32180/test/random-error 
+
+
+
+
+GET http://dev.simple-api.127.0.0.1.sslip.io:32180/test/random-delay

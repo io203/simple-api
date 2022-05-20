@@ -1,0 +1,20 @@
+
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: simple-api-ds
+  namespace: api
+spec:
+  host: simple-api-svc
+  
+  trafficPolicy: # --- enable for adding circuit breaker into DestinationRule
+    # connectionPool:
+    #   http:
+    #     http1MaxPendingRequests: 1   ## request 수를 1개로 제한 
+    #     maxRequestsPerConnection: 1  ## 1: keep alive 기능 disable
+    #    # maxRetries: 0   # 주어진 시간동안의 최대 재시도 수  Default 1024
+    outlierDetection:
+      consecutive5xxErrors: 1 # 1번 5xx 에러 발생하면
+      interval: 10s    # 매 2초마다 스캔하여  
+      baseEjectionTime: 30s ## 30초동안 배제(circuit breaking)처리됨  
+      maxEjectionPercent: 100  #100 % 배제처리 
