@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simple-api-ingress
+  namespace: api
+spec:
+
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`simple-api.127.0.0.1.sslip.io`) && PathPrefix(`/api`)
+    kind: Rule
+    services:
+    - name: simple-api-svc
+      port: 8080
+
+
