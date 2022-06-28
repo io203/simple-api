@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
         - name: simple-api
-          image: simple-api
+          image: saturn203/simple-api
           ports:
           - name: http
             containerPort: 8080

@@ -41,9 +41,9 @@ profiles:
   - name: k3d
     build:
       local:
-        push: false
+        push: true
       artifacts:
-        - image: simple-api
+        - image: saturn203/simple-api
           jib:
             args:
               - -DskipTests
