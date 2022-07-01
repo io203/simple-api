@@ -1,0 +1,39 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: simple-api-bluegreen
+  namespace: api
+spec:
+  provider: nginx
+  # deployment reference
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-api
+  # ingress reference
+  ingressRef:
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    name: simple-api-ingress
+  # the maximum time in seconds for the canary deployment
+  # to make progress before it is rollback (default 600s)
+  progressDeadlineSeconds: 60
+  service:
+    # ClusterIP port number
+    port: 8080
+    # container port number or name
+    targetPort: http
+  analysis:
+    # schedule interval (default 60s)
+    interval: 10s
+    iterations: 3
+    # max number of failed metric checks before rollback
+    threshold: 2
+    # NGINX Prometheus checks
+    metrics:
+    - name: error-rate
+      templateRef:
+        name: error-rate
+      thresholdRange:
+        max: 0
+      interval: 5s

@@ -50,11 +50,11 @@ profiles:
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=k3d"
             fromImage: eclipse-temurin:17.0.2_8-jre
     deploy:
-      kubectl:
-        manifests:
-          - k8s/k3d/simple-api.yaml 
+      kustomize:
+        paths:
+          - k8s/k3d
           # - k8s/k3d/simple-api-ingress.yaml 
-          - k8s/k3d/simple-api-ingress-traefik.yaml 
+          # - k8s/k3d/simple-api-ingress-traefik.yaml 
 
   
     # portForward:

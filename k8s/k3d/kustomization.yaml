@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - simple-api.yaml
 - simple-api-ingress.yaml
+- simple-api-bluegreen.yaml
 
 images:
 - name: saturn203/simple-api
