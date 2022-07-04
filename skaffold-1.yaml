@@ -5,11 +5,11 @@ metadata:
 build:
   artifacts:
   - image: saturn203/simple-api
-    buildpacks:
-      builder: gcr.io/buildpacks/builder:v1
-  - image: simple-api
     jib:
       project: com.example:simple-api
+  - image: simple-api
+    buildpacks:
+      builder: gcr.io/buildpacks/builder:v1
 deploy:
   kubectl:
     manifests:
