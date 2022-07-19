@@ -26,8 +26,7 @@ metadata:
   namespace: api    
   
   labels:
-    app: simple-api
-    
+    app: simple-api   
    
 spec:
   replicas: 2
@@ -35,17 +34,19 @@ spec:
     matchLabels:
       app: simple-api
   template:
-    metadata:
-      
+    metadata:      
       labels:
         app: simple-api     
       
 
     spec:
       containers:
-        - name: simple-api
-          image: simple-api
-          ports:
-          - name: http
-            containerPort: 8080
+      - name: simple-api
+        image: simple-api
+        ports:
+        - name: http
+          containerPort: 8080
+        
+
+        
   

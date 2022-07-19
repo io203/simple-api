@@ -39,6 +39,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>co.elastic.apm</groupId>
+			<artifactId>elastic-apm-agent</artifactId>
+			<version>1.33.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
