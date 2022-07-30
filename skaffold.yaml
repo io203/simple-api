@@ -12,8 +12,8 @@ profiles:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-              # - "-Djib.container.environment=JAVA_TOOL_OPTIONS=-javaagent:/app/libs/elastic-apm-agent-1.33.0.jar -Delastic.apm.service_name=simple-api -Delastic.apm.server_urls=http://apm-simple-apm-server.elastic-apm.svc:8200 -Delastic.apm.secret_token=d3dc31c5db912b297835f934292218c2af5ea7ba -Delastic.apm.environment=dev -Delastic.apm.application_packages=com.example"
-            fromImage: eclipse-temurin:17.0.2_8-jre
+            # fromImage: eclipse-temurin:17.0.2_8-jre
+            fromImage: saturn203/jre-17-pinpoint:v1.0
     deploy:
       kubectl:
         manifests:
@@ -32,6 +32,7 @@ profiles:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
             fromImage: eclipse-temurin:17.0.2_8-jre
+            
     deploy:
       kubectl:
         manifests:
