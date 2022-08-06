@@ -12,4 +12,4 @@ GET http://localhost:4320/v1.0/invoke/simple-api/method/api/hello
 ###
 GET http://localhost:4320/v1.0/invoke/simple-api/method/api/simple
 ###
-GET http://localhost:4320/v1.0/invoke/simple-api/method/api/version
+GET http://localhost:4320/v1.0/invoke/simple-api/method/api/simple
