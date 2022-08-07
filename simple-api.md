@@ -7,7 +7,7 @@
 docker run -d -p 9411:9411 openzipkin/zipkin
 
 ```
-## simple-api(brach: dapr-tracing-zipkin)
+## simple-api(branch: dapr-tracing-zipkin-k8s)
 ### config
 - components는 필요 없다 
 - config 설정으로만 가능하다 
