@@ -1,4 +1,4 @@
-## tracing-zipkin
+## tracing-zipkin-k8s
 
 ##  zipkin 기동 
 - `dapr init` 명령어를 하면 기본적으로 dapr, redis, zipkin docker container가 로컬에서 실행된다  
