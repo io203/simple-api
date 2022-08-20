@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   name: my-subscription
 spec:
-  topic: simple
+  topic: simple2
   route: /simple-sub
   pubsubname: my-pubsub
 scopes:

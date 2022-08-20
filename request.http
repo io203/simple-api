@@ -6,3 +6,6 @@ GET http://localhost:9320/api/simple
 
 ###
 GET http://localhost:9320/api/version
+
+GET http://localhost:4320/v1.0/invoke/simple-api/method/pub
+
