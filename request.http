@@ -8,18 +8,13 @@ GET http://localhost:9320/api/simple
 GET http://localhost:9320/api/version
 
 
-##########dev########
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/hello
 
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/simple
 
-GET http://dev.simple-api.127.0.0.1.sslip.io/api/version
+##### cache ############
+GET http://localhost:9320/localCache/details
 
-#### k3d
-GET http://localhost:9700/api/hello
-GET http://localhost:9700/api/simple
-GET http://localhost:9700/api/version
+GET http://localhost:9320/localCache/status
 
-GET http://simple-api.127.0.0.1.sslip.io/api/hello
-GET http://simple-api.127.0.0.1.sslip.io/api/simple
-GET http://simple-api.127.0.0.1.sslip.io/api/version
+POST http://localhost:9320/localCache/clearAll
+
+POST http://localhost:9320/localCache/clear?cacheName=commonCache

@@ -2,12 +2,12 @@ package com.example.simpleapi.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.simpleapi.model.Simple;
-
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.simpleapi.model.Simple;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +24,7 @@ public class SimpleApiController {
 		
 	}
 	@GetMapping("/simple")
+	@Cacheable(cacheNames = "commonCache")
 	public List<Simple> listSimple(){
 		List<Simple> list = new ArrayList<>();
 		
