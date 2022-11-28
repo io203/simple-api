@@ -1,21 +1,14 @@
-apiVersion: networking.k8s.io/v1beta1
-kind: IngressClass
-metadata:
-  name: istio
-  namespace: api
-spec:
-  controller: istio.io/ingress-controller
----
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: simple-api-ingress
   namespace: api
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: istio
+
   rules:
-  - host: "dev.simple-api.127.0.0.1.sslip.io"
+  - host: "dev.simple-api.192.168.0.66.sslip.io"
     http:
       paths:
       - path: /
