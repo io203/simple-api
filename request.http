@@ -6,3 +6,11 @@ GET http://localhost:9320/api/simple
 
 ###
 GET http://localhost:9320/api/version
+
+
+POST http://localhost:9320/api/message
+Content-Type: application/json
+
+{
+    "message" : "this is simple message hello world 22!"
+}
