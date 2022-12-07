@@ -33,4 +33,4 @@ spring:
     
 kafka:
   topic:
-    name: simple-topic2
+    name: simple-topic7
