@@ -1,7 +1,9 @@
 package com.example.simpleapi.service;
 
-import org.springframework.kafka.annotation.KafkaHandler;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
 import com.example.simpleapi.model.CreateSimple;
@@ -12,26 +14,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@KafkaListener(id = "simpleGroup", topics = "${kafka.topic.name}")
+
 @RequiredArgsConstructor
 @Slf4j
 public class KafkaConsumer {
     
-    
+    @KafkaListener(topics = "${kafka.topic.name}")
+    public void messageListener(ConsumerRecord<String, String> record, Acknowledgment acknowledgment) {
+        log.info("### record: " + record.toString());
+        log.info("### topic: " + record.topic() + ", value: " + record.value() + ", offset: " + record.offset());
 
-    @KafkaHandler
-    public void handleSimple(CreateSimple createSimple) {
-        createSimple(createSimple);
-    }
-
-    @KafkaHandler
-    public void handleSimple(UpdateSimple updateSimple) {
-        updateSimple(updateSimple);
-    }
-
-    @KafkaHandler
-    public void handleSimple(DeleteSimple deleteSimple) {
-        deleteSimple(deleteSimple);
+        acknowledgment.acknowledge();
     }
 
     private void createSimple(CreateSimple createSimple) {
@@ -49,10 +42,5 @@ public class KafkaConsumer {
     }
 
     
-
-    @KafkaHandler(isDefault = true)
-    public void unknown(Object object) {
-        System.out.println("======= Unkown type received: " + object);
-    }
 
 }
