@@ -9,6 +9,9 @@ server:
 spring:  
   kafka:
     bootstrap-servers: 192.168.0.84:9092
+    listener:
+      ack-mode: MANUAL
+      type: SINGLE
     consumer:
       # consumer bootstrap servers가 따로 존재하면 설정
       # bootstrap-servers: 192.168.0.4:9092
@@ -30,4 +33,4 @@ spring:
     
 kafka:
   topic:
-    name: simple-topic
+    name: simple-topic2
