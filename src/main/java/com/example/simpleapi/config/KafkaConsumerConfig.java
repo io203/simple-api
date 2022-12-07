@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.listener.KafkaListenerErrorHandler;
 import org.springframework.kafka.support.converter.RecordMessageConverter;
 import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
@@ -22,8 +24,11 @@ import com.example.simpleapi.model.CreateSimple;
 import com.example.simpleapi.model.DeleteSimple;
 import com.example.simpleapi.model.UpdateSimple;
 
+import lombok.extern.slf4j.Slf4j;
+
 @EnableKafka
 @Configuration
+@Slf4j
 public class KafkaConsumerConfig {
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
@@ -80,5 +85,20 @@ public class KafkaConsumerConfig {
         factory.setConsumerFactory(multiTypeConsumerFactory());
         factory.setMessageConverter(multiTypeConverter());
         return factory;
+    }
+
+    @Bean
+    public KafkaListenerErrorHandler simpleMsgErrorHandler() {
+        return (m, e) -> {
+            /**
+             * error 로그 기록
+             */
+            log.error("=================================================[simpleMsgErrorHandler] kafkaMessage=[" + m.getPayload() + "], errorMessage=[" + e.getMessage() + "]");
+
+            ConsumerRecord<String, CreateSimple> record = (ConsumerRecord<String, CreateSimple>) m.getPayload();
+            
+            
+            return record.value();  // sendTo("토픽명")에 입력된 토픽으로 전달 될 메시지 내용 
+        };
     }
 }
