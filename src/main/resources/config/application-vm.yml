@@ -8,7 +8,7 @@ server:
 
 spring:  
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 192.168.0.84:9092
     listener:
       ack-mode: MANUAL
       type: SINGLE
@@ -40,6 +40,6 @@ app:
       retention: 28d
       suffix: .DLT
     backoff:
-      initial-interval: 0
-      max-interval: 0
+      initial-interval: 0L
+      max-interval: 0L
     
