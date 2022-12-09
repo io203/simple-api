@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@KafkaListener( topics = "${app.kafka.topic.name}")
+@KafkaListener( id = "${spring.kafka.consumer.group-id}",topics = "${app.kafka.topic.name}")
 @RequiredArgsConstructor
 @Slf4j
 // @SendTo("${kafka.topic.name}.DLT")
@@ -37,10 +37,10 @@ public class KafkaConsumer {
     //                     @Header(KafkaHeaders.RECEIVED_TIMESTAMP) Long timestamp)  {
     
     @KafkaHandler   
-    public void handleSimple(@Headers MessageHeaders messageHeaders,@Header(KafkaHeaders.OFFSET) String offset, CreateSimple createSimple, Acknowledgment acknowledgment) {
+    public void handleSimple(@Headers MessageHeaders messageHeaders,@Header(KafkaHeaders.RECEIVED_TOPIC) String topic, @Header(KafkaHeaders.OFFSET) String offset, CreateSimple createSimple, Acknowledgment acknowledgment) {
         
         String topicName = props.topic().name();
-        log.info("=======messageHeaders: {} offset:::::: {}", messageHeaders.toString(),offset);
+        log.info("=======messageHeaders: {} offset:::::: {} from topic: {}", messageHeaders.toString(),offset, topic);
         createSimple(createSimple);
         // throw new KafkaException("에러가 발생했다..!!");  
         acknowledgment.acknowledge();
