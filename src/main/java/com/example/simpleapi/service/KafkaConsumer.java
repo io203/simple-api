@@ -1,6 +1,7 @@
 package com.example.simpleapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.KafkaException;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
@@ -41,9 +42,9 @@ public class KafkaConsumer {
         
         String topicName = props.topic().name();
         log.info("=======messageHeaders: {} offset:::::: {} from topic: {}", messageHeaders.toString(),offset, topic);
-        createSimple(createSimple);
-        // throw new KafkaException("에러가 발생했다..!!");  
-        acknowledgment.acknowledge();
+        // createSimple(createSimple);
+        throw new KafkaException("에러가 발생했다..!!");  
+        // acknowledgment.acknowledge();
     }
 
     // @KafkaHandler
