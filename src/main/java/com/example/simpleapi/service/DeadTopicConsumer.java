@@ -13,10 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@KafkaListener(topics = "${app.kafka.topic.name}${app.kafka.deadletter.suffix}")
 public class DeadTopicConsumer {
   
 
-    @KafkaListener(topics = "${app.kafka.topic.name}.${app.kafka.deadletter.suffix}")
+    
     @KafkaHandler
     public void deadTopicConsumer(CreateSimple createSimple, Acknowledgment acknowledgment) {
         log.info("### ========= [dead-topic] record: " + createSimple.toString());
