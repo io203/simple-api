@@ -119,20 +119,20 @@ public class KafkaConsumerConfig {
 
     
 
-    @Bean
-    public DefaultErrorHandler erroHandler(KafkaOperations<String, Object> template, AppKafkaProperties props) {
-        return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(template,
-                (rec, ex) -> {
-                    org.apache.kafka.common.header.Header  retries = rec.headers().lastHeader("retries");
-                    if (retries == null) {
-                        retries = new RecordHeader("retries", new byte[] { 1 });
-                        rec.headers().add(retries);
-                    } else {
-                        retries.value()[0]++;
-                    }
-                    return retries.value()[0] > 3
-                            ? new TopicPartition(props.topic().name()+props.deadletter().suffix(), rec.partition())
-                            : new TopicPartition(props.topic().name(), rec.partition());
-                }), new FixedBackOff(props.backoff().initialInterval(), props.backoff().maxInterval()));
-    }
+    // @Bean
+    // public DefaultErrorHandler erroHandler(KafkaOperations<String, Object> template, AppKafkaProperties props) {
+    //     return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(template,
+    //             (rec, ex) -> {
+    //                 org.apache.kafka.common.header.Header  retries = rec.headers().lastHeader("retries");
+    //                 if (retries == null) {
+    //                     retries = new RecordHeader("retries", new byte[] { 1 });
+    //                     rec.headers().add(retries);
+    //                 } else {
+    //                     retries.value()[0]++;
+    //                 }
+    //                 return retries.value()[0] > 3
+    //                         ? new TopicPartition(props.topic().name()+props.deadletter().suffix(), rec.partition())
+    //                         : new TopicPartition(props.topic().name(), rec.partition());
+    //             }), new FixedBackOff(props.backoff().initialInterval(), props.backoff().maxInterval()));
+    // }
 }
