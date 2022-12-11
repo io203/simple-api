@@ -40,6 +40,6 @@ app:
       retention: 28d
       suffix: .DLT
     backoff:
-      initial-interval: 0
-      max-interval: 0
+      initial-interval: 1000
+      max-interval: 1
     

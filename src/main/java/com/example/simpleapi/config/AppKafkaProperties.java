@@ -26,7 +26,7 @@ public record AppKafkaProperties(Topic topic, DeadLetter deadletter, Backoff bac
 			long initialInterval,
 			long maxInterval) {
 	}
-};
+}
 
 // @NotNull @Valid DeadLetter deadletter,
 // @NotNull @Valid Backoff backoff) {
