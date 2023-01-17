@@ -1,1 +1,3 @@
-src/main/resources/config/application-dev.yml
+.envrc
+compile.list
+k8s/dev/simple-api.yaml
