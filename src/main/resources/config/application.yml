@@ -10,7 +10,7 @@ server:
      
 spring:
   profiles:
-    active: local2
+    active: local
     
 
  
