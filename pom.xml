@@ -68,7 +68,7 @@
 		<dependency>
 			<groupId>io.opentelemetry</groupId>
 			<artifactId>opentelemetry-exporter-otlp-trace</artifactId>
-			<version>1.14.0</version> 
+			<!-- <version>1.14.0</version>  -->
 		</dependency>		
 	</dependencies>
 
