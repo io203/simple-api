@@ -63,6 +63,13 @@
 			<artifactId>opentelemetry-exporter-zipkin</artifactId>
 		</dependency> 
 			<!-- otel 일경우 end -->
+
+		<dependency>
+			<groupId>com.github.loki4j</groupId>
+			<artifactId>loki-logback-appender</artifactId>
+			<version>1.3.2</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
