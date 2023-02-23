@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: simple-api
+build:
+  artifacts:
+  - image: saturn203/simple-api
+    jib:
+      project: com.example:simple-api
+manifests:
+  rawYaml:
+  - test-service.yaml
+  - test-vs.yaml
+  - k8s/dev/k8s-ingress-simple-api.yaml
+  - k8s/dev/simple-api.yaml
+  - k8s/dev/simple-vs.yaml
+  - k8s/k3d/simple-api-ingress-traefik.yaml
+  - k8s/k3d/simple-api-ingress.yaml
+  - k8s/k3d/simple-api.yaml
+  - k8s/kind/simple-api.yaml
