@@ -2,6 +2,9 @@ package com.example.simpleapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import io.micrometer.observation.ObservationTextPublisher;
 
 @SpringBootApplication
 public class SimpleApiApplication {	
@@ -11,4 +14,5 @@ public class SimpleApiApplication {
 		SpringApplication.run(SimpleApiApplication.class, args);
 	}
 
+	
 }

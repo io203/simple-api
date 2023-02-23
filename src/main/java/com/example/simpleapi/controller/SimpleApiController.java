@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.simpleapi.model.Simple;
 
+import io.micrometer.observation.annotation.Observed;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api")
 @Slf4j
+@Observed(name = "simpleApiController")
 public class SimpleApiController {
 	@GetMapping("/hello")
 	public String hello() {

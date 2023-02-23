@@ -1,0 +1,1 @@
+http://localhost:9320/actuator/metrics/simpleApiController
