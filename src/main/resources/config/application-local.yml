@@ -7,22 +7,20 @@ server:
 
 
 
-management:
-  # endpoints.web.exposure.include: '*' # health,info,prometheus
-  endpoints.web.exposure.include: prometheus # only exposure /actuator/prometheus endpoint
+management: 
+  endpoints:
+    web.exposure.include: prometheus # only exposure /actuator/prometheus endpoint
   metrics:
-    metrics:
     tags:
-      application: ${spring.application.name} # add tag to each prometheus metric
-    distribution.percentiles-histogram.http.server.requests: true
-  tracing:
-    # enabled: true
-    sampling.probability: 1.0
+      application: ${spring.application.name} #  필히 해주는 것이 좋다
+ 
+   
+
 
 
 
 logging:
-  # pattern.level: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+#   # pattern.level: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
   pattern.level: "trace_id=%mdc{traceId} span_id=%mdc{spanId} trace_flags=%mdc{traceFlags} %p"
 
 

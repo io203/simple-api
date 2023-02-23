@@ -11,6 +11,7 @@ datasources:
         exemplarTraceIdDestinations:
           - name: trace_id
             datasourceUid: 'tempo'
+
     - name: Tempo
       type: tempo
       access: proxy
@@ -26,6 +27,7 @@ datasources:
           httpMethod: GET
           tracesToLogs:
               datasourceUid: 'loki'
+              
     - name: Loki
       type: loki
       uid: loki
