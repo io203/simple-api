@@ -7,10 +7,13 @@ datasources:
       url: http://host.docker.internal:9090
       editable: false
       jsonData:
-        httpMethod: POST
-        exemplarTraceIdDestinations:
-          - name: trace_id
-            datasourceUid: 'tempo'
+        httpMethod: GET
+      version: 1
+      # jsonData:
+      #   httpMethod: POST
+      #   exemplarTraceIdDestinations:
+      #     - name: trace_id
+      #       datasourceUid: 'tempo'
 
     - name: Tempo
       type: tempo
@@ -24,9 +27,10 @@ datasources:
       apiVersion: 1
       uid: tempo
       jsonData:
-          httpMethod: GET
-          tracesToLogs:
-              datasourceUid: 'loki'
+        httpMethod: GET
+        tracesToLogs:
+            datasourceUid: 'loki'
+        
               
     - name: Loki
       type: loki
@@ -40,8 +44,9 @@ datasources:
       editable: false
       apiVersion: 1
       jsonData:
-          derivedFields:
-              -   datasourceUid: 'tempo'
-                  matcherRegex: \[.+,(.+?),
-                  name: TraceID
-                  url: $${__value.raw}
+        derivedFields:
+        - name: trace_id
+          datasourceUid: tempo
+          matcherRegex: "trace_id=(\\w+)"
+          url: '$${__value.raw}'
+   

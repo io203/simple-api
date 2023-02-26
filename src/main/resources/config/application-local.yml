@@ -13,10 +13,9 @@ management:
   metrics:
     tags:
       application: ${spring.application.name} #  필히 해주는 것이 좋다
- 
-   
-
-
+  tracing:
+    # enabled: true
+    sampling.probability: 1.0
 
 
 logging:
