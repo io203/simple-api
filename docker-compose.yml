@@ -12,8 +12,11 @@ services:
           - ./docker/tempo/tempo-local.yaml:/etc/tempo.yaml:ro
           - ./tempo-data:/tmp/tempo
       ports:
-          - "14268"  # jaeger ingest
-          - "9411:9411" # zipkin
+        - "14268:14268"  # jaeger ingest
+        - "3200:3200"   # tempo
+        - "4317:4317"  # otlp grpc
+        - "4318:4318"  # otlp http
+        - "9411:9411"   # zipkin
 
     loki:
       container_name: loki
