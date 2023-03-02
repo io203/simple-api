@@ -7,7 +7,7 @@ profiles:
       local:
         push: true
       artifacts:
-        - image: saturn203/demoapp
+        - image: saturn203/simple-api
           jib:
             args:
               - -DskipTests
@@ -15,14 +15,14 @@ profiles:
             fromImage: eclipse-temurin:17.0.2_8-jre
     manifests:
       rawYaml:
-        - k8s/dev/demoapp.yaml
+        - k8s/dev/*.yaml
 
     portForward:
     - resourceType: service
-      resourceName: demoapp
+      resourceName: simple-api-svc
       namespace: api
       port: 8080
-      localPort: 8820 # *Optional*          
+      localPort: 9320 # *Optional*          
 
   
       

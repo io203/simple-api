@@ -6,5 +6,21 @@ server:
  port: 8080 
 
  
+management: 
+  endpoints:
+    web.exposure.include: prometheus # only exposure /actuator/prometheus endpoint
+  metrics:
+    tags:
+      application: ${spring.application.name} #  필히 해주는 것이 좋다
+  tracing:
+    sampling.probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://tempo-grafana-tempo-query-frontend:9411/api/v2/spans 
+
+
+logging:
+  pattern.level: "trace_id=%mdc{traceId} span_id=%mdc{spanId} trace_flags=%mdc{traceFlags} %p"
+
 
       
