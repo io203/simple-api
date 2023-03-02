@@ -1,0 +1,28 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+
+profiles:
+  - name: dev
+    build:
+      local:
+        push: true
+      artifacts:
+        - image: saturn203/demoapp
+          jib:
+            args:
+              - -DskipTests
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
+            fromImage: eclipse-temurin:17.0.2_8-jre
+    manifests:
+      rawYaml:
+        - k8s/dev/demoapp.yaml
+
+    portForward:
+    - resourceType: service
+      resourceName: demoapp
+      namespace: api
+      port: 8080
+      localPort: 8820 # *Optional*          
+
+  
+      
