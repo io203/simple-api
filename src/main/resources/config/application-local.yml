@@ -15,6 +15,9 @@ management:
       application: ${spring.application.name} #  필히 해주는 것이 좋다
   tracing:
     sampling.probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 
 logging:

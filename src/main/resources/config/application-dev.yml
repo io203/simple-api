@@ -16,7 +16,7 @@ management:
     sampling.probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://tempo-grafana-tempo-query-frontend:9411/api/v2/spans 
+      endpoint: http://tempo-grafana-tempo-distributor.monitoring.svc:9411/api/v2/spans 
 
 
 logging:

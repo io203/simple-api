@@ -16,6 +16,7 @@ profiles:
     manifests:
       rawYaml:
         - k8s/dev/*.yaml
+        - k8s/dev/monitor/*.yaml
 
     portForward:
     - resourceType: service

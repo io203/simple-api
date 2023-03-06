@@ -1,35 +1,27 @@
 apiVersion: v1
 kind: Service
-
 metadata:
   name: simple-api-svc
   namespace: api
+  labels:
+    app: simple-api
 spec:
   selector:
-    app: simple-api
-  
+    app: simple-api  
   ports:
   - protocol: TCP
     name: http-svc
     port: 8080
     targetPort: http
-
-
-
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-api-deploy
-  namespace: api    
-  
-  labels:
-    app: simple-api
-    
-   
+  namespace: api 
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: simple-api
@@ -37,12 +29,10 @@ spec:
     metadata:      
       labels:
         app: simple-api  
-    annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "http-svc"
-      prometheus.io/path: "/actuator/prometheus"   
-      
-
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "http"
+        prometheus.io/path: "/actuator/prometheus"  
     spec:
       containers:
         - name: simple-api

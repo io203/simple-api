@@ -10,9 +10,9 @@ spec:
     matchLabels:
       app: simple-api
   namespaceSelector:
-    # any: true
-    matchNames:
-      - api
+    any: true
+    # matchNames:
+    #   - api
   endpoints:
     - port: http-svc
       path: "/actuator/prometheus"

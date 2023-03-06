@@ -4,9 +4,18 @@
     <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
 
     <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+    <springProfile name="local">
         <http>
-            <url>http://loki-grafana-loki-query-frontend:3100/loki/api/v1/push</url>
+            <url>http://localhost:3100/loki/api/v1/push</url>
         </http>
+    </springProfile>
+
+    <springProfile name="dev">
+        <http>
+            <url>http://loki-grafana-loki-query-frontend-headless.monitoring.svc:3100/loki/api/v1/push</url>
+        </http>
+    </springProfile>
+
         <format>
             <label>
                 <pattern>app=${APP_NAME},host=${APP_NAME},traceID=%X{traceId:-NONE},level=%level</pattern>
