@@ -15,17 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api")
 @Slf4j
 public class SimpleApiController {
+	//get rest api		
+
 	@GetMapping("/hello")
 	public String hello() {
 		
 		log.info("==========simple-api home()");
+		
 		
 		return "hello world";
 		
 	}
 	@GetMapping("/simple")
 	public List<Simple> listSimple(){
-		List<Simple> list = new ArrayList<>();
+		List<Simple> list = new ArrayList<>();	
 		
 		for(int i=0 ; i< 10;i++) {
 			list.add(new Simple(i+1,"test-"+i, "contents-"+i));

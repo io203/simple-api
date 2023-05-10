@@ -10,6 +10,7 @@ profiles:
         - image: saturn203/simple-api
           jib:
             args:
+              - -Djib.dockerClient.executable=$(which podman)
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
             # fromImage: adoptopenjdk/openjdk11
@@ -29,19 +30,23 @@ profiles:
   - name: kind
     build:
       local:
-        push: false
+        push: true
       artifacts:
-        - image: simple-api
+        - image: saturn203/simple-api
           jib:
             args:
+              - -Djib.dockerClient.executable=$(which podman)
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
             fromImage: eclipse-temurin:17.0.2_8-jre
-    deploy:
-      kubectl:
-        flags:
-          apply:
-          - k8s/kind/simple-api.yaml 
+    # deploy:
+    #   kubectl:
+    #     flags:
+    #       apply:
+    #       - k8s/kind/simple-api.yaml 
+    manifests:
+      rawYaml:
+        - k8s/kind/simple-api.yaml
 
   - name: k3d
     build:
