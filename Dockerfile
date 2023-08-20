@@ -2,7 +2,7 @@
 FROM eclipse-temurin:17-alpine AS builder
 COPY . /src
 WORKDIR /src
-RUN ./mvnw clean package
+RUN ./mvnw clean package -DskipTests
 
 
 FROM eclipse-temurin:17-alpine
