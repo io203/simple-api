@@ -2,5 +2,5 @@ project: simple-api
 configVersion: 1
 
 ---
-image: simple-api
+image: app
 dockerfile: Dockerfile
