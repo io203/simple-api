@@ -1,0 +1,6 @@
+project: simple-api
+configVersion: 1
+
+---
+image: app
+dockerfile: Dockerfile
