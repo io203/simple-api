@@ -7,7 +7,7 @@ RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:17-alpine
 WORKDIR /app
-ENV SPRING_PROFILES_ACTIVE dev
+ENV SPRING_PROFILES_ACTIVE $ENV
 
 COPY --from=builder /src/target/*.jar ./app.jar
 EXPOSE 8080
