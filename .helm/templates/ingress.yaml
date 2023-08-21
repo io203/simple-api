@@ -6,7 +6,7 @@ metadata:
   name: simple-api
 spec:
   rules:
-  - host: simple-api.test
+  - host: simple-api.192.168.41.8.sslip.io
     http:
       paths:
       - path: /
