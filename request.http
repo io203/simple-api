@@ -1,2 +1,5 @@
 ##########local########
+GET http://simple-api.192.168.41.8.sslip.io/api/hello
+
+
 GET http://simple-api.192.168.41.8.sslip.io/api/simple
