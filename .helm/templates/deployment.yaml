@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: simple-api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: simple-api
@@ -16,6 +16,6 @@ spec:
       - name: registrysecret
       containers:
       - name: app
-        image: {{ .Values.werf.image.app }}
+        image: {{ .Values.werf.image.backend }}
         ports:
         - containerPort: 8080
