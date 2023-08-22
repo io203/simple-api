@@ -6,8 +6,8 @@ RUN ./mvnw clean package -DskipTests
 ### runtime
 FROM eclipse-temurin:17-alpine
 WORKDIR /app
-ARG ENV
-ENV SPRING_PROFILES_ACTIVE dev
+ARG PROFILE_ENV
+ENV SPRING_PROFILES_ACTIVE $PROFILE_ENV
 
 COPY --from=builder /src/target/*.jar ./app.jar
 

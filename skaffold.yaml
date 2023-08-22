@@ -9,6 +9,10 @@ profiles:
         useDockerCLI: true
       artifacts:
         - image: saturn203/simple-api
+          docker:
+            #dockerfile: Dockerfile
+            buildArgs:
+              PROFILE_ENV: dev
          
     manifests:
       rawYaml:
