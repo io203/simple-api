@@ -1,24 +1,29 @@
-apiVersion: skaffold/v2beta29
+apiVersion: skaffold/v4beta1
 kind: Config
-metadata:
-  name: simple-api
-build:
-  artifacts:
-  - image: saturn203/simple-api
-    buildpacks:
-      builder: gcr.io/buildpacks/builder:v1
-  - image: simple-api
-    jib:
-      project: com.example:simple-api
-deploy:
-  kubectl:
+
+profiles:
+  - name: dev
+    build:
+      local:
+        push: true
+      artifacts:
+        - image: saturn203/simple-api
+          jib:
+            args:
+              - -Pdev
+              - -DskipTests
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
+            #  fromImage: adoptopenjdk/openjdk11
+            fromImage: eclipse-temurin:17.0.2_8-jre
     manifests:
-    - test-service.yaml
-    - test-vs.yaml
-    - k8s/dev/k8s-ingress-simple-api.yaml
-    - k8s/dev/simple-api.yaml
-    - k8s/dev/simple-vs.yaml
-    - k8s/k3d/simple-api-ingress-traefik.yaml
-    - k8s/k3d/simple-api-ingress.yaml
-    - k8s/k3d/simple-api.yaml
-    - k8s/kind/simple-api.yaml
+      rawYaml:
+        - k8s/dev/simple-api.yaml
+           
+
+  
+    portForward:
+    - resourceType: deployment
+      resourceName: simple-api-deploy
+      namespace: api
+      port: 8080
+      localPort: 9320 # *Optional*          
