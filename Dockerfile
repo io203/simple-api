@@ -1,7 +1,14 @@
 FROM eclipse-temurin:17-alpine AS builder
-COPY . /src
-WORKDIR /src
-RUN ./mvnw clean package -DskipTests
+WORKDIR /build
+COPY mvnw .
+COPY .mvn ./.mvn
+COPY pom.xml .
+RUN --mount=type=cache,target=/root/.m2 ./mvnw dependency:go-offline
+# RUN --mount=type=cache,target=/root/.m2  ./mvnw dependency:resolve -U
+
+COPY src ./src
+RUN --mount=type=cache,target=/root/.m2 ./mvnw clean package -DskipTests
+
 
 ### runtime
 FROM eclipse-temurin:17-alpine
@@ -9,7 +16,7 @@ WORKDIR /app
 ARG PROFILE_ENV
 ENV SPRING_PROFILES_ACTIVE $PROFILE_ENV
 
-COPY --from=builder /src/target/*.jar ./app.jar
+COPY --from=builder /build/target/*.jar ./app.jar
 
 EXPOSE 8080
 

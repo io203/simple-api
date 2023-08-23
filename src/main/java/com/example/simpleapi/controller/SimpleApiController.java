@@ -18,9 +18,9 @@ public class SimpleApiController {
 	@GetMapping("/hello")
 	public String hello() {
 		
-		log.info("==========simple-api home()");
+		log.info("=======44444===333========simple-api home()");
 		
-		return "hello world";
+		return "hello world!!!!";
 		
 	}
 	@GetMapping("/simple")
