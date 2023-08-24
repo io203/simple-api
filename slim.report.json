@@ -1,0 +1,3092 @@
+{
+  "version": "1.2.2",
+  "engine": "darwin|Transformer|1.40.2|latest|latest",
+  "containerized": false,
+  "host_distro": {
+    "name": "",
+    "version": "",
+    "display_name": "other"
+  },
+  "type": "xray",
+  "state": "done",
+  "target_reference": "saturn203/simple-api:test-1.0",
+  "source_image": {
+    "identity": {
+      "id": "sha256:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+      "tags": [
+        "246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+        "test-1.0"
+      ],
+      "names": [
+        "saturn203/simple-api:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+        "saturn203/simple-api:test-1.0"
+      ]
+    },
+    "size": 325066531,
+    "size_human": "325 MB",
+    "create_time": "1970-01-01T00:00:00Z",
+    "docker_version": "",
+    "architecture": "amd64",
+    "os": "linux",
+    "env_vars": [
+      "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANGUAGE=en_US:en",
+      "LC_ALL=en_US.UTF-8",
+      "SPRING_PROFILES_ACTIVE=dev",
+      "JAVA_HOME=/opt/java/openjdk",
+      "JAVA_VERSION=jdk-17.0.8+7",
+      "LANG=en_US.UTF-8"
+    ],
+    "distro": {
+      "name": "Alpine Linux",
+      "version": "3.18.3",
+      "display_name": "Alpine Linux v3.18"
+    },
+    "container_entry": {
+      "entrypoint": [
+        "java",
+        "-cp",
+        "@/app/jib-classpath-file",
+        "com.example.simpleapi.SimpleApiApplication"
+      ],
+      "exe_path": "java",
+      "full_exe_path": {
+        "name": "/opt/java/openjdk/bin/java",
+        "layer": 2
+      },
+      "exe_args": [
+        "-cp",
+        "@/app/jib-classpath-file",
+        "com.example.simpleapi.SimpleApiApplication"
+      ]
+    }
+  },
+  "artifact_location": "/tmp/slim-state/.slim-state/images/246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7/artifacts",
+  "image_report": {
+    "stats": {
+      "duplicate_file_count": 14,
+      "duplicate_file_total_count": 29,
+      "duplicate_file_size": 35419,
+      "duplicate_file_total_size": 70840,
+      "duplicate_file_wasted_size": 35421,
+      "deleted_count": 0,
+      "deleted_dir_content_count": 21,
+      "deleted_dir_count": 0,
+      "deleted_file_count": 21,
+      "deleted_link_count": 0,
+      "deleted_file_size": 0,
+      "sticky_count": 4
+    },
+    "duplicates": {
+      "07d35500ac16026dae5633e94ead05b30ecafe38": {
+        "file_count": 2,
+        "file_size": 1493,
+        "all_file_size": 2986,
+        "wasted_size": 1493,
+        "files": {
+          "/usr/share/i18n/locales/musl/nb_NO.UTF-8": 1,
+          "/usr/share/locale/nb_NO/LC_MESSAGES/musl-locales.mo": 1
+        }
+      },
+      "09d2af8dd22201dd8d48e5dcfcaed281ff9422c7": {
+        "file_count": 3,
+        "file_size": 2,
+        "all_file_size": 6,
+        "wasted_size": 4,
+        "files": {
+          "/usr/share/fonts/dejavu/fonts.dir": 1,
+          "/usr/share/fonts/encodings/fonts.dir": 1,
+          "/usr/share/fonts/encodings/fonts.scale": 1
+        }
+      },
+      "2707c5e1777fd4ff45aa62371816e6ffbfd3ba16": {
+        "file_count": 2,
+        "file_size": 268,
+        "all_file_size": 536,
+        "wasted_size": 268,
+        "files": {
+          "/usr/share/i18n/locales/musl/de_CH.UTF-8": 1,
+          "/usr/share/locale/de_CH/LC_MESSAGES/musl-locales.mo": 1
+        }
+      },
+      "2e20bf7d35bd63a08922f48851c4d987c9bb4a8d": {
+        "file_count": 2,
+        "file_size": 1310,
+        "all_file_size": 2620,
+        "wasted_size": 1310,
+        "files": {
+          "/usr/share/i18n/locales/musl/de_DE.UTF-8": 1,
+          "/usr/share/locale/de_DE/LC_MESSAGES/musl-locales.mo": 1
+        }
+      },
+      "33b0c7fa038dca9349f1a264f04debfad5a7beec": {
+        "file_count": 2,
+        "file_size": 71,
+        "all_file_size": 142,
+        "wasted_size": 71,
+        "files": {
+          "/app/resources/config/application-k3d.yml": 6,
+          "/app/resources/config/application-kind.yml": 6
+        }
+      },
+      "3671ae0ec7503b1e193587c1dcdf7b78bc863e42": {
+        "file_count": 2,
+        "file_size": 451,
+        "all_file_size": 902,
+        "wasted_size": 451,
+        "files": {
+          "/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub": 0,
+          "/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub": 0
+        }
+      },
+      "3af08548ef78cfdedcf349880c2c6a1a48763a0e": {
+        "file_count": 2,
+        "file_size": 451,
+        "all_file_size": 902,
+        "wasted_size": 451,
+        "files": {
+          "/etc/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub": 0,
+          "/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub": 0
+        }
+      },
+      "41d19b3adfdfa09d809b1b89235aaef1eada54b9": {
+        "file_count": 2,
+        "file_size": 16440,
+        "all_file_size": 32880,
+        "wasted_size": 16440,
+        "files": {
+          "/opt/java/openjdk/lib/libjsig.so": 2,
+          "/opt/java/openjdk/lib/server/libjsig.so": 2
+        }
+      },
+      "58d5ba4b2f3b1e927721d7a6432f298eedf72a6b": {
+        "file_count": 2,
+        "file_size": 800,
+        "all_file_size": 1600,
+        "wasted_size": 800,
+        "files": {
+          "/etc/apk/keys/alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub": 0,
+          "/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub": 0
+        }
+      },
+      "95995311236b7a55933642ffa10ce6014f1af7d0": {
+        "file_count": 2,
+        "file_size": 800,
+        "all_file_size": 1600,
+        "wasted_size": 800,
+        "files": {
+          "/etc/apk/keys/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub": 0,
+          "/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub": 0
+        }
+      },
+      "a2587c4e97408b64274e5e052b74e3754892c13a": {
+        "file_count": 2,
+        "file_size": 412,
+        "all_file_size": 824,
+        "wasted_size": 412,
+        "files": {
+          "/etc/ssl/ct_log_list.cnf": 0,
+          "/etc/ssl/ct_log_list.cnf.dist": 0
+        }
+      },
+      "bfb616658cc05a872568b0c8e398c482e23b60dd": {
+        "file_count": 2,
+        "file_size": 451,
+        "all_file_size": 902,
+        "wasted_size": 451,
+        "files": {
+          "/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub": 0,
+          "/usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub": 0
+        }
+      },
+      "c22e9d6430e914e1a6b72b22093b3cab5338f1cc": {
+        "file_count": 2,
+        "file_size": 12324,
+        "all_file_size": 24648,
+        "wasted_size": 12324,
+        "files": {
+          "/etc/ssl/openssl.cnf": 0,
+          "/etc/ssl/openssl.cnf.dist": 0
+        }
+      },
+      "f3f974d3f6245c50804dcc47173aa29d4d7f0e2c": {
+        "file_count": 2,
+        "file_size": 146,
+        "all_file_size": 292,
+        "wasted_size": 146,
+        "files": {
+          "/opt/java/openjdk/conf/security/policy/limited/default_US_export.policy": 2,
+          "/opt/java/openjdk/conf/security/policy/unlimited/default_US_export.policy": 2
+        }
+      }
+    },
+    "special_perms": {
+      "sticky": [
+        "/tmp",
+        "/var/tmp"
+      ]
+    },
+    "shells": [
+      {
+        "full_name": "Bourne shell",
+        "short_name": "sh",
+        "exe_path": "/bin/sh",
+        "link_path": "/bin/busybox",
+        "verified": true
+      },
+      {
+        "full_name": "Ash shell",
+        "short_name": "ash",
+        "exe_path": "/bin/ash",
+        "link_path": "/bin/busybox",
+        "verified": true
+      },
+      {
+        "full_name": "Bash shell",
+        "short_name": "bash",
+        "exe_path": "/bin/bash",
+        "verified": true
+      }
+    ],
+    "certs": {
+      "bundles": [
+        "/etc/ssl/certs/java/cacerts",
+        "/etc/ssl/cert.pem",
+        "/etc/ssl/certs/ca-certificates.crt"
+      ],
+      "links": {
+        "/etc/ssl/certs/ca-cert-ACCVRAIZ1.pem": "/usr/share/ca-certificates/mozilla/ACCVRAIZ1.crt",
+        "/etc/ssl/certs/ca-cert-AC_RAIZ_FNMT-RCM.pem": "/usr/share/ca-certificates/mozilla/AC_RAIZ_FNMT-RCM.crt",
+        "/etc/ssl/certs/ca-cert-AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem": "/usr/share/ca-certificates/mozilla/AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.crt",
+        "/etc/ssl/certs/ca-cert-ANF_Secure_Server_Root_CA.pem": "/usr/share/ca-certificates/mozilla/ANF_Secure_Server_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-Actalis_Authentication_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Actalis_Authentication_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-AffirmTrust_Commercial.pem": "/usr/share/ca-certificates/mozilla/AffirmTrust_Commercial.crt",
+        "/etc/ssl/certs/ca-cert-AffirmTrust_Networking.pem": "/usr/share/ca-certificates/mozilla/AffirmTrust_Networking.crt",
+        "/etc/ssl/certs/ca-cert-AffirmTrust_Premium.pem": "/usr/share/ca-certificates/mozilla/AffirmTrust_Premium.crt",
+        "/etc/ssl/certs/ca-cert-AffirmTrust_Premium_ECC.pem": "/usr/share/ca-certificates/mozilla/AffirmTrust_Premium_ECC.crt",
+        "/etc/ssl/certs/ca-cert-Amazon_Root_CA_1.pem": "/usr/share/ca-certificates/mozilla/Amazon_Root_CA_1.crt",
+        "/etc/ssl/certs/ca-cert-Amazon_Root_CA_2.pem": "/usr/share/ca-certificates/mozilla/Amazon_Root_CA_2.crt",
+        "/etc/ssl/certs/ca-cert-Amazon_Root_CA_3.pem": "/usr/share/ca-certificates/mozilla/Amazon_Root_CA_3.crt",
+        "/etc/ssl/certs/ca-cert-Amazon_Root_CA_4.pem": "/usr/share/ca-certificates/mozilla/Amazon_Root_CA_4.crt",
+        "/etc/ssl/certs/ca-cert-Atos_TrustedRoot_2011.pem": "/usr/share/ca-certificates/mozilla/Atos_TrustedRoot_2011.crt",
+        "/etc/ssl/certs/ca-cert-Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem": "/usr/share/ca-certificates/mozilla/Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.crt",
+        "/etc/ssl/certs/ca-cert-BJCA_Global_Root_CA1.pem": "/usr/share/ca-certificates/mozilla/BJCA_Global_Root_CA1.crt",
+        "/etc/ssl/certs/ca-cert-BJCA_Global_Root_CA2.pem": "/usr/share/ca-certificates/mozilla/BJCA_Global_Root_CA2.crt",
+        "/etc/ssl/certs/ca-cert-Baltimore_CyberTrust_Root.pem": "/usr/share/ca-certificates/mozilla/Baltimore_CyberTrust_Root.crt",
+        "/etc/ssl/certs/ca-cert-Buypass_Class_2_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Buypass_Class_2_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-Buypass_Class_3_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Buypass_Class_3_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-CA_Disig_Root_R2.pem": "/usr/share/ca-certificates/mozilla/CA_Disig_Root_R2.crt",
+        "/etc/ssl/certs/ca-cert-CFCA_EV_ROOT.pem": "/usr/share/ca-certificates/mozilla/CFCA_EV_ROOT.crt",
+        "/etc/ssl/certs/ca-cert-COMODO_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/COMODO_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-COMODO_ECC_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/COMODO_ECC_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-COMODO_RSA_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/COMODO_RSA_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-Certainly_Root_E1.pem": "/usr/share/ca-certificates/mozilla/Certainly_Root_E1.crt",
+        "/etc/ssl/certs/ca-cert-Certainly_Root_R1.pem": "/usr/share/ca-certificates/mozilla/Certainly_Root_R1.crt",
+        "/etc/ssl/certs/ca-cert-Certigna.pem": "/usr/share/ca-certificates/mozilla/Certigna.crt",
+        "/etc/ssl/certs/ca-cert-Certigna_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Certigna_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-Certum_EC-384_CA.pem": "/usr/share/ca-certificates/mozilla/Certum_EC-384_CA.crt",
+        "/etc/ssl/certs/ca-cert-Certum_Trusted_Network_CA.pem": "/usr/share/ca-certificates/mozilla/Certum_Trusted_Network_CA.crt",
+        "/etc/ssl/certs/ca-cert-Certum_Trusted_Network_CA_2.pem": "/usr/share/ca-certificates/mozilla/Certum_Trusted_Network_CA_2.crt",
+        "/etc/ssl/certs/ca-cert-Certum_Trusted_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Certum_Trusted_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-Comodo_AAA_Services_root.pem": "/usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt",
+        "/etc/ssl/certs/ca-cert-D-TRUST_BR_Root_CA_1_2020.pem": "/usr/share/ca-certificates/mozilla/D-TRUST_BR_Root_CA_1_2020.crt",
+        "/etc/ssl/certs/ca-cert-D-TRUST_EV_Root_CA_1_2020.pem": "/usr/share/ca-certificates/mozilla/D-TRUST_EV_Root_CA_1_2020.crt",
+        "/etc/ssl/certs/ca-cert-D-TRUST_Root_Class_3_CA_2_2009.pem": "/usr/share/ca-certificates/mozilla/D-TRUST_Root_Class_3_CA_2_2009.crt",
+        "/etc/ssl/certs/ca-cert-D-TRUST_Root_Class_3_CA_2_EV_2009.pem": "/usr/share/ca-certificates/mozilla/D-TRUST_Root_Class_3_CA_2_EV_2009.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Assured_ID_Root_CA.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Assured_ID_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Assured_ID_Root_G2.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Assured_ID_Root_G2.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Assured_ID_Root_G3.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Assured_ID_Root_G3.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Global_Root_CA.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Global_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Global_Root_G2.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Global_Root_G2.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Global_Root_G3.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Global_Root_G3.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_High_Assurance_EV_Root_CA.pem": "/usr/share/ca-certificates/mozilla/DigiCert_High_Assurance_EV_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_TLS_ECC_P384_Root_G5.pem": "/usr/share/ca-certificates/mozilla/DigiCert_TLS_ECC_P384_Root_G5.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_TLS_RSA4096_Root_G5.pem": "/usr/share/ca-certificates/mozilla/DigiCert_TLS_RSA4096_Root_G5.crt",
+        "/etc/ssl/certs/ca-cert-DigiCert_Trusted_Root_G4.pem": "/usr/share/ca-certificates/mozilla/DigiCert_Trusted_Root_G4.crt",
+        "/etc/ssl/certs/ca-cert-E-Tugra_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/E-Tugra_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-E-Tugra_Global_Root_CA_ECC_v3.pem": "/usr/share/ca-certificates/mozilla/E-Tugra_Global_Root_CA_ECC_v3.crt",
+        "/etc/ssl/certs/ca-cert-E-Tugra_Global_Root_CA_RSA_v3.pem": "/usr/share/ca-certificates/mozilla/E-Tugra_Global_Root_CA_RSA_v3.crt",
+        "/etc/ssl/certs/ca-cert-Entrust.net_Premium_2048_Secure_Server_CA.pem": "/usr/share/ca-certificates/mozilla/Entrust.net_Premium_2048_Secure_Server_CA.crt",
+        "/etc/ssl/certs/ca-cert-Entrust_Root_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/Entrust_Root_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-Entrust_Root_Certification_Authority_-_EC1.pem": "/usr/share/ca-certificates/mozilla/Entrust_Root_Certification_Authority_-_EC1.crt",
+        "/etc/ssl/certs/ca-cert-Entrust_Root_Certification_Authority_-_G2.pem": "/usr/share/ca-certificates/mozilla/Entrust_Root_Certification_Authority_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-Entrust_Root_Certification_Authority_-_G4.pem": "/usr/share/ca-certificates/mozilla/Entrust_Root_Certification_Authority_-_G4.crt",
+        "/etc/ssl/certs/ca-cert-GDCA_TrustAUTH_R5_ROOT.pem": "/usr/share/ca-certificates/mozilla/GDCA_TrustAUTH_R5_ROOT.crt",
+        "/etc/ssl/certs/ca-cert-GLOBALTRUST_2020.pem": "/usr/share/ca-certificates/mozilla/GLOBALTRUST_2020.crt",
+        "/etc/ssl/certs/ca-cert-GTS_Root_R1.pem": "/usr/share/ca-certificates/mozilla/GTS_Root_R1.crt",
+        "/etc/ssl/certs/ca-cert-GTS_Root_R2.pem": "/usr/share/ca-certificates/mozilla/GTS_Root_R2.crt",
+        "/etc/ssl/certs/ca-cert-GTS_Root_R3.pem": "/usr/share/ca-certificates/mozilla/GTS_Root_R3.crt",
+        "/etc/ssl/certs/ca-cert-GTS_Root_R4.pem": "/usr/share/ca-certificates/mozilla/GTS_Root_R4.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_ECC_Root_CA_-_R4.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_ECC_Root_CA_-_R4.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_ECC_Root_CA_-_R5.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_ECC_Root_CA_-_R5.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_Root_CA.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_Root_CA_-_R3.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_Root_CA_-_R3.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_Root_CA_-_R6.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_Root_CA_-_R6.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_Root_E46.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_Root_E46.crt",
+        "/etc/ssl/certs/ca-cert-GlobalSign_Root_R46.pem": "/usr/share/ca-certificates/mozilla/GlobalSign_Root_R46.crt",
+        "/etc/ssl/certs/ca-cert-Go_Daddy_Class_2_CA.pem": "/usr/share/ca-certificates/mozilla/Go_Daddy_Class_2_CA.crt",
+        "/etc/ssl/certs/ca-cert-Go_Daddy_Root_Certificate_Authority_-_G2.pem": "/usr/share/ca-certificates/mozilla/Go_Daddy_Root_Certificate_Authority_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-HARICA_TLS_ECC_Root_CA_2021.pem": "/usr/share/ca-certificates/mozilla/HARICA_TLS_ECC_Root_CA_2021.crt",
+        "/etc/ssl/certs/ca-cert-HARICA_TLS_RSA_Root_CA_2021.pem": "/usr/share/ca-certificates/mozilla/HARICA_TLS_RSA_Root_CA_2021.crt",
+        "/etc/ssl/certs/ca-cert-Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem": "/usr/share/ca-certificates/mozilla/Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.crt",
+        "/etc/ssl/certs/ca-cert-Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem": "/usr/share/ca-certificates/mozilla/Hellenic_Academic_and_Research_Institutions_RootCA_2015.crt",
+        "/etc/ssl/certs/ca-cert-HiPKI_Root_CA_-_G1.pem": "/usr/share/ca-certificates/mozilla/HiPKI_Root_CA_-_G1.crt",
+        "/etc/ssl/certs/ca-cert-Hongkong_Post_Root_CA_1.pem": "/usr/share/ca-certificates/mozilla/Hongkong_Post_Root_CA_1.crt",
+        "/etc/ssl/certs/ca-cert-Hongkong_Post_Root_CA_3.pem": "/usr/share/ca-certificates/mozilla/Hongkong_Post_Root_CA_3.crt",
+        "/etc/ssl/certs/ca-cert-ISRG_Root_X1.pem": "/usr/share/ca-certificates/mozilla/ISRG_Root_X1.crt",
+        "/etc/ssl/certs/ca-cert-ISRG_Root_X2.pem": "/usr/share/ca-certificates/mozilla/ISRG_Root_X2.crt",
+        "/etc/ssl/certs/ca-cert-IdenTrust_Commercial_Root_CA_1.pem": "/usr/share/ca-certificates/mozilla/IdenTrust_Commercial_Root_CA_1.crt",
+        "/etc/ssl/certs/ca-cert-IdenTrust_Public_Sector_Root_CA_1.pem": "/usr/share/ca-certificates/mozilla/IdenTrust_Public_Sector_Root_CA_1.crt",
+        "/etc/ssl/certs/ca-cert-Izenpe.com.pem": "/usr/share/ca-certificates/mozilla/Izenpe.com.crt",
+        "/etc/ssl/certs/ca-cert-Microsec_e-Szigno_Root_CA_2009.pem": "/usr/share/ca-certificates/mozilla/Microsec_e-Szigno_Root_CA_2009.crt",
+        "/etc/ssl/certs/ca-cert-Microsoft_ECC_Root_Certificate_Authority_2017.pem": "/usr/share/ca-certificates/mozilla/Microsoft_ECC_Root_Certificate_Authority_2017.crt",
+        "/etc/ssl/certs/ca-cert-Microsoft_RSA_Root_Certificate_Authority_2017.pem": "/usr/share/ca-certificates/mozilla/Microsoft_RSA_Root_Certificate_Authority_2017.crt",
+        "/etc/ssl/certs/ca-cert-NAVER_Global_Root_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/NAVER_Global_Root_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem": "/usr/share/ca-certificates/mozilla/NetLock_Arany_=Class_Gold=_Főtanúsítvány.crt",
+        "/etc/ssl/certs/ca-cert-OISTE_WISeKey_Global_Root_GB_CA.pem": "/usr/share/ca-certificates/mozilla/OISTE_WISeKey_Global_Root_GB_CA.crt",
+        "/etc/ssl/certs/ca-cert-OISTE_WISeKey_Global_Root_GC_CA.pem": "/usr/share/ca-certificates/mozilla/OISTE_WISeKey_Global_Root_GC_CA.crt",
+        "/etc/ssl/certs/ca-cert-QuoVadis_Root_CA_1_G3.pem": "/usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_1_G3.crt",
+        "/etc/ssl/certs/ca-cert-QuoVadis_Root_CA_2.pem": "/usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_2.crt",
+        "/etc/ssl/certs/ca-cert-QuoVadis_Root_CA_2_G3.pem": "/usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_2_G3.crt",
+        "/etc/ssl/certs/ca-cert-QuoVadis_Root_CA_3.pem": "/usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_3.crt",
+        "/etc/ssl/certs/ca-cert-QuoVadis_Root_CA_3_G3.pem": "/usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_3_G3.crt",
+        "/etc/ssl/certs/ca-cert-SSL.com_EV_Root_Certification_Authority_ECC.pem": "/usr/share/ca-certificates/mozilla/SSL.com_EV_Root_Certification_Authority_ECC.crt",
+        "/etc/ssl/certs/ca-cert-SSL.com_EV_Root_Certification_Authority_RSA_R2.pem": "/usr/share/ca-certificates/mozilla/SSL.com_EV_Root_Certification_Authority_RSA_R2.crt",
+        "/etc/ssl/certs/ca-cert-SSL.com_Root_Certification_Authority_ECC.pem": "/usr/share/ca-certificates/mozilla/SSL.com_Root_Certification_Authority_ECC.crt",
+        "/etc/ssl/certs/ca-cert-SSL.com_Root_Certification_Authority_RSA.pem": "/usr/share/ca-certificates/mozilla/SSL.com_Root_Certification_Authority_RSA.crt",
+        "/etc/ssl/certs/ca-cert-SZAFIR_ROOT_CA2.pem": "/usr/share/ca-certificates/mozilla/SZAFIR_ROOT_CA2.crt",
+        "/etc/ssl/certs/ca-cert-SecureSign_RootCA11.pem": "/usr/share/ca-certificates/mozilla/SecureSign_RootCA11.crt",
+        "/etc/ssl/certs/ca-cert-SecureTrust_CA.pem": "/usr/share/ca-certificates/mozilla/SecureTrust_CA.crt",
+        "/etc/ssl/certs/ca-cert-Secure_Global_CA.pem": "/usr/share/ca-certificates/mozilla/Secure_Global_CA.crt",
+        "/etc/ssl/certs/ca-cert-Security_Communication_ECC_RootCA1.pem": "/usr/share/ca-certificates/mozilla/Security_Communication_ECC_RootCA1.crt",
+        "/etc/ssl/certs/ca-cert-Security_Communication_RootCA2.pem": "/usr/share/ca-certificates/mozilla/Security_Communication_RootCA2.crt",
+        "/etc/ssl/certs/ca-cert-Security_Communication_RootCA3.pem": "/usr/share/ca-certificates/mozilla/Security_Communication_RootCA3.crt",
+        "/etc/ssl/certs/ca-cert-Security_Communication_Root_CA.pem": "/usr/share/ca-certificates/mozilla/Security_Communication_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-Starfield_Class_2_CA.pem": "/usr/share/ca-certificates/mozilla/Starfield_Class_2_CA.crt",
+        "/etc/ssl/certs/ca-cert-Starfield_Root_Certificate_Authority_-_G2.pem": "/usr/share/ca-certificates/mozilla/Starfield_Root_Certificate_Authority_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-Starfield_Services_Root_Certificate_Authority_-_G2.pem": "/usr/share/ca-certificates/mozilla/Starfield_Services_Root_Certificate_Authority_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-SwissSign_Gold_CA_-_G2.pem": "/usr/share/ca-certificates/mozilla/SwissSign_Gold_CA_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-SwissSign_Silver_CA_-_G2.pem": "/usr/share/ca-certificates/mozilla/SwissSign_Silver_CA_-_G2.crt",
+        "/etc/ssl/certs/ca-cert-T-TeleSec_GlobalRoot_Class_2.pem": "/usr/share/ca-certificates/mozilla/T-TeleSec_GlobalRoot_Class_2.crt",
+        "/etc/ssl/certs/ca-cert-T-TeleSec_GlobalRoot_Class_3.pem": "/usr/share/ca-certificates/mozilla/T-TeleSec_GlobalRoot_Class_3.crt",
+        "/etc/ssl/certs/ca-cert-TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem": "/usr/share/ca-certificates/mozilla/TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.crt",
+        "/etc/ssl/certs/ca-cert-TWCA_Global_Root_CA.pem": "/usr/share/ca-certificates/mozilla/TWCA_Global_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-TWCA_Root_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/TWCA_Root_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-TeliaSonera_Root_CA_v1.pem": "/usr/share/ca-certificates/mozilla/TeliaSonera_Root_CA_v1.crt",
+        "/etc/ssl/certs/ca-cert-Telia_Root_CA_v2.pem": "/usr/share/ca-certificates/mozilla/Telia_Root_CA_v2.crt",
+        "/etc/ssl/certs/ca-cert-TrustCor_ECA-1.pem": "/usr/share/ca-certificates/mozilla/TrustCor_ECA-1.crt",
+        "/etc/ssl/certs/ca-cert-TrustCor_RootCert_CA-1.pem": "/usr/share/ca-certificates/mozilla/TrustCor_RootCert_CA-1.crt",
+        "/etc/ssl/certs/ca-cert-TrustCor_RootCert_CA-2.pem": "/usr/share/ca-certificates/mozilla/TrustCor_RootCert_CA-2.crt",
+        "/etc/ssl/certs/ca-cert-Trustwave_Global_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/Trustwave_Global_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-Trustwave_Global_ECC_P256_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/Trustwave_Global_ECC_P256_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-Trustwave_Global_ECC_P384_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/Trustwave_Global_ECC_P384_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-TunTrust_Root_CA.pem": "/usr/share/ca-certificates/mozilla/TunTrust_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-UCA_Extended_Validation_Root.pem": "/usr/share/ca-certificates/mozilla/UCA_Extended_Validation_Root.crt",
+        "/etc/ssl/certs/ca-cert-UCA_Global_G2_Root.pem": "/usr/share/ca-certificates/mozilla/UCA_Global_G2_Root.crt",
+        "/etc/ssl/certs/ca-cert-USERTrust_ECC_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/USERTrust_ECC_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-USERTrust_RSA_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/USERTrust_RSA_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-XRamp_Global_CA_Root.pem": "/usr/share/ca-certificates/mozilla/XRamp_Global_CA_Root.crt",
+        "/etc/ssl/certs/ca-cert-certSIGN_ROOT_CA.pem": "/usr/share/ca-certificates/mozilla/certSIGN_ROOT_CA.crt",
+        "/etc/ssl/certs/ca-cert-certSIGN_Root_CA_G2.pem": "/usr/share/ca-certificates/mozilla/certSIGN_Root_CA_G2.crt",
+        "/etc/ssl/certs/ca-cert-e-Szigno_Root_CA_2017.pem": "/usr/share/ca-certificates/mozilla/e-Szigno_Root_CA_2017.crt",
+        "/etc/ssl/certs/ca-cert-ePKI_Root_Certification_Authority.pem": "/usr/share/ca-certificates/mozilla/ePKI_Root_Certification_Authority.crt",
+        "/etc/ssl/certs/ca-cert-emSign_ECC_Root_CA_-_C3.pem": "/usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_C3.crt",
+        "/etc/ssl/certs/ca-cert-emSign_ECC_Root_CA_-_G3.pem": "/usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt",
+        "/etc/ssl/certs/ca-cert-emSign_Root_CA_-_C1.pem": "/usr/share/ca-certificates/mozilla/emSign_Root_CA_-_C1.crt",
+        "/etc/ssl/certs/ca-cert-emSign_Root_CA_-_G1.pem": "/usr/share/ca-certificates/mozilla/emSign_Root_CA_-_G1.crt",
+        "/etc/ssl/certs/ca-cert-vTrus_ECC_Root_CA.pem": "/usr/share/ca-certificates/mozilla/vTrus_ECC_Root_CA.crt",
+        "/etc/ssl/certs/ca-cert-vTrus_Root_CA.pem": "/usr/share/ca-certificates/mozilla/vTrus_Root_CA.crt"
+      },
+      "hashes": {
+        "/etc/ssl/certs/002c0b4f.0": "ca-cert-GlobalSign_Root_R46.pem",
+        "/etc/ssl/certs/0179095f.0": "ca-cert-BJCA_Global_Root_CA1.pem",
+        "/etc/ssl/certs/02265526.0": "ca-cert-Entrust_Root_Certification_Authority_-_G2.pem",
+        "/etc/ssl/certs/062cdee6.0": "ca-cert-GlobalSign_Root_CA_-_R3.pem",
+        "/etc/ssl/certs/064e0aa9.0": "ca-cert-QuoVadis_Root_CA_2_G3.pem",
+        "/etc/ssl/certs/06dc52d5.0": "ca-cert-SSL.com_EV_Root_Certification_Authority_RSA_R2.pem",
+        "/etc/ssl/certs/08063a00.0": "ca-cert-Security_Communication_RootCA3.pem",
+        "/etc/ssl/certs/09789157.0": "ca-cert-Starfield_Services_Root_Certificate_Authority_-_G2.pem",
+        "/etc/ssl/certs/0a775a30.0": "ca-cert-GTS_Root_R3.pem",
+        "/etc/ssl/certs/0b1b94ef.0": "ca-cert-CFCA_EV_ROOT.pem",
+        "/etc/ssl/certs/0b9bc432.0": "ca-cert-ISRG_Root_X2.pem",
+        "/etc/ssl/certs/0bf05006.0": "ca-cert-SSL.com_Root_Certification_Authority_ECC.pem",
+        "/etc/ssl/certs/0f5dc4f3.0": "ca-cert-UCA_Extended_Validation_Root.pem",
+        "/etc/ssl/certs/0f6fa695.0": "ca-cert-GDCA_TrustAUTH_R5_ROOT.pem",
+        "/etc/ssl/certs/1001acf7.0": "ca-cert-GTS_Root_R1.pem",
+        "/etc/ssl/certs/106f3e4d.0": "ca-cert-Entrust_Root_Certification_Authority_-_EC1.pem",
+        "/etc/ssl/certs/14bc7599.0": "ca-cert-emSign_ECC_Root_CA_-_G3.pem",
+        "/etc/ssl/certs/18856ac4.0": "ca-cert-SecureSign_RootCA11.pem",
+        "/etc/ssl/certs/1d3472b9.0": "ca-cert-GlobalSign_ECC_Root_CA_-_R5.pem",
+        "/etc/ssl/certs/1e08bfd1.0": "ca-cert-IdenTrust_Public_Sector_Root_CA_1.pem",
+        "/etc/ssl/certs/1e09d511.0": "ca-cert-T-TeleSec_GlobalRoot_Class_2.pem",
+        "/etc/ssl/certs/244b5494.0": "ca-cert-DigiCert_High_Assurance_EV_Root_CA.pem",
+        "/etc/ssl/certs/2923b3f9.0": "ca-cert-emSign_Root_CA_-_G1.pem",
+        "/etc/ssl/certs/2ae6433e.0": "ca-cert-CA_Disig_Root_R2.pem",
+        "/etc/ssl/certs/2b349938.0": "ca-cert-AffirmTrust_Commercial.pem",
+        "/etc/ssl/certs/32888f65.0": "ca-cert-Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem",
+        "/etc/ssl/certs/3513523f.0": "ca-cert-DigiCert_Global_Root_CA.pem",
+        "/etc/ssl/certs/3bde41ac.0": "ca-cert-Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem",
+        "/etc/ssl/certs/3e359ba6.0": "ca-cert-BJCA_Global_Root_CA2.pem",
+        "/etc/ssl/certs/3e44d2f7.0": "ca-cert-TrustCor_RootCert_CA-2.pem",
+        "/etc/ssl/certs/3e45d192.0": "ca-cert-Hongkong_Post_Root_CA_1.pem",
+        "/etc/ssl/certs/3fb36b73.0": "ca-cert-NAVER_Global_Root_Certification_Authority.pem",
+        "/etc/ssl/certs/40193066.0": "ca-cert-Certum_Trusted_Network_CA_2.pem",
+        "/etc/ssl/certs/4042bcee.0": "ca-cert-ISRG_Root_X1.pem",
+        "/etc/ssl/certs/40547a79.0": "ca-cert-COMODO_Certification_Authority.pem",
+        "/etc/ssl/certs/406c9bb1.0": "ca-cert-emSign_Root_CA_-_C1.pem",
+        "/etc/ssl/certs/48bec511.0": "ca-cert-Certum_Trusted_Network_CA.pem",
+        "/etc/ssl/certs/4b718d9b.0": "ca-cert-emSign_ECC_Root_CA_-_C3.pem",
+        "/etc/ssl/certs/4bfab552.0": "ca-cert-Starfield_Root_Certificate_Authority_-_G2.pem",
+        "/etc/ssl/certs/4f316efb.0": "ca-cert-SwissSign_Gold_CA_-_G2.pem",
+        "/etc/ssl/certs/5273a94c.0": "ca-cert-E-Tugra_Certification_Authority.pem",
+        "/etc/ssl/certs/5443e9e3.0": "ca-cert-T-TeleSec_GlobalRoot_Class_3.pem",
+        "/etc/ssl/certs/54657681.0": "ca-cert-Buypass_Class_2_Root_CA.pem",
+        "/etc/ssl/certs/57bcb2da.0": "ca-cert-SwissSign_Silver_CA_-_G2.pem",
+        "/etc/ssl/certs/5860aaa6.0": "ca-cert-Security_Communication_ECC_RootCA1.pem",
+        "/etc/ssl/certs/5931b5bc.0": "ca-cert-D-TRUST_EV_Root_CA_1_2020.pem",
+        "/etc/ssl/certs/5a7722fb.0": "ca-cert-E-Tugra_Global_Root_CA_ECC_v3.pem",
+        "/etc/ssl/certs/5ad8a5d6.0": "ca-cert-GlobalSign_Root_CA.pem",
+        "/etc/ssl/certs/5cd81ad7.0": "ca-cert-TeliaSonera_Root_CA_v1.pem",
+        "/etc/ssl/certs/5d3033c5.0": "ca-cert-TrustCor_RootCert_CA-1.pem",
+        "/etc/ssl/certs/5e98733a.0": "ca-cert-Entrust_Root_Certification_Authority_-_G4.pem",
+        "/etc/ssl/certs/5f15c80c.0": "ca-cert-TWCA_Global_Root_CA.pem",
+        "/etc/ssl/certs/5f618aec.0": "ca-cert-certSIGN_Root_CA_G2.pem",
+        "/etc/ssl/certs/607986c7.0": "ca-cert-DigiCert_Global_Root_G2.pem",
+        "/etc/ssl/certs/626dceaf.0": "ca-cert-GTS_Root_R2.pem",
+        "/etc/ssl/certs/653b494a.0": "ca-cert-Baltimore_CyberTrust_Root.pem",
+        "/etc/ssl/certs/66445960.0": "ca-cert-E-Tugra_Global_Root_CA_RSA_v3.pem",
+        "/etc/ssl/certs/68dd7389.0": "ca-cert-Hongkong_Post_Root_CA_3.pem",
+        "/etc/ssl/certs/6b99d060.0": "ca-cert-Entrust_Root_Certification_Authority.pem",
+        "/etc/ssl/certs/6d41d539.0": "ca-cert-Amazon_Root_CA_2.pem",
+        "/etc/ssl/certs/6fa5da56.0": "ca-cert-SSL.com_Root_Certification_Authority_RSA.pem",
+        "/etc/ssl/certs/706f604c.0": "ca-cert-XRamp_Global_CA_Root.pem",
+        "/etc/ssl/certs/749e9e03.0": "ca-cert-QuoVadis_Root_CA_1_G3.pem",
+        "/etc/ssl/certs/75d1b2ed.0": "ca-cert-DigiCert_Trusted_Root_G4.pem",
+        "/etc/ssl/certs/76faf6c0.0": "ca-cert-QuoVadis_Root_CA_3.pem",
+        "/etc/ssl/certs/7719f463.0": "ca-cert-Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem",
+        "/etc/ssl/certs/773e07ad.0": "ca-cert-OISTE_WISeKey_Global_Root_GC_CA.pem",
+        "/etc/ssl/certs/7a3adc42.0": "ca-cert-vTrus_Root_CA.pem",
+        "/etc/ssl/certs/7a780d93.0": "ca-cert-Certainly_Root_R1.pem",
+        "/etc/ssl/certs/7aaf71c0.0": "ca-cert-TrustCor_ECA-1.pem",
+        "/etc/ssl/certs/7f3d5d1d.0": "ca-cert-DigiCert_Assured_ID_Root_G3.pem",
+        "/etc/ssl/certs/8160b96c.0": "ca-cert-Microsec_e-Szigno_Root_CA_2009.pem",
+        "/etc/ssl/certs/8508e720.0": "ca-cert-Certainly_Root_E1.pem",
+        "/etc/ssl/certs/8cb5ee0f.0": "ca-cert-Amazon_Root_CA_3.pem",
+        "/etc/ssl/certs/8d86cdd1.0": "ca-cert-certSIGN_ROOT_CA.pem",
+        "/etc/ssl/certs/8d89cda1.0": "ca-cert-Microsoft_ECC_Root_Certificate_Authority_2017.pem",
+        "/etc/ssl/certs/8f103249.0": "ca-cert-Telia_Root_CA_v2.pem",
+        "/etc/ssl/certs/90c5a3c8.0": "ca-cert-HiPKI_Root_CA_-_G1.pem",
+        "/etc/ssl/certs/930ac5d2.0": "ca-cert-Actalis_Authentication_Root_CA.pem",
+        "/etc/ssl/certs/93bc0acc.0": "ca-cert-AffirmTrust_Networking.pem",
+        "/etc/ssl/certs/9482e63a.0": "ca-cert-Certum_EC-384_CA.pem",
+        "/etc/ssl/certs/9846683b.0": "ca-cert-DigiCert_TLS_ECC_P384_Root_G5.pem",
+        "/etc/ssl/certs/988a38cb.0": "ca-cert-NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem",
+        "/etc/ssl/certs/9b5697b0.0": "ca-cert-Trustwave_Global_ECC_P256_Certification_Authority.pem",
+        "/etc/ssl/certs/9c8dfbd4.0": "ca-cert-AffirmTrust_Premium_ECC.pem",
+        "/etc/ssl/certs/9d04f354.0": "ca-cert-DigiCert_Assured_ID_Root_G2.pem",
+        "/etc/ssl/certs/9ef4a08a.0": "ca-cert-D-TRUST_BR_Root_CA_1_2020.pem",
+        "/etc/ssl/certs/9f727ac7.0": "ca-cert-HARICA_TLS_RSA_Root_CA_2021.pem",
+        "/etc/ssl/certs/a3418fda.0": "ca-cert-GTS_Root_R4.pem",
+        "/etc/ssl/certs/a94d09e5.0": "ca-cert-ACCVRAIZ1.pem",
+        "/etc/ssl/certs/aee5f10d.0": "ca-cert-Entrust.net_Premium_2048_Secure_Server_CA.pem",
+        "/etc/ssl/certs/b0e59380.0": "ca-cert-GlobalSign_ECC_Root_CA_-_R4.pem",
+        "/etc/ssl/certs/b1159c4c.0": "ca-cert-DigiCert_Assured_ID_Root_CA.pem",
+        "/etc/ssl/certs/b433981b.0": "ca-cert-ANF_Secure_Server_Root_CA.pem",
+        "/etc/ssl/certs/b66938e9.0": "ca-cert-Secure_Global_CA.pem",
+        "/etc/ssl/certs/b727005e.0": "ca-cert-AffirmTrust_Premium.pem",
+        "/etc/ssl/certs/b7a5b843.0": "ca-cert-TWCA_Root_Certification_Authority.pem",
+        "/etc/ssl/certs/b81b93f0.0": "ca-cert-AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem",
+        "/etc/ssl/certs/bf53fb88.0": "ca-cert-Microsoft_RSA_Root_Certificate_Authority_2017.pem",
+        "/etc/ssl/certs/c01eb047.0": "ca-cert-UCA_Global_G2_Root.pem",
+        "/etc/ssl/certs/c28a8a30.0": "ca-cert-D-TRUST_Root_Class_3_CA_2_2009.pem",
+        "/etc/ssl/certs/ca6e4ad9.0": "ca-cert-ePKI_Root_Certification_Authority.pem",
+        "/etc/ssl/certs/cbf06781.0": "ca-cert-Go_Daddy_Root_Certificate_Authority_-_G2.pem",
+        "/etc/ssl/certs/cc450945.0": "ca-cert-Izenpe.com.pem",
+        "/etc/ssl/certs/cd58d51e.0": "ca-cert-Security_Communication_RootCA2.pem",
+        "/etc/ssl/certs/cd8c0d63.0": "ca-cert-AC_RAIZ_FNMT-RCM.pem",
+        "/etc/ssl/certs/ce5e74ef.0": "ca-cert-Amazon_Root_CA_1.pem",
+        "/etc/ssl/certs/d4dae3dd.0": "ca-cert-D-TRUST_Root_Class_3_CA_2_EV_2009.pem",
+        "/etc/ssl/certs/d52c538d.0": "ca-cert-DigiCert_TLS_RSA4096_Root_G5.pem",
+        "/etc/ssl/certs/d6325660.0": "ca-cert-COMODO_RSA_Certification_Authority.pem",
+        "/etc/ssl/certs/d7e8dc79.0": "ca-cert-QuoVadis_Root_CA_2.pem",
+        "/etc/ssl/certs/d887a5bb.0": "ca-cert-Trustwave_Global_ECC_P384_Certification_Authority.pem",
+        "/etc/ssl/certs/dc4d6a89.0": "ca-cert-GlobalSign_Root_CA_-_R6.pem",
+        "/etc/ssl/certs/dd8e9d41.0": "ca-cert-DigiCert_Global_Root_G3.pem",
+        "/etc/ssl/certs/de6d66f3.0": "ca-cert-Amazon_Root_CA_4.pem",
+        "/etc/ssl/certs/e113c810.0": "ca-cert-Certigna.pem",
+        "/etc/ssl/certs/e18bfb83.0": "ca-cert-QuoVadis_Root_CA_3_G3.pem",
+        "/etc/ssl/certs/e35234b1.0": "ca-cert-Certum_Trusted_Root_CA.pem",
+        "/etc/ssl/certs/e36a6752.0": "ca-cert-Atos_TrustedRoot_2011.pem",
+        "/etc/ssl/certs/e73d606e.0": "ca-cert-OISTE_WISeKey_Global_Root_GB_CA.pem",
+        "/etc/ssl/certs/e868b802.0": "ca-cert-e-Szigno_Root_CA_2017.pem",
+        "/etc/ssl/certs/e8de2f56.0": "ca-cert-Buypass_Class_3_Root_CA.pem",
+        "/etc/ssl/certs/ecccd8db.0": "ca-cert-HARICA_TLS_ECC_Root_CA_2021.pem",
+        "/etc/ssl/certs/ed858448.0": "ca-cert-vTrus_ECC_Root_CA.pem",
+        "/etc/ssl/certs/ee64a828.0": "ca-cert-Comodo_AAA_Services_root.pem",
+        "/etc/ssl/certs/eed8c118.0": "ca-cert-COMODO_ECC_Certification_Authority.pem",
+        "/etc/ssl/certs/ef954a4e.0": "ca-cert-IdenTrust_Commercial_Root_CA_1.pem",
+        "/etc/ssl/certs/f081611a.0": "ca-cert-Go_Daddy_Class_2_CA.pem",
+        "/etc/ssl/certs/f0c70a8d.0": "ca-cert-SSL.com_EV_Root_Certification_Authority_ECC.pem",
+        "/etc/ssl/certs/f249de83.0": "ca-cert-Trustwave_Global_Certification_Authority.pem",
+        "/etc/ssl/certs/f30dd6ad.0": "ca-cert-USERTrust_ECC_Certification_Authority.pem",
+        "/etc/ssl/certs/f3377b1b.0": "ca-cert-Security_Communication_Root_CA.pem",
+        "/etc/ssl/certs/f387163d.0": "ca-cert-Starfield_Class_2_CA.pem",
+        "/etc/ssl/certs/f39fc864.0": "ca-cert-SecureTrust_CA.pem",
+        "/etc/ssl/certs/f51bb24c.0": "ca-cert-Certigna_Root_CA.pem",
+        "/etc/ssl/certs/fa5da96b.0": "ca-cert-GLOBALTRUST_2020.pem",
+        "/etc/ssl/certs/fc5a8f99.0": "ca-cert-USERTrust_RSA_Certification_Authority.pem",
+        "/etc/ssl/certs/fd64f3fc.0": "ca-cert-TunTrust_Root_CA.pem",
+        "/etc/ssl/certs/fe8a2cd8.0": "ca-cert-SZAFIR_ROOT_CA2.pem",
+        "/etc/ssl/certs/feffd413.0": "ca-cert-GlobalSign_Root_E46.pem",
+        "/etc/ssl/certs/ff34af3f.0": "ca-cert-TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem"
+      }
+    },
+    "ca_certs": {}
+  },
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+      "full_name": "saturn203/simple-api:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+      "repo_name": "saturn203/simple-api",
+      "version_tag": "246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+      "raw_tags": [
+        "saturn203/simple-api:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+        "saturn203/simple-api:test-1.0"
+      ],
+      "create_time": "1970-01-01T00:00:00Z",
+      "new_size": 325066531,
+      "new_size_human": "325 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2023-08-07T19:20:20Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+          "layer_fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+          "size": 7335363,
+          "size_human": "7.3 MB",
+          "params": "file:32ff5e7a78b890996ee4681cc0a26185d3e9acdb4eb1e2aaccb2411f922fed6b in /",
+          "command_snippet": "ADD file:32ff5e7a78b890996ee4681cc0a26185d3e...",
+          "command_all": "ADD file:32ff5e7a78b890996ee4681cc0a26185d3e9acdb4eb1e2aaccb2411f922fed6b /",
+          "target": "/",
+          "source_type": "file",
+          "inst_set_time_bucket": "2023-08-08T04:15:00+09:00",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 2
+        },
+        {
+          "type": "CMD",
+          "time": "2023-08-07T19:20:20Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+          "layer_fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+          "size": 0,
+          "params": "[\"/bin/sh\"]\n",
+          "command_snippet": "CMD [\"/bin/sh\"]\n",
+          "command_all": "CMD [\"/bin/sh\"]\n",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-08T04:15:00+09:00",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 2
+        },
+        {
+          "type": "ENV",
+          "time": "2023-08-08T19:19:44Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+          "layer_fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+          "size": 0,
+          "params": "JAVA_HOME=/opt/java/openjdk",
+          "command_snippet": "ENV JAVA_HOME=/opt/java/openjdk",
+          "command_all": "ENV JAVA_HOME=/opt/java/openjdk",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-09T04:15:00+09:00",
+          "inst_set_time_index": 2,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "ENV",
+          "time": "2023-08-08T19:19:44Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+          "layer_fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+          "size": 0,
+          "params": "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sb...",
+          "command_all": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-09T04:15:00+09:00",
+          "inst_set_time_index": 2,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "ENV",
+          "time": "2023-08-08T19:19:44Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+          "layer_fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+          "size": 0,
+          "params": "LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "command_snippet": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_AL...",
+          "command_all": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-09T04:15:00+09:00",
+          "inst_set_time_index": 2,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "RUN",
+          "time": "2023-08-14T18:09:08Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 1,
+          "layer_id": "f8e90f48d76f4d33c1e7e5c7f5c6fa9eb4d9728a428832eb4bdf21bb03d7cc21",
+          "layer_fsdiff_id": "sha256:1061c27d7cdf5af544ae24b937a7ddf5452a1eca7e673f4a30d091b3781aa42d",
+          "size": 19015989,
+          "size_human": "19 MB",
+          "command_snippet": "RUN apk add --no-cache fontconfig java-cacer...",
+          "command_all": "RUN apk add --no-cache fontconfig java-cacerts bash libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib && \\\n\trm -rf /var/cache/apk/*",
+          "system_commands": [
+            "apk add --no-cache fontconfig java-cacerts bash libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib",
+            "rm -rf /var/cache/apk/*"
+          ],
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "ENV",
+          "time": "2023-08-14T18:10:34Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 1,
+          "layer_id": "f8e90f48d76f4d33c1e7e5c7f5c6fa9eb4d9728a428832eb4bdf21bb03d7cc21",
+          "layer_fsdiff_id": "sha256:1061c27d7cdf5af544ae24b937a7ddf5452a1eca7e673f4a30d091b3781aa42d",
+          "size": 0,
+          "params": "JAVA_VERSION=jdk-17.0.8+7",
+          "command_snippet": "ENV JAVA_VERSION=jdk-17.0.8+7",
+          "command_all": "ENV JAVA_VERSION=jdk-17.0.8+7",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "RUN",
+          "time": "2023-08-14T18:10:44Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 2,
+          "layer_id": "48acbfb1898a31986d7d1453519115d88d3cef66047ab63c0aca19834705f095",
+          "layer_fsdiff_id": "sha256:eb63e2a6edb38582d1bfe1f2d6e8aae9859961497643f5a2d76b8a1a214d9760",
+          "size": 277675531,
+          "size_human": "278 MB",
+          "command_snippet": "RUN set -eux;     ARCH=\"$(apk --print-arch)\"...",
+          "command_all": "RUN set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        amd64|x86_64)          ESUM='90eb413eeed9cc2813f7d66d348c35475148c0cdc41c8f9ef2f26d51078e287e';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8%2B7/OpenJDK17U-jdk_x64_alpine-linux_hotspot_17.0.8_7.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac; \t  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; \t  echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -; \t  mkdir -p \"$JAVA_HOME\"; \t  tar --extract \t      --file /tmp/openjdk.tar.gz \t      --directory \"$JAVA_HOME\" \t      --strip-components 1 \t      --no-same-owner \t  ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip;",
+          "system_commands": [
+            "set -eux",
+            "ARCH=\"$(apk --print-arch)\"",
+            "case \"${ARCH}\" in        amd64|x86_64)          ESUM='90eb413eeed9cc2813f7d66d348c35475148c0cdc41c8f9ef2f26d51078e287e'",
+            "BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8%2B7/OpenJDK17U-jdk_x64_alpine-linux_hotspot_17.0.8_7.tar.gz'",
+            "",
+            "",
+            "*)          echo \"Unsupported arch: ${ARCH}\"",
+            "exit 1",
+            "",
+            "",
+            "esac",
+            "wget -O /tmp/openjdk.tar.gz ${BINARY_URL}",
+            "echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -",
+            "mkdir -p \"$JAVA_HOME\"",
+            "tar --extract       --file /tmp/openjdk.tar.gz       --directory \"$JAVA_HOME\"       --strip-components 1       --no-same-owner",
+            "rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip",
+            ""
+          ],
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "RUN",
+          "time": "2023-08-14T18:10:46Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "7e7043e5d7b9e62ac539462da5e2db7e9ce28ab9dcacebac03ac05c4bdf6fe67",
+          "layer_fsdiff_id": "sha256:929ddc2b196b89ff79ee09c80dc01a368476a462e300242987ffadc68a151fe7",
+          "size": 0,
+          "command_snippet": "RUN echo Verifying install ... && \\\n\tfileEnc...",
+          "command_all": "RUN echo Verifying install ... && \\\n\tfileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java && \\\n\techo javac --version && \\\n\tjavac --version && \\\n\techo java --version && \\\n\tjava --version && \\\n\techo Complete.",
+          "system_commands": [
+            "echo Verifying install ...",
+            "fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java",
+            "echo javac --version",
+            "javac --version",
+            "echo java --version",
+            "java --version",
+            "echo Complete."
+          ],
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "COPY",
+          "time": "2023-08-14T18:10:47Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 4,
+          "layer_id": "781729117bb573026e2dd48f47ab9daf0972b576d74e6ab6890779cb38fed70b",
+          "layer_fsdiff_id": "sha256:74d5708f83a5ba813de6d21f73f8e38baaf62de3656350345345e3b8961865e0",
+          "size": 1182,
+          "size_human": "1.2 kB",
+          "params": "file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3 in /__cacert_entrypoint.sh",
+          "command_snippet": "COPY file:8b8864b3e02a33a579dc216fd51b28a604...",
+          "command_all": "COPY file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3 /__cacert_entrypoint.sh",
+          "target": "/__cacert_entrypoint.sh",
+          "source_type": "file",
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2023-08-14T18:10:47Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 4,
+          "layer_id": "781729117bb573026e2dd48f47ab9daf0972b576d74e6ab6890779cb38fed70b",
+          "layer_fsdiff_id": "sha256:74d5708f83a5ba813de6d21f73f8e38baaf62de3656350345345e3b8961865e0",
+          "size": 0,
+          "params": "[\"/__cacert_entrypoint.sh\"]\n",
+          "command_snippet": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]\n",
+          "command_all": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]\n",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "CMD",
+          "time": "2023-08-14T18:10:47Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 4,
+          "layer_id": "781729117bb573026e2dd48f47ab9daf0972b576d74e6ab6890779cb38fed70b",
+          "layer_fsdiff_id": "sha256:74d5708f83a5ba813de6d21f73f8e38baaf62de3656350345345e3b8961865e0",
+          "size": 0,
+          "params": "[\"jshell\"]\n",
+          "command_snippet": "CMD [\"jshell\"]\n",
+          "command_all": "CMD [\"jshell\"]\n",
+          "empty_layer": true,
+          "inst_set_time_bucket": "2023-08-15T03:00:00+09:00",
+          "inst_set_time_index": 3,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "RUN",
+          "time": "1970-01-01T00:00:00Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 5,
+          "layer_id": "1e196f15496c4de4191881030d141a309037a99e3c9056ca07f5a1f9eb847426",
+          "layer_fsdiff_id": "sha256:2281fff2e9e34fd0a8b825ed69422fa7cac2cd4a06fb9367b0d58f1c3332bc0e",
+          "size": 21031695,
+          "size_human": "21 MB",
+          "command_snippet": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "command_all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "system_commands": [
+            "[\"jib-maven-plugin:3.2.0\"]"
+          ],
+          "comment": "dependencies",
+          "author": "Jib",
+          "inst_set_time_bucket": "1970-01-01T09:00:00+09:00",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 3
+        },
+        {
+          "type": "RUN",
+          "time": "1970-01-01T00:00:00Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 6,
+          "layer_id": "d75a8cd8e3785bc83aba05de1c3e3dac992aa11759b336254a4b806a7f894a15",
+          "layer_fsdiff_id": "sha256:54dc64f194691101a75327e044ebb5b66d2b8b54c540fb19a3e8f3fbece301d7",
+          "size": 442,
+          "size_human": "442 B",
+          "command_snippet": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "command_all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "system_commands": [
+            "[\"jib-maven-plugin:3.2.0\"]"
+          ],
+          "comment": "resources",
+          "author": "Jib",
+          "inst_set_time_bucket": "1970-01-01T09:00:00+09:00",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 3
+        },
+        {
+          "type": "RUN",
+          "time": "1970-01-01T00:00:00Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 7,
+          "layer_id": "c69cb773c8563da05fa27ea730acdd6084627a56893f42b956098bbd1335bcbe",
+          "layer_fsdiff_id": "sha256:b32bd4de77b23d6840f30510b52874f1a10c01d8572650c2f1f4832cc24b85f8",
+          "size": 4884,
+          "size_human": "4.9 kB",
+          "command_snippet": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "command_all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "system_commands": [
+            "[\"jib-maven-plugin:3.2.0\"]"
+          ],
+          "comment": "classes",
+          "author": "Jib",
+          "inst_set_time_bucket": "1970-01-01T09:00:00+09:00",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 3
+        },
+        {
+          "type": "RUN",
+          "time": "1970-01-01T00:00:00Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 8,
+          "layer_id": "93723b9ad17f709686cd5c5473800d5d7d14f2e1b9105c1b8539630f7578266e",
+          "layer_fsdiff_id": "sha256:f2ee01c25fd45b37c6fc0d7624dbf7d0653bc8a53728177194ae4076b5fc95bc",
+          "size": 1445,
+          "size_human": "1.4 kB",
+          "command_snippet": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "command_all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+          "system_commands": [
+            "[\"jib-maven-plugin:3.2.0\"]"
+          ],
+          "comment": "jvm arg files",
+          "author": "Jib",
+          "raw_tags": [
+            "saturn203/simple-api:246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7",
+            "saturn203/simple-api:test-1.0"
+          ],
+          "inst_set_time_bucket": "1970-01-01T09:00:00+09:00",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 3
+        }
+      ]
+    }
+  ],
+  "image_layers": [
+    {
+      "id": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7",
+      "index": 0,
+      "path": "43c3cad4039e0dfccb627ac80524d0890ad58d02dfd6cae315f53b8d495c91c7/layer.tar",
+      "fsdiff_id": "sha256:4693057ce2364720d39e57e85a5b8e0bd9ac3573716237736d6470ec5b7b7230",
+      "stats": {
+        "all_size": 7330497,
+        "object_count": 527,
+        "dir_count": 101,
+        "file_count": 90,
+        "link_count": 336,
+        "max_file_size": 4261264,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 7330497,
+        "modified_size": 0,
+        "sticky_count": 2
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 527,
+        "modified": 0
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/lib/libcrypto.so.3",
+          "size": 4261264,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "d491dc2b353a93a00c487cf443c4e2aa1ed81f88"
+        },
+        {
+          "change": "A",
+          "name": "/bin/busybox",
+          "size": 816888,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:12:24+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "ea2a612cdf707abf323bce205b497e5b1b53f89e"
+        },
+        {
+          "change": "A",
+          "name": "/lib/ld-musl-x86_64.so.1",
+          "size": 617072,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:11:36+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "39c29dfcedbda45268f6388b54cf47a9d62f21a5"
+        },
+        {
+          "change": "A",
+          "name": "/lib/libssl.so.3",
+          "size": 544848,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "7f7ebb5c6a16039834a0f9d3d600164954d8a30c"
+        },
+        {
+          "change": "A",
+          "name": "/etc/ssl/certs/ca-certificates.crt",
+          "size": 214509,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-05-06T21:08:21+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              }
+            ]
+          },
+          "hash": "b132b312a42c8be5d632069aecc6797b629f1264"
+        },
+        {
+          "change": "A",
+          "name": "/lib/libapk.so.2.14.0",
+          "size": 188184,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-05-10T23:00:30+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "82db0af9c582fc1474ba2787c5e6785c89d5fa31"
+        },
+        {
+          "change": "A",
+          "name": "/lib/libz.so.1.2.13",
+          "size": 100264,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-04-12T01:01:21+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "db729620754c73e0fafb66ec33f7bade6e1e519b"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/ossl-modules/legacy.so",
+          "size": 92120,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "da205049f9bf69c91625f585075658dc7c77ea21"
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/scanelf",
+          "size": 75720,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-04-12T01:01:21+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "6ca2e3fff9ad0d6816681e98f2e95206ee4c5d8e"
+        },
+        {
+          "change": "A",
+          "name": "/sbin/apk",
+          "size": 69632,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-05-10T23:00:30+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "2660a91d0fa130974549ddbe068ea0cfec9ce5c6"
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/getent",
+          "size": 48424,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:11:36+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "d14bb7769e024cea3c45c23eaca46d746de6ee82"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/engines-3/loader_attic.so",
+          "size": 47736,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "06185a3d41ea875d9b6b1b0ff6e291c733f5c203"
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/getconf",
+          "size": 34896,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:11:36+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "e05af78d7e02939e6a2b2de754db927449cb1b06"
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/iconv",
+          "size": 24144,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:11:36+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "dfd624f7b47dfd2ee08546b3516092331bf77e67"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/engines-3/afalg.so",
+          "size": 22704,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "cbbcd4efaac9ce8934683262aa7af48cfe6e5175"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/engines-3/padlock.so",
+          "size": 22480,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "393d1dee3ebaf166dbb2cec0c9ac0e3925ae5d16"
+        },
+        {
+          "change": "A",
+          "name": "/lib/apk/db/installed",
+          "size": 14680,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-07T22:09:42+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              }
+            ]
+          },
+          "hash": "1248ef9e491263fe50353774394c7d6e11be9590"
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/ssl_client",
+          "size": 14392,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-28T02:12:24+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "946753ca4928b91ed98ceb9f70bd971276a99d91"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/engines-3/capi.so",
+          "size": 13920,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-04T15:07:15+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "0fe205e974907224ff76f8430c27d89a2b06b88f"
+        },
+        {
+          "change": "A",
+          "name": "/etc/services",
+          "size": 12813,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-05-09T23:21:47+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          },
+          "hash": "a0d7a229bf049f7fe17e8445226236e4024535d0"
+        }
+      ],
+      "change_instruction": {
+        "index": 0,
+        "image_index": 0,
+        "type": "ADD",
+        "all": "ADD file:32ff5e7a78b890996ee4681cc0a26185d3e9acdb4eb1e2aaccb2411f922fed6b /",
+        "snippet": "ADD file:32ff5e7a78b890996ee4681cc0a26185d3e..."
+      },
+      "other_instructions": [
+        {
+          "index": 1,
+          "image_index": 0,
+          "type": "CMD",
+          "all": "CMD [\"/bin/sh\"]\n",
+          "snippet": "CMD [\"/bin/sh\"]\n"
+        },
+        {
+          "index": 2,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV JAVA_HOME=/opt/java/openjdk",
+          "snippet": "ENV JAVA_HOME=/opt/java/openjdk"
+        },
+        {
+          "index": 3,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "snippet": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sb..."
+        },
+        {
+          "index": 4,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "snippet": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_AL..."
+        }
+      ]
+    },
+    {
+      "id": "f8e90f48d76f4d33c1e7e5c7f5c6fa9eb4d9728a428832eb4bdf21bb03d7cc21",
+      "index": 1,
+      "path": "f8e90f48d76f4d33c1e7e5c7f5c6fa9eb4d9728a428832eb4bdf21bb03d7cc21/layer.tar",
+      "fsdiff_id": "sha256:1061c27d7cdf5af544ae24b937a7ddf5452a1eca7e673f4a30d091b3781aa42d",
+      "stats": {
+        "all_size": 19000009,
+        "object_count": 2116,
+        "dir_count": 136,
+        "file_count": 1165,
+        "link_count": 815,
+        "max_file_size": 933456,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 19,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 19,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 18658582,
+        "modified_size": 341427
+      },
+      "changes": {
+        "deleted": 19,
+        "added": 2070,
+        "modified": 27
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/usr/lib/libp11-kit.so.0.3.0",
+          "size": 933456,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-04-12T01:01:21+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "fef092ad1f69202f2d3185e956ceaf868cdcf789"
+        },
+        {
+          "change": "A",
+          "name": "/bin/bash",
+          "size": 760464,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-05-25T12:50:24+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "32052d799696e5f6d99ebac09c600fdf33783704"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSans.ttf",
+          "size": 757076,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "bbf4ffb55ff0245a88e185353c010a4edaca80ea"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/libfreetype.so.6.19.0",
+          "size": 727320,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-04-22T22:00:09+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "0523cbe7e17da056af4773e15c70ea0c204072d5"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf",
+          "size": 705684,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "b423ebfc46f18b2344a39e094b80ad750a2740fc"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSansCondensed.ttf",
+          "size": 680264,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "85bbdf4aec5c52c309931e00516b96afaf37fb6e"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSansCondensed-Bold.ttf",
+          "size": 665028,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "a1bca4c567feb10454cb7ccdcd48b0f5bc6bd59a"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSans-BoldOblique.ttf",
+          "size": 643292,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "b0fb9546c7c63931a94029ce7e4059e3515f4c8c"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSans-Oblique.ttf",
+          "size": 635416,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "56f8bf8ef3972274f51a4df57789ca870a2e3a43"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSansCondensed-BoldOblique.ttf",
+          "size": 611836,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "75b0c85d309f849bc356c40ecd25717563d24139"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSansCondensed-Oblique.ttf",
+          "size": 599292,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "71d22749de55c8a540a27bc5564ef3b5bfa1284d"
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/libbrotlienc.so.1.0.9",
+          "size": 596256,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-04-19T01:02:21+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "79437a82187e72fa6c2da1488a1048199a9aa073"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuMathTeXGyre.ttf",
+          "size": 577708,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "12c8c32bccb00ffa9115554ec9d90fd4ba490e45"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerif.ttf",
+          "size": 380132,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "0c866a2c48156e29c8745d859decdf79abbc883a"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf",
+          "size": 356088,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "4d7c0436747ad282877ebdc907325f645e99243b"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSans-ExtraLight.ttf",
+          "size": 355380,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "f4fbdcf033df7ef625a2fb59a7519f04f67e7e70"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerif-BoldItalic.ttf",
+          "size": 347460,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "7b61877534c33e8e707492d3b9e84f9b3a7052ac"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerifCondensed.ttf",
+          "size": 346664,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "b0591e3ca53408370428523e13b650e1308603aa"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerifCondensed-BoldItalic.ttf",
+          "size": 346508,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "43e83b09019327c5c397fd719306d6618a039e77"
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/fonts/dejavu/DejaVuSerif-Italic.ttf",
+          "size": 345996,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-03-20T06:58:39+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          },
+          "hash": "30e506dc9496fdac0b1e8aa7b97d56862250c86e"
+        }
+      ],
+      "change_instruction": {
+        "index": 5,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN apk add --no-cache fontconfig java-cacerts bash libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib && \\\n\trm -rf /var/cache/apk/*",
+        "snippet": "RUN apk add --no-cache fontconfig java-cacer..."
+      },
+      "other_instructions": [
+        {
+          "index": 6,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV JAVA_VERSION=jdk-17.0.8+7",
+          "snippet": "ENV JAVA_VERSION=jdk-17.0.8+7"
+        }
+      ]
+    },
+    {
+      "id": "48acbfb1898a31986d7d1453519115d88d3cef66047ab63c0aca19834705f095",
+      "index": 2,
+      "path": "48acbfb1898a31986d7d1453519115d88d3cef66047ab63c0aca19834705f095/layer.tar",
+      "fsdiff_id": "sha256:eb63e2a6edb38582d1bfe1f2d6e8aae9859961497643f5a2d76b8a1a214d9760",
+      "stats": {
+        "all_size": 277669508,
+        "object_count": 538,
+        "dir_count": 92,
+        "file_count": 238,
+        "link_count": 208,
+        "max_file_size": 129324314,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 1,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 1,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 277669508,
+        "modified_size": 0,
+        "sticky_count": 1
+      },
+      "changes": {
+        "deleted": 1,
+        "added": 535,
+        "modified": 2
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/modules",
+          "size": 129324314,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "75013f9fd95d2a1e406d9c4141b1923a78a19f5e"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/server/libjvm.so",
+          "size": 24213000,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "7bff85093516a3492033b65dce4ea7f7b748e3c4"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/java.base.jmod",
+          "size": 22190169,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "b265d4810e1f29f214232d5700176c443ab49da4"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/server/classes.jsa",
+          "size": 13754368,
+          "mode": 292,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:35+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "21e1c9c71b24083c4e70074ce9b81d622e80274b"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/java.desktop.jmod",
+          "size": 13563826,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "e778b7b2e6e248ed571630629fc9ff49bc40e7a6"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/server/classes_nocoops.jsa",
+          "size": 12525568,
+          "mode": 292,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:35+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "c3bc84846848221c7e0d70d48a39ec0137af3b08"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.localedata.jmod",
+          "size": 10252734,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "a08f60c069eb692045976221997a8906bdbafdf1"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.compiler.jmod",
+          "size": 9246447,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "4d0f2fca5e360b94c5bf9d6e71dfbd8d88365c9c"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/ct.sym",
+          "size": 8301486,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "20420f4057c70bc41f264385356754e60af8b53e"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/java.xml.jmod",
+          "size": 5208990,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "c5676fc9ca643b1439d0c76134ed4b97ae173b99"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/libfontmanager.so",
+          "size": 2576928,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "600668a30edcc428fc41e7a6b54a0ba785b34703"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.hotspot.agent.jmod",
+          "size": 2308698,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "7b0fdc1574f500cbfcb277af20f68253df457a49"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.javadoc.jmod",
+          "size": 1386574,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "b1f6fd094a34d7daf3417e4c30dc25c7c87d0de0"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.charsets.jmod",
+          "size": 1197716,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "5037b100bf9d95acb73ddc61d4757788bae6bc31"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.incubator.vector.jmod",
+          "size": 1070186,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "1323edd41a9a5c133064ea0bab044a113e458483"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/java.management.jmod",
+          "size": 903010,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "896206f956bc1bbdfc68aec60b45db614020d673"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/libjsvml.so",
+          "size": 871080,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "a4d1734dd17429666884e61222c2e2fd75430e7e"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/lib/libawt.so",
+          "size": 863264,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "9ac829b9f02f9450edcc02f40d1705849df1e71a"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/jdk.jdi.jmod",
+          "size": 849927,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "f946f534efcbd8846fb77596e98c9b4418baf56e"
+        },
+        {
+          "change": "A",
+          "name": "/opt/java/openjdk/jmods/java.net.http.jmod",
+          "size": 746614,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-07-19T05:48:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          },
+          "hash": "e2e35019b156096c1dfbbc72fdeb1b070d5a1433"
+        }
+      ],
+      "change_instruction": {
+        "index": 7,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        amd64|x86_64)          ESUM='90eb413eeed9cc2813f7d66d348c35475148c0cdc41c8f9ef2f26d51078e287e';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8%2B7/OpenJDK17U-jdk_x64_alpine-linux_hotspot_17.0.8_7.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac; \t  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; \t  echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -; \t  mkdir -p \"$JAVA_HOME\"; \t  tar --extract \t      --file /tmp/openjdk.tar.gz \t      --directory \"$JAVA_HOME\" \t      --strip-components 1 \t      --no-same-owner \t  ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip;",
+        "snippet": "RUN set -eux;     ARCH=\"$(apk --print-arch)\"..."
+      }
+    },
+    {
+      "id": "7e7043e5d7b9e62ac539462da5e2db7e9ce28ab9dcacebac03ac05c4bdf6fe67",
+      "index": 3,
+      "path": "7e7043e5d7b9e62ac539462da5e2db7e9ce28ab9dcacebac03ac05c4bdf6fe67/layer.tar",
+      "fsdiff_id": "sha256:929ddc2b196b89ff79ee09c80dc01a368476a462e300242987ffadc68a151fe7",
+      "stats": {
+        "all_size": 0,
+        "object_count": 4,
+        "dir_count": 3,
+        "file_count": 1,
+        "link_count": 0,
+        "max_file_size": 0,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 1,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 1,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 0,
+        "modified_size": 0,
+        "sticky_count": 1
+      },
+      "changes": {
+        "deleted": 1,
+        "added": 1,
+        "modified": 2
+      },
+      "top": [
+        {
+          "change": "M",
+          "name": "/tmp",
+          "mode": 2148532735,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-15T03:10:45+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 2
+              },
+              {
+                "layer": 3
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/tmp/hsperfdata_root",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-15T03:10:46+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 3
+            }
+          }
+        },
+        {
+          "change": "D",
+          "dir_content_delete": true,
+          "name": "/tmp/hsperfdata_root/*",
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:00+09:00",
+          "change_time": "0001-01-01T00:00:00Z"
+        },
+        {
+          "change": "M",
+          "name": "/root",
+          "mode": 2147484096,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-15T03:10:46+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 3
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 8,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN echo Verifying install ... && \\\n\tfileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java && \\\n\techo javac --version && \\\n\tjavac --version && \\\n\techo java --version && \\\n\tjava --version && \\\n\techo Complete.",
+        "snippet": "RUN echo Verifying install ... && \\\n\tfileEnc..."
+      }
+    },
+    {
+      "id": "781729117bb573026e2dd48f47ab9daf0972b576d74e6ab6890779cb38fed70b",
+      "index": 4,
+      "path": "781729117bb573026e2dd48f47ab9daf0972b576d74e6ab6890779cb38fed70b/layer.tar",
+      "fsdiff_id": "sha256:74d5708f83a5ba813de6d21f73f8e38baaf62de3656350345345e3b8961865e0",
+      "stats": {
+        "all_size": 1182,
+        "object_count": 1,
+        "dir_count": 0,
+        "file_count": 1,
+        "link_count": 0,
+        "max_file_size": 1182,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 1182,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 1,
+        "modified": 0
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/__cacert_entrypoint.sh",
+          "size": 1182,
+          "mode": 509,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2023-08-15T03:10:34+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          },
+          "hash": "b5f55698c0a8006e7e7337e181bc0b0253279d24"
+        }
+      ],
+      "change_instruction": {
+        "index": 9,
+        "image_index": 0,
+        "type": "COPY",
+        "all": "COPY file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3 /__cacert_entrypoint.sh",
+        "snippet": "COPY file:8b8864b3e02a33a579dc216fd51b28a604..."
+      },
+      "other_instructions": [
+        {
+          "index": 10,
+          "image_index": 0,
+          "type": "ENTRYPOINT",
+          "all": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]\n",
+          "snippet": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]\n"
+        },
+        {
+          "index": 11,
+          "image_index": 0,
+          "type": "CMD",
+          "all": "CMD [\"jshell\"]\n",
+          "snippet": "CMD [\"jshell\"]\n"
+        }
+      ]
+    },
+    {
+      "id": "1e196f15496c4de4191881030d141a309037a99e3c9056ca07f5a1f9eb847426",
+      "index": 5,
+      "path": "1e196f15496c4de4191881030d141a309037a99e3c9056ca07f5a1f9eb847426/layer.tar",
+      "fsdiff_id": "sha256:2281fff2e9e34fd0a8b825ed69422fa7cac2cd4a06fb9367b0d58f1c3332bc0e",
+      "stats": {
+        "all_size": 21031695,
+        "object_count": 38,
+        "dir_count": 2,
+        "file_count": 36,
+        "link_count": 0,
+        "max_file_size": 3448489,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 21031695,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 38,
+        "modified": 0
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/app/libs/tomcat-embed-core-10.1.10.jar",
+          "size": 3448489,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "7423236b34aa78d6f36592b2aa294d7c8469f219"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/lombok-1.18.28.jar",
+          "size": 1979854,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "a2ff5da8bcd8b1b26f36b806ced63213362c6dcc"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-core-6.0.10.jar",
+          "size": 1817070,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "889aa214b6607763ddeb6bd391d682cd71681b36"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-boot-autoconfigure-3.1.1.jar",
+          "size": 1777933,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "618ec717eef4ba2ff347c7713150aac8e73fe233"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-web-6.0.10.jar",
+          "size": 1755966,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "e61defa7908bf7a499f000dab8ef7691c2aa75c1"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/jackson-databind-2.15.2.jar",
+          "size": 1620088,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "9353b021f10c307c00328f52090de2bdb4b6ff9c"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-boot-3.1.1.jar",
+          "size": 1533994,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "0f8f80c1453c8fe0e08a6235f983d8daf571d3e3"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-context-6.0.10.jar",
+          "size": 1183241,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "e2bd59f05c95647a274b7719d419cf8fde6f25a0"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-webmvc-6.0.10.jar",
+          "size": 1010850,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "af3f040747f4bfbcdb96140f8c9d252d3a6a4ef1"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-beans-6.0.10.jar",
+          "size": 850733,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "8fc0684773cc1598edd810660f57d9e9c8ae6055"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/logback-core-1.4.8.jar",
+          "size": 591421,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "3fba9c105e0efc5ffdcda701379687917d5286f7"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/jackson-core-2.15.2.jar",
+          "size": 549207,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "a6fe1836469a69b3ff66037c324d75fc66ef137c"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-aop-6.0.10.jar",
+          "size": 401160,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "0cc309a306fa759018b107dea9a208c758af0297"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/snakeyaml-1.33.jar",
+          "size": 331715,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "2cd0a87ff7df953f810c344bdf2fe3340b954c69"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/log4j-api-2.20.0.jar",
+          "size": 313296,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "1fe6082e660daf07c689a89c94dc0f49c26b44bb"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-expression-6.0.10.jar",
+          "size": 296453,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "bd8c93e473e713fe9150a772487507a8e600d5f1"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/tomcat-embed-websocket-10.1.10.jar",
+          "size": 277478,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "10604119402bcaa8490b638698ad177f8df4c50c"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/logback-classic-1.4.8.jar",
+          "size": 272719,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "f00ba91d993e4d14301b11968d3cacc3be7ef3e1"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/tomcat-embed-el-10.1.10.jar",
+          "size": 258316,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "717033c0417fdc7e794b382c066b7e78f6029268"
+        },
+        {
+          "change": "A",
+          "name": "/app/libs/spring-boot-devtools-3.1.1.jar",
+          "size": 234200,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            }
+          },
+          "hash": "fca82661c18f1ca18614d308523c0d404d3753b9"
+        }
+      ],
+      "change_instruction": {
+        "index": 12,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+        "snippet": "RUN [\"jib-maven-plugin:3.2.0\"]"
+      }
+    },
+    {
+      "id": "d75a8cd8e3785bc83aba05de1c3e3dac992aa11759b336254a4b806a7f894a15",
+      "index": 6,
+      "path": "d75a8cd8e3785bc83aba05de1c3e3dac992aa11759b336254a4b806a7f894a15/layer.tar",
+      "fsdiff_id": "sha256:54dc64f194691101a75327e044ebb5b66d2b8b54c540fb19a3e8f3fbece301d7",
+      "stats": {
+        "all_size": 442,
+        "object_count": 13,
+        "dir_count": 8,
+        "file_count": 5,
+        "link_count": 0,
+        "max_file_size": 166,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 442,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 12,
+        "modified": 1
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/app/resources/config/application.yml",
+          "size": 166,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          },
+          "hash": "2c25a35124642244d24799d297bc1cc410c65796"
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/config/application-k3d.yml",
+          "size": 71,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          },
+          "hash": "33b0c7fa038dca9349f1a264f04debfad5a7beec"
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/config/application-kind.yml",
+          "size": 71,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          },
+          "hash": "33b0c7fa038dca9349f1a264f04debfad5a7beec"
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/config/application-dev.yml",
+          "size": 70,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          },
+          "hash": "fb8b1fcf3c7458fdab0638c7de3b7cce154446ed"
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/config/application-local.yml",
+          "size": 64,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          },
+          "hash": "30c83f52744c418debe5b5dd46bb08464bc73879"
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/com/example/simpleapi/model",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/com/example/simpleapi/controller",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/com",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/com/example/simpleapi",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/config",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources/com/example",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/resources",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/app",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            },
+            "M": [
+              {
+                "layer": 6
+              },
+              {
+                "layer": 7
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 13,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+        "snippet": "RUN [\"jib-maven-plugin:3.2.0\"]"
+      }
+    },
+    {
+      "id": "c69cb773c8563da05fa27ea730acdd6084627a56893f42b956098bbd1335bcbe",
+      "index": 7,
+      "path": "c69cb773c8563da05fa27ea730acdd6084627a56893f42b956098bbd1335bcbe/layer.tar",
+      "fsdiff_id": "sha256:b32bd4de77b23d6840f30510b52874f1a10c01d8572650c2f1f4832cc24b85f8",
+      "stats": {
+        "all_size": 4884,
+        "object_count": 11,
+        "dir_count": 8,
+        "file_count": 3,
+        "link_count": 0,
+        "max_file_size": 2366,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 4884,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 10,
+        "modified": 1
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi/controller/SimpleApiController.class",
+          "size": 2366,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          },
+          "hash": "03d27c2626ea82779f428e178d4e1ffd99346de4"
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi/model/Simple.class",
+          "size": 1760,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          },
+          "hash": "47827f742a19f4f3a7e9ee1b35361060819b072b"
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi/SimpleApiApplication.class",
+          "size": 758,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          },
+          "hash": "46df442dec12cd785cb62d2f8fb8be4ca42c917f"
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi/controller",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example/simpleapi/model",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/com/example",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/classes/config",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/app",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            },
+            "M": [
+              {
+                "layer": 6
+              },
+              {
+                "layer": 7
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 14,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+        "snippet": "RUN [\"jib-maven-plugin:3.2.0\"]"
+      }
+    },
+    {
+      "id": "93723b9ad17f709686cd5c5473800d5d7d14f2e1b9105c1b8539630f7578266e",
+      "index": 8,
+      "path": "93723b9ad17f709686cd5c5473800d5d7d14f2e1b9105c1b8539630f7578266e/layer.tar",
+      "fsdiff_id": "sha256:f2ee01c25fd45b37c6fc0d7624dbf7d0653bc8a53728177194ae4076b5fc95bc",
+      "stats": {
+        "all_size": 1445,
+        "object_count": 3,
+        "dir_count": 1,
+        "file_count": 2,
+        "link_count": 0,
+        "max_file_size": 1403,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 1445,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 2,
+        "modified": 1
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/app/jib-classpath-file",
+          "size": 1403,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          },
+          "hash": "267957ef848306bbecc6b1b0124dab50e961ab2d"
+        },
+        {
+          "change": "A",
+          "name": "/app/jib-main-class-file",
+          "size": 42,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          },
+          "hash": "9cdef2a3d1b7324097012714e415afb54f21117f"
+        },
+        {
+          "change": "M",
+          "name": "/app",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1970-01-01T09:00:01+09:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            },
+            "M": [
+              {
+                "layer": 6
+              },
+              {
+                "layer": 7
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 15,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"jib-maven-plugin:3.2.0\"]",
+        "snippet": "RUN [\"jib-maven-plugin:3.2.0\"]"
+      }
+    }
+  ],
+  "image_archive_location": "/tmp/slim-state/.slim-state/images/246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7/image/246af29c06721d78026e415219266ca96034d471df52ea50eb3617295a960aa7.tar"
+}
