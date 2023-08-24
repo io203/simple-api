@@ -7,6 +7,7 @@ profiles:
       local:
         push: false
         useDockerCLI: true
+        # useBuildkit: false    ## default: true
       artifacts:
         - image: saturn203/simple-api
           docker:
