@@ -8,11 +8,28 @@ profiles:
         push: true    
       artifacts:
         - image: saturn203/simple-api
-    manifests:
-      rawYaml:
-          - k8s/dev/simple-api.yaml
-          # - k8s/dev/simple-vs.yaml
-          # - k8s/dev/k8s-ingress-simple-api.yaml
+          jib:
+            args:
+              - -DskipTests
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
+            fromImage: eclipse-temurin:17.0.2_8-jre
+    deploy:
+     
+      helm:       
+        releases:
+          - name: simple-api
+            namespace: api
+            chartPath: ./charts/simple-api         
+            
+            setValues:    
+              ingress.enabled: true
+              ingress.hosts[0].host: simple-api.192.168.41.8.sslip.io
+              ingress.hosts[0].paths[0].path: /
+              ingress.hosts[0].paths[0].pathType: Prefix
+        flags:
+          upgrade:
+            - --install
+
 
     portForward:
     - resourceType: deployment
