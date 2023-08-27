@@ -10,11 +10,8 @@ profiles:
         - image: saturn203/simple-api
           jib:
             args:
-              - -Djib.dockerClient.executable=$(which podman)
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-            # fromImage: adoptopenjdk/openjdk11
-            # fromImage: openjdk:11.0.11-jre-slim
             fromImage: eclipse-temurin:17.0.2_8-jre
     manifests:
       rawYaml:
