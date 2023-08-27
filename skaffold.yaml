@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta29
+apiVersion: skaffold/v4beta1
 kind: Config
 
 profiles:
@@ -12,13 +12,10 @@ profiles:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-            # fromImage: adoptopenjdk/openjdk11
-            # fromImage: openjdk:11.0.11-jre-slim
             fromImage: eclipse-temurin:17.0.2_8-jre
-    deploy:
-      kubectl:
-        manifests:
-          - k8s/dev/simple-api.yaml
+    manifests:
+      rawYaml:
+        - k8s/dev/simple-api.yaml
           # - k8s/dev/simple-vs.yaml
           # - k8s/dev/k8s-ingress-simple-api.yaml
           
@@ -33,10 +30,9 @@ profiles:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
             fromImage: eclipse-temurin:17.0.2_8-jre
-    deploy:
-      kubectl:
-        manifests:
-          - k8s/kind/simple-api.yaml 
+    manifests:
+      rawYaml:
+        - k8s/kind/simple-api.yaml 
 
   - name: k3d
     build:
@@ -49,12 +45,11 @@ profiles:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=k3d"
             fromImage: eclipse-temurin:17.0.2_8-jre
-    deploy:
-      kubectl:
-        manifests:
-          - k8s/k3d/simple-api.yaml 
-          # - k8s/k3d/simple-api-ingress.yaml 
-          - k8s/k3d/simple-api-ingress-traefik.yaml 
+    manifests:
+      rawYaml:
+        - k8s/k3d/simple-api.yaml 
+        # - k8s/k3d/simple-api-ingress.yaml 
+        - k8s/k3d/simple-api-ingress-traefik.yaml 
 
   
     # portForward:
