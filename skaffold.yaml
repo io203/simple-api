@@ -5,16 +5,9 @@ profiles:
   - name: dev
     build:
       local:
-        push: false
-        useDockerCLI: true
-        # useBuildkit: false    ## default: true
+        push: true    
       artifacts:
         - image: saturn203/simple-api
-          docker:
-            #dockerfile: Dockerfile
-            buildArgs:
-              PROFILE_ENV: dev
-         
     manifests:
       rawYaml:
           - k8s/dev/simple-api.yaml
