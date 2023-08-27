@@ -1,0 +1,24 @@
+replicaCount: 2
+
+image:
+  repository: saturn203/simple-api
+  pullPolicy: Always
+  
+
+service:
+  name: "simple-api-svc"
+  type: ClusterIP
+  port: 8080
+
+
+ingress:
+  enabled: false
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: simple-api.127.0.0.1.sslip.io
+      paths:
+      - path: /
+        pathType: Prefix

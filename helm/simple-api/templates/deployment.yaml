@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "simple-api.fullname" . }}-deploy
+  labels:
+    app: {{ include "simple-api.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "simple-api.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "simple-api.fullname" . }}
+
+    spec:
+      containers:
+        - name: {{ include "simple-api.fullname" . }}
+          image: {{ .Values.image.repository }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
