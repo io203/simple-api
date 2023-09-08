@@ -16,11 +16,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SimpleApiController {
 	@GetMapping("/hello")
-	public String hello() {
+	public String hello(@RequestHeader("Authorization") String authorize) {
 		
 		log.info("==========simple-api home()");
-		
-		return "hello world";
+		//log.info("authorize : {}", authorize);
+		return "hello world from simple-api ~~~~~";
 		
 	}
 	@GetMapping("/simple")
