@@ -16,6 +16,7 @@ profiles:
     manifests:
       rawYaml:
         - k8s/dev/simple-api.yaml
+        - k8s/dev/nginx-ingress-simple-api.yaml
     # deploy:
     #   kubectl:
     #     flags:
