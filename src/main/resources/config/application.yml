@@ -12,7 +12,8 @@ spring:
   profiles:
     active: local
     
-
+  devtools:
+    add-properties: false
  
   
  
