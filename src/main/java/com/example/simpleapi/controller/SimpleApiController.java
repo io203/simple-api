@@ -29,7 +29,7 @@ public class SimpleApiController {
 		
 		for(int i=0 ; i< 10;i++) {
 			list.add(new Simple(i+1,"test-"+i, "contents-"+i));
-			log.info("for "+i);
+		
 		}
 		log.info(list.toString());
 		return list;
@@ -38,8 +38,21 @@ public class SimpleApiController {
 	
 	@GetMapping("/version")
 	public String version(){
-		//log.info("version 1.0");
+		log.info("=====simple-api  version 1.0");
 		return "=====simple-api  version 1.0";
+		
+	}
+	@GetMapping("/error")
+	public String error() throws Exception{
+		//log.info("version 1.0");
+		try  {
+			throw new Exception("error----test");
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			throw e;
+		}
+		
 		
 	}
 

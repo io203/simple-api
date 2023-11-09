@@ -8,6 +8,9 @@ GET http://localhost:9320/api/simple
 GET http://localhost:9320/api/version
 
 
+GET http://localhost:9320/api/error
+
+
 ##########dev########
 GET http://dev.simple-api.127.0.0.1.sslip.io/api/hello
 
@@ -23,3 +26,6 @@ GET http://localhost:9700/api/version
 GET http://simple-api.127.0.0.1.sslip.io/api/hello
 GET http://simple-api.127.0.0.1.sslip.io/api/simple
 GET http://simple-api.127.0.0.1.sslip.io/api/version
+
+
+
