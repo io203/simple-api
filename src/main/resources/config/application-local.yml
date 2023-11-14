@@ -12,6 +12,6 @@ spring:
     otel:
       exporter:
         otlp:
-          endpoint: "http://localhost:21890" 
+          endpoint: "http://192.168.41.7:9411"
 
 

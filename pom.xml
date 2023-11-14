@@ -22,7 +22,7 @@
 		
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
-		<spring-cloud-sleuth-otel.version>1.1.0-M4</spring-cloud-sleuth-otel.version>
+		
 	</properties>
 	
 	<dependencies>
@@ -48,24 +48,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-			<exclusions>
-                <exclusion>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-sleuth-brave</artifactId>
-                </exclusion>
-            </exclusions>
-		</dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
 		<dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth-otel-autoconfigure</artifactId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-exporter-otlp-trace</artifactId>
-			<version>1.14.0</version>
-        </dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>
@@ -77,14 +67,7 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-otel-dependencies</artifactId>
-			<!-- Provide the version of the Spring Cloud Sleuth OpenTelemetry project -->
-			<version>1.1.0</version>
-			<scope>import</scope>
-			<type>pom</type>
-		</dependency>
+		
     </dependencies>
 </dependencyManagement>
 
@@ -102,11 +85,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
+			
 		</plugins>
 	</build>
 
