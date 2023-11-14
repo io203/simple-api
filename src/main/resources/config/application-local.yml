@@ -6,12 +6,10 @@ server:
   port: 9320
 
 spring:
-  zipkin:
-    enabled: false
   sleuth:
-    otel:
-      exporter:
-        otlp:
-          endpoint: "http://192.168.41.7:9411"
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://192.168.41.7:9411 
 
 
