@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta18
+apiVersion: skaffold/v4beta1
 kind: Config
 
 profiles:
@@ -15,19 +15,18 @@ profiles:
             #  fromImage: adoptopenjdk/openjdk11
             # fromImage: openjdk:11.0.11-jre-slim
             fromImage: eclipse-temurin:17.0.2_8-jre
-    deploy:
-      kubectl:
-        manifests:
-          - k8s/dev/*.yaml
+    manifests:
+      rawYaml:
+        - k8s/dev/*.yaml
       
 
   
     portForward:
     - resourceType: deployment
-      resourceName: simple-api
+      resourceName: simple-api-svc
       namespace: api
       port: 8080
-      localPort: 9000 # *Optional*          
+      localPort: 9320 # *Optional*          
 
   
       
