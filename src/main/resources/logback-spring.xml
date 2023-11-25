@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include resource="org/springframework/boot/logging/logback/base.xml" />
-    <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
-
-    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
-        <http>
-            <url>http://localhost:3100/loki/api/v1/push</url>
-        </http>
-        <format>
-            <label>
-                <pattern>app=${APP_NAME},host=${APP_NAME},traceID=%X{traceId:-NONE},level=%level</pattern>
-            </label>
-            <message>
-                <pattern>trace_id=%X{traceId:-NONE} level=%level host=${APP_NAME} class=%logger{20} thread=%thread | %msg %ex</pattern>
-            </message>
-            <sortByTime>true</sortByTime>
-        </format>
-    </appender>
-
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <!-- <appender name="OPEN_TELEMETRY"
+              class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
+        <captureExperimentalAttributes>true</captureExperimentalAttributes>
+        <captureKeyValuePairAttributes>true</captureKeyValuePairAttributes>
+    </appender> -->
     <root level="INFO">
-        <appender-ref ref="LOKI"/>
+        <appender-ref ref="CONSOLE"/>
+        <!-- <appender-ref ref="OPEN_TELEMETRY"/> -->
     </root>
 </configuration>
