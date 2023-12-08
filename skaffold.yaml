@@ -18,6 +18,12 @@ profiles:
         - k8s/dev/simple-api.yaml
           # - k8s/dev/simple-vs.yaml
           # - k8s/dev/k8s-ingress-simple-api.yaml
+    portForward:
+    - resourceType: deployment
+      resourceName: simple-api-deploy
+      namespace: api
+      port: 8080
+      localPort: 9000 # *Optional*  
           
   - name: kind
     build:
