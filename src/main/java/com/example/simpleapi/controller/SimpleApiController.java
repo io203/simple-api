@@ -16,7 +16,7 @@ import com.example.simpleapi.model.Simple;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController
+@RestController 
 @RequestMapping("/api")
 @Slf4j
 public class SimpleApiController {
