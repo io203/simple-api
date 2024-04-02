@@ -17,21 +17,7 @@ profiles:
       rawYaml:
         - k8s/dev/simple-api.yaml
         - k8s/dev/k8s-ingress-simple-api.yaml
-  - name: dev2
-    build:
-      local:
-        push: true
-      artifacts:
-        - image: saturn203/simple-api
-          jib:
-            args:
-              - -DskipTests
-              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-            fromImage: eclipse-temurin:17.0.2_8-jre
-    manifests:
-      rawYaml:
-        - k8s/dev2/simple-api.yaml
-        - k8s/dev2/k8s-ingress-simple-api.yaml
+  
           
   - name: kind
     build:
