@@ -8,7 +8,7 @@ metadata:
 spec:
 
   rules:
-  - host: "simple-api.192.168.41.22.sslip.io"
+  - host: "simple-api.my.com"
     http:
       paths:
       - path: /

@@ -3,7 +3,7 @@ kind: Service
 
 metadata:
   name: simple-api-svc
-  namespace: api2
+  namespace: api
 spec:
   selector:
     app: simple-api
@@ -21,7 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-api-deploy
-  namespace: api2    
+  namespace: api    
   
   labels:
     app: simple-api

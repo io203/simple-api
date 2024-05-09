@@ -31,7 +31,8 @@ profiles:
     manifests:
       rawYaml:
         - k8s/dev2/simple-api.yaml
-        - k8s/dev2/k8s-ingress-simple-api.yaml
+        # - k8s/dev2/k8s-ingress-simple-api.yaml
+        - k8s/dev2/istio-simple-vs.yaml
           
   - name: kind
     build:
