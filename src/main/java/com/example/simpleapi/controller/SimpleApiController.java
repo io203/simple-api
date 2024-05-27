@@ -19,7 +19,7 @@ public class SimpleApiController {
 	public String hello(@RequestHeader("Authorization") String authorize) {
 		
 		log.info("==========simple-api home()");
-		//log.info("authorize : {}", authorize);
+		log.info("=========authorize : {}", authorize);
 		return "hello world from simple-api ~~~~~";
 		
 	}

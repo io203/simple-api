@@ -10,6 +10,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak.192.168.41.3.sslip.io/realms/board-service
-
+          issuer-uri: http://keycloak.192.168.41.3.sslip.io/realms/demo-service
 
