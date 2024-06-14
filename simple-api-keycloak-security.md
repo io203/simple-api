@@ -1,0 +1,2 @@
+- https://medium.com/javarevisited/keycloak-integration-with-spring-security-6-37999f43ec85
+- https://medium.com/@wirelesser/oauth2-write-a-resource-server-with-keycloak-and-spring-security-c447bbca363c

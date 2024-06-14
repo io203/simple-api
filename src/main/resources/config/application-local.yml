@@ -12,3 +12,15 @@ spring:
         jwt:
           issuer-uri: http://keycloak.192.168.41.3.sslip.io/realms/demo-service
 
+          ## pecifies the JWK set URI at the location where JWT will be used. This URI is used to fetch public keys.
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+# JWT Configuration
+jwt.auth.converter:
+  resource-id: demo-client
+  principal-attribute: principal_username
+
+# Logging Configuration
+logging:
+  level:
+    org.springframework.security: debug
