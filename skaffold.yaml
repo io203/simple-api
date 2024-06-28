@@ -44,7 +44,7 @@ profiles:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=k3d"
-            fromImage: eclipse-temurin:17.0.2_8-jre
+            fromImage: eclipse-temurin:21.0.3_9-jre
     manifests:
       rawYaml:
         - k8s/k3d/simple-api.yaml 
