@@ -16,7 +16,7 @@ profiles:
     manifests:
       rawYaml:
         - k8s/dev/simple-api.yaml
-        - k8s/dev/k8s-ingress-simple-api.yaml
+        # - k8s/dev/k8s-ingress-simple-api.yaml
   
           
   - name: kind
