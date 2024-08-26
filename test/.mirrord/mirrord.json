@@ -1,0 +1,22 @@
+{
+    "target": {
+      "path": {
+        "container": "simple-api", 
+        "deployment": "simple-api"
+      },
+      "namespace": "api"
+    },
+    "pause": true, 
+    "feature": {
+      "env": true, 
+      "fs": {
+        "mode": "read" 
+      },
+      "network": {
+        "incoming": "steal"
+      }
+    },
+    "agent": {
+      "namespace": "api" 
+    }
+}

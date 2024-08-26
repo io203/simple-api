@@ -1,4 +1,5 @@
 package com.example.simpleapi.controller;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,30 +18,32 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleApiController {
 	@GetMapping("/hello")
 	public String hello() {
-		
+
 		log.info("==========simple-api home()");
-		
+
 		return "hello world";
-		
+
 	}
+
 	@GetMapping("/simple")
-	public List<Simple> listSimple(){
+	public List<Simple> listSimple() {
 		List<Simple> list = new ArrayList<>();
-		
-		for(int i=0 ; i< 10;i++) {
-			list.add(new Simple(i+1,"test-"+i, "contents-"+i));
-			log.info("for "+i);
+		for (int i = 0; i < 10; i++) {
+			Simple simple = new Simple(i, "Item " + i, "Content for item " + i);
+			list.add(simple);
+			log.info("Created Simple object: {}", simple);
 		}
-		log.info(list.toString());
+
+		
 		return list;
-		
+
 	}
-	
+
 	@GetMapping("/version")
-	public String version(){
-		//log.info("version 1.0");
+	public String version() {
+		// log.info("version 1.0");
 		return "=====simple-api  version 2.0";
-		
+
 	}
 
 }
