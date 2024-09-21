@@ -7,6 +7,7 @@ metadata:
 spec:
   selector:
     app: simple-api
+    version: v1
   
   ports:
   - protocol: TCP
@@ -25,18 +26,21 @@ metadata:
   
   labels:
     app: simple-api
+    version: v1
     
    
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: simple-api
+      version: v1
   template:
     metadata:
       
       labels:
-        app: simple-api     
+        app: simple-api 
+        version: v1    
       
 
     spec:
