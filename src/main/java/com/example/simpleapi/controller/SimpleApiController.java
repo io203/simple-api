@@ -38,8 +38,8 @@ public class SimpleApiController {
 	
 	@GetMapping("/version")
 	public String version(){
-		log.info("version 1.0");
-		return "=====  version 1.0";
+		log.info("version 1.1");
+		return "=====  version 1.1";
 		
 	}
 
