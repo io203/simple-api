@@ -18,7 +18,13 @@ profiles:
       rawYaml:
         - k8s/dev/simple-api.yaml
         # - k8s/dev/k8s-ingress-simple-api.yaml
-  
+    
+    portForward:
+    - resourceType: deployment
+      resourceName: simple-api-deploy
+      namespace: api
+      port: 8080
+      localPort: 9008 # *Optional* 
           
   - name: kind
     build:
@@ -30,7 +36,7 @@ profiles:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
-            fromImage: eclipse-temurin:17.0.2_8-jre
+            fromImage: eclipse-temurin:21-jre
     manifests:
       rawYaml:
         - k8s/kind/simple-api.yaml 
