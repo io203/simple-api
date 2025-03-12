@@ -8,7 +8,7 @@ def GIT_OPS_REPOSITORY = "github.com/io203/simple-gitOps.git"
 
 def BUILD_ENV = "dev"
 
-def OPS_BRANCH = "master"
+def OPS_BRANCH = "master:main"
 def DEPLOY_TYPE = "bluegreen"
 // def deployType = "canary"
 def APP_IMAGE_NAME = "saturn203/${PROJECT_NAME}"
