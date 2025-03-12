@@ -31,7 +31,7 @@ spec:
 
 
 pipeline {
-    environment {       
+    environment {
         DOCKER_CREDENTIALS_ID = "my-dockerhub"
         GIT_AUTH_CREDENTIALS_ID= "github-io203"
         GITHUB_TOKEN = credentials('io203-github-token')
@@ -91,7 +91,7 @@ pipeline {
                     sh """
                         # 중요 master 브랜치로 이동해야 한다 
                         git checkout ${OPS_BRANCH}
-                        
+
                         pwd
                         ls -al
                         cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
@@ -107,7 +107,7 @@ pipeline {
                         git add . 
                         git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
                         git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
-                        git push origin ${OPS_BRANCH}:main
+                        git push origin ${OPS_BRANCH}
                     """
                 }
             print "======= git push finished !!!==========="
