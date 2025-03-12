@@ -1,93 +1,110 @@
+
 def PROJECT_NAME = "simple-api"
-def gitUrl = "https://github.com/io203/${PROJECT_NAME}.git"
+def GIT_REPOSITORY = "https://github.com/io203/${PROJECT_NAME}.git"
 
-def imgRegistry = "https://registry.hub.docker.com"
+def DOCKER_REGISTRY = "https://index.docker.io/v1/"
 
-def gitOpsUrl = "github.com/io203/simple-gitOps.git"
+def GIT_OPS_REPOSITORY = "github.com/io203/simple-gitOps.git"
 
 def BUILD_ENV = "dev"
 
-def opsBranch = "master"
-def deployType = "bluegreen"
+def OPS_BRANCH = "master"
+def DEPLOY_TYPE = "bluegreen"
 // def deployType = "canary"
-
-def appImageName = "saturn203/${PROJECT_NAME}"
-
+def APP_IMAGE_NAME = "saturn203/${PROJECT_NAME}"
 def GIT_TAG_MESSAGE;
 
+
+def BASEIMG_BUILD_TOOL_POD ='''
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: agent
+spec:
+  containers:
+  - name: baseimg-build-tool
+    image: saturn203/baseimg-jdk17-skaffold-kustomize-git-docker:v1.0
+    command: ['cat']
+    tty: true
+'''
+
+
 pipeline {
+    environment {       
+        DOCKER_CREDENTIALS_ID = "my-dockerhub"
+        GIT_AUTH_CREDENTIALS_ID= "io203-github-token"
+        // IMG_TAG = "jenkins-test1.2"
+  
+    }
     agent {
-        docker {          
-            image 'saturn203/baseimg-jdk17-skaffold-kustomize-git:v1.0'
-            reuseNode true    
-            args '-v $HOME/.m2:/root/.m2'         
+        kubernetes {
+            yaml "${BASEIMG_BUILD_TOOL_POD}"
         }
     }
     stages {
-      stage('Build') {
-          steps {
-            checkout([$class: 'GitSCM',
-                  branches: [[name: "${params.TAG}"]],      
-                  doGenerateSubmoduleConfigurations: false,
-                  extensions: [],
-                  gitTool: 'Default',
-                  submoduleCfg: [],
-                  userRemoteConfigs: [[url: "${gitUrl}", credentialsId: 'io203-github-token' ]]
+        stage('Checkout') {
+            steps {            
+                checkout([$class: 'GitSCM',
+                    // branches: [[name: "main"]],
+                    branches: [[name: "${params.TAG}"]],
+                    userRemoteConfigs: [[url: GIT_REPOSITORY ]]
+                    // userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: 'io203-github-token' ]]
                 ])
-            
-            script{              
-                docker.withRegistry("${imgRegistry}","dockerhub-saturn203"){
-
-                    sh "skaffold build -p ${BUILD_ENV} -t ${TAG}"
-
-                    // .m2 cache 안되는 경우 docker,k8s등의 환경에서 skaffold check cache를 비활성화:  --cache-artifacts=false 
-                    // sh "skaffold build -p ${BUILD_ENV} -t ${TAG} --cache-artifacts=false"
-                   
+            }
+        }
+        stage('Build') {
+            steps {
+                // docker.withRegistry 안에서는 원칙적으로 script block을 사용할수 없다 따라서 script block을 감싸면 가능하다
+                script {
+                    container('baseimg-build-tool') {
+                        // Jenkins plugin : Docker Pipeline (id: docker-workflow)
+                        // docker client가 있는 이미지가 있어야 한다
+                        docker.withRegistry(DOCKER_REGISTRY,DOCKER_CREDENTIALS_ID){
+                            sh "skaffold build -p ${BUILD_ENV} -t ${TAG}"
+                        }
+                        GIT_TAG_MESSAGE =  gitTagMessage(TAG);
+                        print("=======GIT_TAG_MESSAGE=========="+GIT_TAG_MESSAGE );
+                    }
                 }
-                GIT_TAG_MESSAGE =  gitTagMessage(TAG);
-                print("=======GIT_TAG_MESSAGE=========="+GIT_TAG_MESSAGE );
             }
             
+        }
+        stage('workspace clear'){          
+            cleanWs()            
+        }
+        stage('gitOps'){
+            steps{
+                print "======kustomization.yaml tag update====="
             
-          }
-      }
-  
-  
-      stage('Clean') {
-          steps {
-              cleanWs()
-          }
-      }
-  
-      stage('gitOps') {
-          steps {
-            print "======kustomization.yaml tag update====="
-        
-            git url: "https://${gitOpsUrl}", branch: "${opsBranch}" , credentialsId: "io203-github-token"    
-
-            script{      
+                checkout([$class: 'GitSCM',
+                    branches: [[name: OPS_BRANCH]],
+                    userRemoteConfigs: [[url: GIT_OPS_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
+                    // userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: 'io203-github-token' ]]
+                ])
+                container('baseimg-build-tool') {  
                 sh """
-                pwd
-                ls -al
-                cd ./${PROJECT_NAME}/${deployType}
-                ls -al
-                cat kustomization.yaml
-                kustomize edit set image ${appImageName}:${TAG}
+                    pwd
+                    ls -al
+                    cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
+                    ls -al
+                    cat kustomization.yaml
+                    kustomize edit set image ${APP_IMAGE_NAME}:${TAG}
 
-                # host에서 실행시는 주석처리(한번만 가능하므로 주석처리)
-                git config --system user.email "admin@demo.com"
-                git config --system user.name "admin"  
+                    # host에서 실행시는 주석처리(한번만 가능하므로 주석처리)
+                    git config --system user.email "admin@demo.com"
+                    git config --system user.name "admin"  
 
 
-                git add . 
-                git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
-                git remote set-url --push origin https://${GITHUB_TOKEN}@${gitOpsUrl}
-                git push origin ${opsBranch}
+                    git add . 
+                    git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
+                    git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
+                    git push origin ${OPS_BRANCH}
                 """
             }
             print "======= git push finished !!!==========="
-          }
-      }
+            }
+        }
     }
 }
 
