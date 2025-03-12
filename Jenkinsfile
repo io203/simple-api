@@ -33,7 +33,7 @@ spec:
 pipeline {
     environment {       
         DOCKER_CREDENTIALS_ID = "my-dockerhub"
-        GIT_AUTH_CREDENTIALS_ID= "io203-github-token"
+        GIT_AUTH_CREDENTIALS_ID= "github_satrun203"
         // IMG_TAG = "jenkins-test1.2"
   
     }
@@ -48,8 +48,8 @@ pipeline {
                 checkout([$class: 'GitSCM',
                     // branches: [[name: "main"]],
                     branches: [[name: "${params.TAG}"]],
-                    userRemoteConfigs: [[url: GIT_REPOSITORY ]]
-                    // userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: 'io203-github-token' ]]
+                    // userRemoteConfigs: [[url: GIT_REPOSITORY ]]
+                    userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
                 ])
             }
         }
@@ -70,8 +70,10 @@ pipeline {
             }
             
         }
-        stage('workspace clear'){          
-            cleanWs()            
+        stage('workspace clear'){    
+            steps{
+                cleanWs()
+            }            
         }
         stage('gitOps'){
             steps{
@@ -98,7 +100,7 @@ pipeline {
 
                     git add . 
                     git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
-                    git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
+                    git remote set-url --push origin https://${GIT_AUTH_CREDENTIALS_ID}@${GIT_OPS_REPOSITORY}
                     git push origin ${OPS_BRANCH}
                 """
             }
