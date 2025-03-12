@@ -49,7 +49,7 @@ pipeline {
                     // branches: [[name: "main"]],
                     branches: [[name: "${params.TAG}"]],
                     // userRemoteConfigs: [[url: GIT_REPOSITORY ]]
-                    userRemoteConfigs: [[url: "https://${GIT_REPOSITORY}", credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
+                    userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
                 ])
             }
         }
@@ -81,7 +81,7 @@ pipeline {
             
                 checkout([$class: 'GitSCM',
                     branches: [[name: OPS_BRANCH]],
-                    userRemoteConfigs: [[url: GIT_OPS_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
+                    userRemoteConfigs: [[url: "https://${GIT_OPS_REPOSITORY}", credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
                     // userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: 'io203-github-token' ]]
                 ])
                 container('baseimg-build-tool') {  
