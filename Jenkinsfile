@@ -50,7 +50,8 @@ pipeline {
                     // branches: [[name: "main"]],
                     branches: [[name: "${params.TAG}"]],
                     // userRemoteConfigs: [[url: GIT_REPOSITORY ]]
-                    userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
+                    userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]],
+                    extensions: [[$class: 'CloneOption', depth: 0]] 
                 ])
             }
         }
@@ -87,6 +88,7 @@ pipeline {
                 ])
                 container('baseimg-build-tool') {  
                     sh """
+                        # git remote update
                         pwd
                         ls -al
                         cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
