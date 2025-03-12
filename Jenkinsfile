@@ -89,7 +89,9 @@ pipeline {
                 ])
                 container('baseimg-build-tool') {  
                     sh """
-                        # git remote update
+                        # 중요 master 브랜치로 이동해야 한다 
+                        git checkout ${OPS_BRANCH}
+                        
                         pwd
                         ls -al
                         cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
