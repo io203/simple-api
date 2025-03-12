@@ -8,7 +8,7 @@ def GIT_OPS_REPOSITORY = "github.com/io203/simple-gitOps.git"
 
 def BUILD_ENV = "dev"
 
-def OPS_BRANCH = "master:main"
+def OPS_BRANCH = "master"
 def DEPLOY_TYPE = "bluegreen"
 // def deployType = "canary"
 def APP_IMAGE_NAME = "saturn203/${PROJECT_NAME}"
@@ -86,25 +86,25 @@ pipeline {
                     // userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: 'io203-github-token' ]]
                 ])
                 container('baseimg-build-tool') {  
-                sh """
-                    pwd
-                    ls -al
-                    cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
-                    ls -al
-                    cat kustomization.yaml
-                    kustomize edit set image ${APP_IMAGE_NAME}:${TAG}
+                    sh """
+                        pwd
+                        ls -al
+                        cd ./${PROJECT_NAME}/${DEPLOY_TYPE}
+                        ls -al
+                        cat kustomization.yaml
+                        kustomize edit set image ${APP_IMAGE_NAME}:${TAG}
 
-                    # host에서 실행시는 주석처리(한번만 가능하므로 주석처리)
-                    git config --system user.email "admin@demo.com"
-                    git config --system user.name "admin"  
+                        # host에서 실행시는 주석처리(한번만 가능하므로 주석처리)
+                        git config --system user.email "admin@demo.com"
+                        git config --system user.name "admin"  
 
 
-                    git add . 
-                    git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
-                    git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
-                    git push origin ${OPS_BRANCH}
-                """
-            }
+                        git add . 
+                        git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
+                        git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
+                        git push origin ${OPS_BRANCH}:main
+                    """
+                }
             print "======= git push finished !!!==========="
             }
         }
