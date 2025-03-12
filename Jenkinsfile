@@ -100,7 +100,7 @@ pipeline {
 
                     git add . 
                     git commit -am '배포버전: ${TAG} / **롤백버전 : ${GIT_TAG_MESSAGE} **'   
-                    git remote set-url --push origin https://${GIT_AUTH_CREDENTIALS_ID}@${GIT_OPS_REPOSITORY}
+                    git remote set-url --push origin https://${GITHUB_TOKEN}@${GIT_OPS_REPOSITORY}
                     git push origin ${OPS_BRANCH}
                 """
             }
