@@ -33,7 +33,7 @@ spec:
 pipeline {
     environment {       
         DOCKER_CREDENTIALS_ID = "my-dockerhub"
-        GIT_AUTH_CREDENTIALS_ID= "github_satrun203"
+        GIT_AUTH_CREDENTIALS_ID= "github-io203"
         // IMG_TAG = "jenkins-test1.2"
   
     }
