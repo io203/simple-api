@@ -40,7 +40,13 @@ pipeline {
     }
     agent {
         kubernetes {
-            yaml "${BASEIMG_BUILD_TOOL_POD}"
+            // label 'jenkins-agent2'  // Pod 라벨 지정
+            containerTemplate(
+                name: 'baseimg-build-tool',
+                image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git-docker:v1.0',
+                command: 'cat',    // 컨테이너 유지 명령
+                ttyEnabled: true   // TTY 활성화
+            )
         }
     }
     stages {
