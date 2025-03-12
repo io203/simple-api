@@ -40,7 +40,7 @@ pipeline {
     }
     agent {
         kubernetes {
-            // label 'jenkins-agent2'  // Pod 라벨 지정
+            label 'jenkins-agent2'  // Pod 라벨 지정(옵션)
             containerTemplate(
                 name: 'baseimg-build-tool',
                 image: 'saturn203/baseimg-jdk17-skaffold-kustomize-git-docker:v1.0',
