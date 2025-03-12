@@ -49,7 +49,7 @@ pipeline {
                     // branches: [[name: "main"]],
                     branches: [[name: "${params.TAG}"]],
                     // userRemoteConfigs: [[url: GIT_REPOSITORY ]]
-                    userRemoteConfigs: [[url: GIT_REPOSITORY, credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
+                    userRemoteConfigs: [[url: "https://${GIT_REPOSITORY}", credentialsId: GIT_AUTH_CREDENTIALS_ID ]]
                 ])
             }
         }
