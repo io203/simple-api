@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta18
+apiVersion: skaffold/v4beta1
 kind: Config
 
 profiles:
@@ -12,12 +12,12 @@ profiles:
             args:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
-            #  fromImage: adoptopenjdk/openjdk11
-            # fromImage: openjdk:11.0.11-jre-slim
             fromImage: eclipse-temurin:17.0.2_8-jre
     manifests:
       rawYaml:
-          - k8s/dev/*.yaml
+        - k8s/dev/simple-api.yaml
+        - k8s/dev/k8s-ingress-simple-api.yaml
+  
       
 
   
