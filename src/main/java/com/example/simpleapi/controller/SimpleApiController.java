@@ -1,7 +1,8 @@
 package com.example.simpleapi.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.simpleapi.model.Simple;
@@ -30,15 +32,17 @@ public class SimpleApiController {
 
 	@GetMapping("/simple")
 	public List<Simple> listSimple() {
-		List<Simple> list = new ArrayList<>();
-		for (int i = 0; i < 10; i++) {
-			Simple simple = new Simple(i, "Item " + i, "Content for item " + i);
-			list.add(simple);
-			log.info("Created Simple object: {}", simple);
-		}
+		return IntStream.range(0, 10)
+				.mapToObj(i -> new Simple(i, "Item " + i, "Content for item " + i))
+				.peek(simple -> log.info("Created Simple object: {}", simple))
+				.toList();
+	}
 
+	@GetMapping("/testPara")
+	public String testPara(@RequestParam("desc") String desc) {
+		log.info("======desc: {}", desc);
 		
-		return list;
+		return desc;
 
 	}
 
