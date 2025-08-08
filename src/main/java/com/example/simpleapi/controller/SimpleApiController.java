@@ -26,7 +26,7 @@ public class SimpleApiController {
 
 		log.info("==========simple-api home()");
 
-		return "hello world";
+		return "hello world1";
 
 	}
 
