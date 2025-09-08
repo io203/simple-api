@@ -21,12 +21,12 @@ profiles:
       
 
   
-    portForward:
-    - resourceType: deployment
-      resourceName: simple-api
-      namespace: api
-      port: 8080
-      localPort: 9000 # *Optional*
+    # portForward:
+    # - resourceType: deployment
+    #   resourceName: simple-api
+    #   namespace: api
+    #   port: 8080
+    #   localPort: 9000 # *Optional*
 
   
       
