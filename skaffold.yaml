@@ -13,10 +13,10 @@ profiles:
               - -DskipTests
               - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=dev"
             fromImage: eclipse-temurin:21-jre
-    manifests:
-      rawYaml:
-        - k8s/dev/simple-api.yaml
-        - k8s/dev/k8s-ingress-simple-api.yaml
+    # manifests:
+    #   rawYaml:
+    #     - k8s/dev/simple-api.yaml
+    #     - k8s/dev/k8s-ingress-simple-api.yaml
   
       
 
