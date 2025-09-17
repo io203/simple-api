@@ -4,9 +4,8 @@ kind: Ingress
 metadata:
   name: simple-api-ingress
   namespace: api
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
 spec:
+  ingressClassName: "nginx"
   rules:
   - host: "simple-api.127.0.0.1.sslip.io"
     http:
