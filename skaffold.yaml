@@ -6,6 +6,9 @@ profiles:
     build:
       local:
         push: true
+      platforms:
+        - linux/amd64
+        - linux/arm64
       artifacts:
         - image: saturn203/simple-api
           jib:
@@ -29,6 +32,9 @@ profiles:
     build:
       local:
         push: true
+      platforms:
+        - linux/amd64
+        - linux/arm64
       artifacts:
         - image: saturn203/simple-api
           jib:
@@ -44,6 +50,9 @@ profiles:
     build:
       local:
         push: false
+      platforms:
+        - linux/amd64
+        - linux/arm64
       artifacts:
         - image: simple-api
           jib:
@@ -59,6 +68,9 @@ profiles:
     build:
       local:
         push: false
+      platforms:
+        - linux/amd64
+        - linux/arm64
       artifacts:
         - image: simple-api
           jib:
